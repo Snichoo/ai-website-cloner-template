@@ -11,45 +11,57 @@ interface FaqItem {
 const items: FaqItem[] = [
   {
     number: "001",
-    question: "Is this a course?",
+    question: "Are there monthly fees?",
     answer:
-      "No. This is a done-with-you implementation sprint. I don't give you videos to watch later. I audit your business, map opportunities, and build the systems WITH you. You leave with a working system and the capability to extend it yourself.",
+      "No. Hosting is completely free. We deploy your site on Vercel (backed by AWS / Amazon), which is built for tech startups and stays lightning fast even with thousands of concurrent users. The only ongoing cost is a domain name if you don't already own one, which is usually around $20 per year.",
   },
   {
     number: "002",
-    question: "How is this different from buying a template?",
+    question: "Is website hosting included?",
     answer:
-      "A template gives you a starting point. I install a working, documented system around your actual business and stay until your team can extend it.",
+      "Yes. Hosting is included at no extra cost. We use Vercel (backed by AWS) on their generous free tier, so you get enterprise grade speed and uptime without a monthly bill.",
   },
   {
     number: "003",
-    question: "How is this different from hiring an agency?",
+    question: "Is there support if I want to make a change?",
     answer:
-      "Agencies bill hours and own the systems. I install the system, document everything, train your team, then leave you owning it.",
+      "Yes. You get 30 days of free post launch support after your site goes live. After that, any changes, new features, or extra pages are $40 per hour. Most of these take under an hour, so it's not something to worry about.",
   },
   {
     number: "004",
-    question: "How much time does this require from me?",
+    question: "Can you transfer the site to my existing domain?",
     answer:
-      "Plan on ~5 hours/week for the audit and build sessions. Most of the heavy lifting is on me.",
+      "Yes. We connect your new site to whatever domain you already own. If you don't have one yet, we'll help you grab one (around $20 per year) and point it at your site.",
   },
   {
     number: "005",
-    question: "Do I need technical skills?",
+    question: "Can I update the website myself?",
     answer:
-      "No. If you can describe how your business runs in plain English, you have everything you need.",
+      "Yes. Once we've completed building your website and it's live, we can provide you with full access login details.",
   },
   {
     number: "006",
-    question: "Can you guarantee results?",
+    question: "Does the free logo come with revisions?",
     answer:
-      "Read the Guarantee section above — if the audit doesn't surface clear ROI, I won't take your money.",
+      "Yes. We'll iterate on the logo until you're happy with it.",
   },
   {
     number: "007",
-    question: "What if my business is too unique?",
+    question: "Do I need to arrange my own photos?",
     answer:
-      "Unique is the entire point. Every system is built around YOUR clients, YOUR workflows, YOUR voice — not a template.",
+      "No. We have access to millions of stock images. But you can always provide your own photos if you like. Especially if it's supposed to be a photo of yourself!",
+  },
+  {
+    number: "008",
+    question: "How long does it take to build my website?",
+    answer:
+      "Once your application is accepted and you've set up hosting, we typically complete websites within 7 to 10 business days, depending on the complexity and your responsiveness during the process.",
+  },
+  {
+    number: "009",
+    question: "Do I have a say in the design of my website?",
+    answer:
+      "Yes, you will be involved every step of the way. We have a 100% guarantee that you will be happy and if not, we will go back to the start to redesign. Our number one priority is to make sure your website is something you are proud of and generates you money.",
   },
 ];
 
@@ -61,51 +73,29 @@ export function FaqSection() {
       className="w-full"
       style={{
         background: "#1C1C1C",
-        paddingTop: 100,
-        paddingBottom: 100,
+        paddingTop: 72,
+        paddingBottom: 72,
       }}
     >
-      <div className="mx-auto w-full max-w-[1120px] px-5">
-        {/* Header */}
+      <div className="mx-auto w-full max-w-[1120px] px-8">
         <div className="flex flex-col items-start">
-          <div
-            className="inline-flex items-center rounded-full px-4 py-2"
-            style={{
-              background: "rgba(255,255,255,0.04)",
-              border: "1px solid rgba(255,255,255,0.1)",
-            }}
-          >
-            <span
-              style={{
-                fontFamily: "var(--font-inter), sans-serif",
-                fontSize: 14,
-                fontWeight: 700,
-                letterSpacing: "0.08em",
-                textTransform: "uppercase",
-                color: "#279AC0",
-              }}
-            >
-              FAQs
-            </span>
-          </div>
           <h2
-            className="mt-6"
+            className="text-[48px] sm:text-[68px] lg:text-[88px]"
             style={{
               fontFamily: "var(--font-archivo), sans-serif",
-              fontWeight: 500,
-              fontSize: "64px",
+              fontWeight: 800,
               lineHeight: 1,
-              letterSpacing: "-2.56px",
+              letterSpacing: "-2.2px",
+              textTransform: "uppercase",
             }}
           >
-            <span style={{ color: "#6B6B6B" }}>Questions?</span>
+            <span style={{ color: "#F59E0B" }}>QUESTIONS?</span>
             <br />
-            <span style={{ color: "#FFFFFF" }}>Answers!</span>
+            <span style={{ color: "#FFFFFF" }}>WE&apos;VE GOT YOU</span>
           </h2>
         </div>
 
-        {/* Accordion */}
-        <ul className="mt-14 flex flex-col">
+        <ul className="mt-10 flex flex-col">
           {items.map((item, idx) => {
             const isOpen = open === item.number;
             return (
@@ -117,15 +107,15 @@ export function FaqSection() {
                       ? "1px solid rgba(255,255,255,0.08)"
                       : undefined,
                   borderBottom: "1px solid rgba(255,255,255,0.08)",
-                  padding: "28px 0",
+                  padding: "22px 0",
                 }}
               >
                 <button
                   type="button"
                   onClick={() => setOpen(isOpen ? null : item.number)}
-                  className="grid w-full cursor-pointer items-center gap-4 text-left"
+                  className="grid w-full cursor-pointer items-center gap-3 text-left sm:gap-4"
                   style={{
-                    gridTemplateColumns: "64px 1fr 44px",
+                    gridTemplateColumns: "44px 1fr 36px",
                     background: "transparent",
                   }}
                   aria-expanded={isOpen}
@@ -133,20 +123,21 @@ export function FaqSection() {
                   <span
                     style={{
                       fontFamily: "var(--font-archivo), sans-serif",
-                      fontSize: "18px",
-                      fontWeight: 500,
+                      fontSize: 14,
+                      fontWeight: 700,
                       color: "#6B6B6B",
                     }}
                   >
                     {item.number}
                   </span>
                   <span
+                    className="text-[17px] sm:text-[20px]"
                     style={{
                       fontFamily: "var(--font-archivo), sans-serif",
-                      fontSize: "24px",
-                      fontWeight: 500,
+                      fontWeight: 700,
                       color: "#FFFFFF",
                       letterSpacing: "-0.02em",
+                      lineHeight: 1.25,
                     }}
                   >
                     {item.question}
@@ -154,13 +145,13 @@ export function FaqSection() {
                   <span
                     className="flex items-center justify-center rounded-full"
                     style={{
-                      width: 36,
-                      height: 36,
+                      width: 32,
+                      height: 32,
                       border: "1px solid rgba(255,255,255,0.15)",
                       background: isOpen
-                        ? "rgba(255,255,255,0.04)"
+                        ? "rgba(245,158,11,0.14)"
                         : "transparent",
-                      color: isOpen ? "#FF4726" : "#FFFFFF",
+                      color: isOpen ? "#F59E0B" : "#FFFFFF",
                       fontSize: 18,
                       lineHeight: 1,
                     }}
@@ -170,14 +161,13 @@ export function FaqSection() {
                 </button>
                 {isOpen && (
                   <p
-                    className="mt-4"
+                    className="mt-3 pl-[56px] sm:pl-[60px]"
                     style={{
                       fontFamily: "var(--font-inter), sans-serif",
-                      fontSize: "17px",
-                      lineHeight: 1.7,
-                      color: "rgba(255,255,255,0.7)",
-                      maxWidth: 800,
-                      paddingLeft: 80,
+                      fontSize: 15,
+                      lineHeight: 1.65,
+                      color: "rgba(255,255,255,0.72)",
+                      maxWidth: 780,
                     }}
                   >
                     {item.answer}
@@ -188,16 +178,61 @@ export function FaqSection() {
           })}
         </ul>
 
-        {/* Footer */}
+        <div className="mt-14 flex flex-col items-center">
+          <p
+            className="text-center text-[28px] sm:text-[36px]"
+            style={{
+              fontFamily: "var(--font-archivo), sans-serif",
+              fontWeight: 800,
+              color: "#FFFFFF",
+              letterSpacing: "-0.02em",
+              lineHeight: 1.1,
+              textTransform: "uppercase",
+              maxWidth: 720,
+            }}
+          >
+            Still on the fence?{" "}
+            <span style={{ color: "#F59E0B" }}>Let&apos;s chat.</span>
+          </p>
+          <a
+            href="#book"
+            className="mez-orange-cta mt-6 inline-flex items-center justify-center text-white transition-all duration-200 hover:-translate-y-0.5"
+            style={{
+              fontFamily: "var(--font-inter), sans-serif",
+              fontSize: "16px",
+              fontWeight: 600,
+              padding: "14px 28px",
+              borderRadius: "14px",
+            }}
+          >
+            Book A Free Call →
+          </a>
+          <p
+            className="mt-3 text-center"
+            style={{
+              fontFamily: "var(--font-inter), sans-serif",
+              fontSize: 12,
+              fontWeight: 600,
+              color: "#F59E0B",
+              textTransform: "uppercase",
+              letterSpacing: "0.08em",
+            }}
+          >
+            ⚡ Limited spots available this month
+          </p>
+        </div>
+
         <p
-          className="mt-12 text-center"
+          className="mt-14 text-center"
           style={{
             fontFamily: "var(--font-inter), sans-serif",
-            fontSize: "14px",
+            fontSize: 13,
             color: "rgba(255,255,255,0.5)",
+            textTransform: "uppercase",
+            letterSpacing: "0.08em",
           }}
         >
-          © 2025 Mezcorp
+          © {new Date().getFullYear()} BEACON X DIGITAL
         </p>
       </div>
     </section>

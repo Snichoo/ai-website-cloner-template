@@ -1,89 +1,99 @@
 export function HeroSection() {
   const avatars = [
-    "B3ilvSTOyP1RrbXyVnmPGEf79E0.jpg",
-    "LFoe0HLRJZfzdxJYFT9PtagdZg.jpg",
-    "UW5LY0Fq8eQyRpf8mjTa91Jc7W8.jpg",
-    "2mqKmETkLyaYQPb17LC8uSWjE.jpg",
+    "avatars/avatar-1.jpg",
+    "avatars/avatar-2.jpg",
+    "avatars/avatar-3.jpg",
+    "avatars/avatar-4.jpg",
   ];
 
   return (
     <section
       className="relative flex w-full items-start justify-center bg-[#F5F5F5]"
-      style={{ paddingTop: 180, paddingBottom: 80, minHeight: 710 }}
+      style={{ paddingTop: 140, paddingBottom: 64, minHeight: 600 }}
     >
-      <div className="mx-auto flex w-full max-w-[1040px] flex-col items-center px-5">
+      <div className="mx-auto flex w-full max-w-[1040px] flex-col items-center px-8">
         {/* Status pill */}
         <div
           className="inline-flex items-center gap-2 rounded-full"
           style={{
-            padding: "8px 16px",
-            backgroundColor: "rgba(96, 212, 51, 0.05)",
-            border: "1px solid rgba(51, 212, 120, 0.4)",
+            background: "rgba(220, 38, 38, 0.08)",
+            border: "1px solid rgba(220, 38, 38, 0.25)",
+            padding: "6px 14px",
+            boxShadow: "0 1px 2px rgba(220,38,38,0.08)",
           }}
         >
           <span
-            className="block rounded-full"
-            style={{
-              width: 8,
-              height: 8,
-              backgroundColor: "#33D478",
-              boxShadow: "0 0 0 3px rgba(51,212,120,0.2)",
-            }}
-          />
+            aria-hidden="true"
+            className="relative flex h-2 w-2"
+          >
+            <span
+              className="absolute inline-flex h-full w-full animate-ping rounded-full opacity-75"
+              style={{ background: "#DC2626" }}
+            />
+            <span
+              className="relative inline-flex h-2 w-2 rounded-full"
+              style={{ background: "#DC2626" }}
+            />
+          </span>
           <span
             style={{
               fontFamily: "var(--font-inter), sans-serif",
-              fontSize: "12px",
-              fontWeight: 600,
+              fontSize: "11px",
+              fontWeight: 800,
               textTransform: "uppercase",
-              letterSpacing: "0.06em",
-              color: "#2A8B47",
+              letterSpacing: "0.08em",
+              color: "#DC2626",
             }}
           >
-            Taking 2 founders for Q1 2026
+            Only 4 Build Slots Left This Month
           </span>
         </div>
 
-        {/* H1 */}
         <h1
           className="mez-h1 mt-6 text-center"
-          style={{ maxWidth: 820 }}
+          style={{ maxWidth: 880, textTransform: "uppercase" }}
         >
-          I Install AI Systems
+          WEBSITES THAT ACTUALLY
           <br />
-          So You Stop Being the Bottleneck
+          <span
+            style={{
+              color: "#F59E0B",
+              textDecorationLine: "underline",
+              textDecorationColor: "#1C1C1C",
+              textDecorationThickness: "6px",
+              textUnderlineOffset: "10px",
+              textDecorationSkipInk: "none",
+            }}
+          >
+            WIN YOU CUSTOMERS
+          </span>
         </h1>
 
         {/* Subhead */}
         <p
-          className="mez-body mt-5 text-center"
-          style={{ maxWidth: 620 }}
+          className="mez-subhead mt-5 text-center"
+          style={{ maxWidth: 760 }}
         >
-          I learn your business, build AI systems around it, and make sure your
-          team never needs me again.
+          Fast, beautiful sites that turn visitors into paying customers.
         </p>
 
         {/* CTA */}
         <a
           href="#book"
-          className="mt-8 inline-flex items-center justify-center text-white transition-all duration-200 hover:-translate-y-0.5"
+          className="mez-orange-cta mt-7 inline-flex items-center justify-center text-white transition-all duration-200 hover:-translate-y-0.5"
           style={{
-            background:
-              "linear-gradient(180deg, #2EB6E0 0%, #279AC0 50%, #1F84A8 100%)",
             fontFamily: "var(--font-inter), sans-serif",
             fontSize: "16px",
             fontWeight: 600,
             padding: "14px 28px",
             borderRadius: "14px",
-            boxShadow:
-              "0 16px 40px rgba(39, 154, 192, 0.45), inset 0 1px 0 rgba(255,255,255,0.4)",
           }}
         >
-          Book A Call
+          Book A Free Call →
         </a>
 
         {/* Avatars cluster */}
-        <div className="mt-9 flex flex-col items-center gap-2">
+        <div className="mt-8 flex flex-col items-center gap-2">
           <div className="flex -space-x-2">
             {avatars.map((src) => (
               <img
@@ -91,9 +101,7 @@ export function HeroSection() {
                 src={`/images/${src}`}
                 alt="Profile"
                 className="h-7 w-7 rounded-full object-cover"
-                style={{
-                  border: "2px solid #F5F5F5",
-                }}
+                style={{ border: "2px solid #F5F5F5" }}
               />
             ))}
           </div>
@@ -107,7 +115,7 @@ export function HeroSection() {
               color: "#6E6E6E",
             }}
           >
-            150+ Now AI-Native
+            ⭐ 100+ Happy Business Owners
           </span>
         </div>
       </div>

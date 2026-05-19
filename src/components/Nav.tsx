@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { MezCorpLogo } from "@/components/icons";
 
 export function Nav() {
   return (
@@ -7,31 +6,23 @@ export function Nav() {
       <div className="mx-auto flex max-w-[1120px] items-center justify-between px-5 py-6 md:px-10">
         <Link
           href="/"
-          className="flex items-center gap-2"
-          aria-label="Sam With AI home"
+          className="flex items-center"
+          aria-label="Beacon X Digital home"
         >
-          <MezCorpLogo className="h-7 w-7" />
-          <span
-            className="font-medium text-[#1C1C1C]"
-            style={{
-              fontFamily: "var(--font-archivo), sans-serif",
-              fontSize: "22px",
-              letterSpacing: "-0.02em",
-              fontWeight: 600,
-            }}
-          >
-            Sam With AI
-          </span>
+          <img
+            src="/images/logo.png"
+            alt="Beacon X Digital"
+            className="h-10 w-auto sm:h-12"
+          />
         </Link>
         <a
           href="#book"
-          className="rounded-full bg-[#1C1C1C] text-white transition-all duration-200 hover:-translate-y-px hover:bg-[#2A2A2A]"
+          className="mez-orange-cta rounded-full text-white transition-all duration-200 hover:-translate-y-px"
           style={{
             fontFamily: "var(--font-inter), sans-serif",
-            fontSize: "15px",
-            fontWeight: 500,
-            padding: "12px 22px",
-            boxShadow: "0 8px 24px rgba(0,0,0,0.18)",
+            fontSize: "14px",
+            fontWeight: 600,
+            padding: "11px 20px",
           }}
         >
           Book A Call

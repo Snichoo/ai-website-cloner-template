@@ -1,143 +1,228 @@
-import { CheckIcon } from "@/components/icons";
+import { CheckIcon, XIcon } from "@/components/icons";
 
-const features: string[] = [
-  "90-Minute Strategy Audit",
-  "Opportunity Map + Bottleneck Analysis",
-  "Context System Build (business, clients, SOPs, voice)",
-  "3 High-Leverage Workflows",
-  "Team Training on Context Engineering",
-  "Context System Build (business, clients, SOPs, voice)",
-  "Complete Handoff Documentation(SOPs + Looms)",
-  "60 Days Async Support + Check-in Call",
-  "Quick Win Install (Day 1)",
+interface Row {
+  us: string;
+  them: string;
+}
+
+const rows: Row[] = [
+  { us: "$950 one-off", them: "$5,000+" },
+  { us: "1 to 2 weeks", them: "6 to 12 weeks" },
+  { us: "Built by Sam in Australia 🇦🇺", them: "Offshore developers" },
+  { us: "Uniquely designed by a human", them: "Cookie cutter template + AI slop" },
+  { us: "Local SEO done right", them: "Basic SEO" },
+  { us: "Leads sent straight to your phone", them: "Leads lost in your email" },
+  { us: "Your existing domain", them: "Forced new domain" },
+  { us: "30 day post launch support", them: "Ghost mode after launch" },
+  { us: "Money back guarantee", them: "No refund" },
 ];
+
+const GREEN = "#16A34A";
+const RED = "#DC2626";
 
 export function PricingSection() {
   return (
     <section
+      id="book"
       className="w-full bg-[#F5F5F5]"
-      style={{ paddingTop: 100, paddingBottom: 100 }}
+      style={{ paddingTop: 80, paddingBottom: 80 }}
     >
-      <div className="mx-auto w-full max-w-[1120px] px-5">
-        {/* Header */}
+      <div className="mx-auto w-full max-w-[1120px] px-4 sm:px-8">
         <div className="flex flex-col items-center text-center">
-          <span
-            style={{
-              fontFamily: "var(--font-inter), sans-serif",
-              fontSize: "13px",
-              fontWeight: 600,
-              letterSpacing: "0.08em",
-              textTransform: "lowercase",
-              color: "#6E6E6E",
-            }}
+          <h2
+            className="mez-h2"
+            style={{ maxWidth: 1080, textTransform: "uppercase" }}
           >
-            investment
-          </span>
-          <h2 className="mez-h2 mt-3" style={{ maxWidth: 880 }}>
-            Stop Figuring It Out Yourself. Start Operating on AI.
+            READY TO
+            <br />
+            <span style={{ color: "#F59E0B" }}>WIN MORE CUSTOMERS?</span>
           </h2>
-          <p className="mez-body mt-4">
-            Limited spots per quarter. Hop on a call.
-          </p>
         </div>
 
-        {/* Pricing card */}
         <div
-          className="mx-auto mt-16 rounded-[28px] p-8 md:p-14"
+          className="relative mx-auto mt-12 overflow-hidden rounded-3xl"
           style={{
-            backgroundColor: "#1C1C1C",
-            color: "#FFFFFF",
-            maxWidth: 720,
-            boxShadow: "0 24px 48px rgba(0,0,0,0.18)",
+            maxWidth: 760,
+            background: "#FFFFFF",
+            border: "1px solid #ECECEC",
+            boxShadow: "0 24px 48px rgba(0,0,0,0.08)",
           }}
         >
-          <h3
-            style={{
-              fontFamily: "var(--font-archivo), sans-serif",
-              fontSize: "32px",
-              fontWeight: 500,
-              color: "#FFFFFF",
-              letterSpacing: "-1.28px",
-              lineHeight: 1.1,
-            }}
-          >
-            The AI-Native Sprint
-          </h3>
-          <p
-            className="mt-2 pb-6"
-            style={{
-              fontFamily: "var(--font-inter), sans-serif",
-              fontSize: "16px",
-              color: "rgba(255,255,255,0.6)",
-              borderBottom: "1px solid rgba(255,255,255,0.1)",
-            }}
-          >
-            I will install AI Native systems into your business.
-          </p>
-
-          <ul className="mt-6 flex flex-col gap-3.5">
-            {features.map((f, i) => (
-              <li
-                key={i}
-                className="flex items-center gap-3"
+          {/* Header */}
+          <div className="grid grid-cols-2">
+            <div
+              className="relative flex flex-col items-center justify-center px-3 py-5 text-center sm:py-6"
+              style={{ background: "#1C1C1C", color: "#FFFFFF" }}
+            >
+              <span
                 style={{
-                  fontFamily: "var(--font-inter), sans-serif",
-                  fontSize: "15px",
-                  color: "rgba(255,255,255,0.92)",
+                  fontFamily: "var(--font-archivo), sans-serif",
+                  fontSize: 10,
+                  fontWeight: 800,
+                  letterSpacing: "0.14em",
+                  textTransform: "uppercase",
+                  color: "#F59E0B",
                 }}
               >
-                <span
-                  className="flex shrink-0 items-center justify-center rounded-full"
-                  style={{
-                    width: 22,
-                    height: 22,
-                    backgroundColor: "#33D478",
-                  }}
-                >
-                  <CheckIcon className="h-3.5 w-3.5 text-white" />
-                </span>
-                <span>{f}</span>
-              </li>
-            ))}
-          </ul>
-
-          {/* LIMITED badge */}
-          <div className="mt-6">
-            <span
-              className="inline-flex items-center rounded-full"
-              style={{
-                backgroundColor: "rgba(255,71,38,0.12)",
-                color: "#FF4726",
-                padding: "8px 14px",
-                fontFamily: "var(--font-inter), sans-serif",
-                fontSize: "12px",
-                fontWeight: 600,
-                textTransform: "uppercase",
-                letterSpacing: "0.08em",
-              }}
+                Beacon X Digital
+              </span>
+              <span
+                className="mt-1"
+                style={{
+                  fontFamily: "var(--font-archivo), sans-serif",
+                  fontSize: 18,
+                  fontWeight: 800,
+                  letterSpacing: "-0.02em",
+                  textTransform: "uppercase",
+                  lineHeight: 1.1,
+                }}
+              >
+                Built By Sam
+              </span>
+            </div>
+            <div
+              className="flex flex-col items-center justify-center px-3 py-5 text-center sm:py-6"
+              style={{ background: "#FAFAFA" }}
             >
-              LIMITED spots available
-            </span>
+              <span
+                style={{
+                  fontFamily: "var(--font-archivo), sans-serif",
+                  fontSize: 10,
+                  fontWeight: 800,
+                  letterSpacing: "0.14em",
+                  textTransform: "uppercase",
+                  color: "#9A9A9A",
+                }}
+              >
+                Everyone Else
+              </span>
+              <span
+                className="mt-1"
+                style={{
+                  fontFamily: "var(--font-archivo), sans-serif",
+                  fontSize: 18,
+                  fontWeight: 800,
+                  letterSpacing: "-0.02em",
+                  textTransform: "uppercase",
+                  lineHeight: 1.1,
+                  color: "#1C1C1C",
+                }}
+              >
+                Typical Agency
+              </span>
+            </div>
           </div>
 
-          {/* CTA */}
+          {/* Center divider between columns */}
+          <div className="relative">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-y-0 left-1/2 -translate-x-1/2"
+              style={{
+                width: 1,
+                background: "#ECECEC",
+              }}
+            />
+
+            <ul>
+              {rows.map((row, idx) => (
+                <li
+                  key={row.us}
+                  className="grid grid-cols-2 items-stretch"
+                  style={{
+                    borderTop: idx === 0 ? "none" : "1px solid #F0F0F0",
+                  }}
+                >
+                  <div
+                    className="flex items-center gap-2.5 px-4 py-3.5 sm:gap-3 sm:px-5 sm:py-4"
+                    style={{ background: "rgba(245,158,11,0.05)" }}
+                  >
+                    <span
+                      className="flex shrink-0 items-center justify-center rounded-full"
+                      style={{
+                        width: 22,
+                        height: 22,
+                        background: GREEN,
+                        color: "#FFFFFF",
+                      }}
+                    >
+                      <CheckIcon className="h-3 w-3" />
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: "var(--font-inter), sans-serif",
+                        fontSize: 14,
+                        fontWeight: 700,
+                        color: "#1C1C1C",
+                        letterSpacing: "-0.005em",
+                        lineHeight: 1.3,
+                      }}
+                    >
+                      {row.us}
+                    </span>
+                  </div>
+                  <div
+                    className="flex items-center gap-2.5 px-4 py-3.5 sm:gap-3 sm:px-5 sm:py-4"
+                    style={{ background: "#FFFFFF" }}
+                  >
+                    <span
+                      className="flex shrink-0 items-center justify-center rounded-full"
+                      style={{
+                        width: 22,
+                        height: 22,
+                        background: "#FFFFFF",
+                        border: `1.5px solid ${RED}`,
+                        color: RED,
+                      }}
+                    >
+                      <XIcon className="h-3 w-3" />
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: "var(--font-inter), sans-serif",
+                        fontSize: 14,
+                        fontWeight: 700,
+                        color: "#1C1C1C",
+                        letterSpacing: "-0.005em",
+                        lineHeight: 1.3,
+                      }}
+                    >
+                      {row.them}
+                    </span>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className="mx-auto mt-10 flex max-w-[760px] flex-col items-center">
           <a
             href="#book"
-            className="mt-6 flex w-full items-center justify-center text-white transition-all duration-200 hover:-translate-y-0.5"
+            className="mez-orange-cta inline-flex w-full items-center justify-center text-white transition-all duration-200 hover:-translate-y-0.5 sm:w-auto"
             style={{
-              background:
-                "linear-gradient(180deg, #2EB6E0 0%, #279AC0 50%, #1F84A8 100%)",
               fontFamily: "var(--font-inter), sans-serif",
-              fontSize: "16px",
-              fontWeight: 600,
-              padding: "14px 28px",
-              borderRadius: "14px",
-              boxShadow:
-                "0 16px 40px rgba(39, 154, 192, 0.45), inset 0 1px 0 rgba(255,255,255,0.4)",
+              fontSize: 17,
+              fontWeight: 700,
+              padding: "16px 36px",
+              borderRadius: 14,
             }}
           >
-            Apply Now
+            Book Your Free Call →
           </a>
+          <p
+            className="mt-3 text-center"
+            style={{
+              fontFamily: "var(--font-inter), sans-serif",
+              fontSize: 13,
+              fontWeight: 600,
+              color: "#DC2626",
+              textTransform: "uppercase",
+              letterSpacing: "0.08em",
+            }}
+          >
+            ⚡ Limited spots available this month
+          </p>
         </div>
       </div>
     </section>

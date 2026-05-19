@@ -1,30 +1,29 @@
 interface ProblemCard {
+  emoji: string;
   title: string;
   body: string;
-  image: string;
-  bg: string;
-  dark?: boolean;
 }
 
 const cards: ProblemCard[] = [
   {
-    title: "ChatGPT Doesn't Know Your Business",
-    body: "Generic answers. Every time you ask something, you start from zero.",
-    image: "/images/Screenshot 2026-04-12 005753.png",
-    bg: "#F1F1F1",
+    emoji: "💸",
+    title: "Wasted Ad Spend",
+    body: "Burning cash on Google or Meta ads with almost nothing to show for it.",
   },
   {
-    title: "You're Still the Bottleneck",
-    body: "Every decision lives in your head. Your team can't move without you.",
-    image: "/images/Screenshot 2026-04-12 005823.png",
-    bg: "#F1F1F1",
+    emoji: "🎣",
+    title: "Cheap, Unqualified Leads",
+    body: "Tyre kickers and ghosters. Nobody serious about actually buying.",
   },
   {
-    title: "Your Tools Don't Talk to Each Other",
-    body: "8 subscriptions. None of them know what the others are doing.",
-    image: "/images/Screenshot 2026-04-12 005857.png",
-    bg: "#272727",
-    dark: true,
+    emoji: "📉",
+    title: "Leads Aren't Converting",
+    body: "Plenty of clicks. Plenty of traffic. Almost no real sales.",
+  },
+  {
+    emoji: "🔍",
+    title: "Not Showing Up In The Searches That Matter",
+    body: "You're invisible for the suburbs and keywords your customers actually type, or stuck off page 1.",
   },
 ];
 
@@ -32,71 +31,42 @@ export function ProblemSection() {
   return (
     <section
       className="relative w-full"
-      style={{ paddingTop: 100, paddingBottom: 80 }}
+      style={{ paddingTop: 80, paddingBottom: 72 }}
     >
-      <div className="mx-auto w-full max-w-[1120px] px-5">
-        {/* Header — cyan pill eyebrow */}
+      <div className="mx-auto w-full max-w-[1120px] px-8">
         <div className="flex flex-col items-center text-center">
-          <div
-            className="inline-flex items-center rounded-full bg-white px-4 py-2"
-            style={{
-              border: "1px solid #E5E5E5",
-              boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
-            }}
+          <h2
+            className="mez-h2"
+            style={{ maxWidth: 1080, textTransform: "uppercase" }}
           >
-            <span
-              style={{
-                fontFamily: "var(--font-inter), sans-serif",
-                fontSize: 14,
-                fontWeight: 700,
-                letterSpacing: "0.08em",
-                textTransform: "uppercase",
-                color: "#279AC0",
-              }}
-            >
-              The Real Problem
-            </span>
-          </div>
-          <h2 className="mez-h2 mt-5" style={{ maxWidth: 820 }}>
-            <span style={{ color: "#9A9A9A" }}>You&apos;ve Added AI</span>
+            <span style={{ color: "#F59E0B" }}>ARE YOU EXPERIENCING</span>
             <br />
-            But Nothing Changed
+            ANY OF THESE?
           </h2>
-          <p className="mez-body mt-5" style={{ maxWidth: 640 }}>
-            Tools don&apos;t solve bottlenecks. Systems do. You&apos;re not more
-            productive. You&apos;re just busy in new ways.
-          </p>
         </div>
 
-        {/* Cards grid */}
-        <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2">
+        <div className="mx-auto mt-14 grid w-full max-w-[820px] grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
           {cards.map((card) => (
             <article
               key={card.title}
               className="group flex flex-col overflow-hidden rounded-3xl transition-all duration-200 hover:-translate-y-0.5"
               style={{
-                background: card.bg,
-                border: "1px dashed #D6D6D6",
-                minHeight: 420,
+                background: "#FFFFFF",
+                border: "1px solid #ECECEC",
+                boxShadow: "0 4px 14px rgba(0,0,0,0.03)",
               }}
             >
-              {/* Image spans full width of the card */}
-              <div className="relative w-full">
-                <img
-                  src={card.image}
-                  alt=""
-                  className="block h-auto w-full object-cover"
-                />
-              </div>
-
-              {/* Title + body */}
-              <div className="px-8 pb-8 pt-6">
+              <div className="flex flex-col items-center px-7 py-7 text-center">
+                <span style={{ fontSize: 36, lineHeight: 1 }}>
+                  {card.emoji}
+                </span>
                 <h3
+                  className="mt-4"
                   style={{
                     fontFamily: "var(--font-archivo), sans-serif",
-                    fontSize: "26px",
-                    fontWeight: 500,
-                    color: card.dark ? "#FFFFFF" : "#1C1C1C",
+                    fontSize: 24,
+                    fontWeight: 700,
+                    color: "#1C1C1C",
                     letterSpacing: "-0.02em",
                     lineHeight: 1.2,
                   }}
@@ -107,8 +77,8 @@ export function ProblemSection() {
                   className="mt-2"
                   style={{
                     fontFamily: "var(--font-inter), sans-serif",
-                    fontSize: "17px",
-                    color: card.dark ? "#9A9A9A" : "#6E6E6E",
+                    fontSize: 15,
+                    color: "#6E6E6E",
                     lineHeight: 1.55,
                   }}
                 >

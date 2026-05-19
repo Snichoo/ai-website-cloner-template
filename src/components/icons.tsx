@@ -10,7 +10,7 @@ export function MezCorpLogo(props: IconProps) {
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      {/* Stylised "M" — two vertical bars joined at top, mimicking the brand mark */}
+      {/* Stylised "M" with two vertical bars joined at the top */}
       <path
         d="M2 26 V4 a2 2 0 0 1 2 -2 h6 a2 2 0 0 1 2 2 V26 H2 Z"
         fill="#1C1C1C"
@@ -77,6 +77,23 @@ export function GreenDot(props: IconProps) {
     <svg viewBox="0 0 12 12" fill="none" {...props}>
       <circle cx="6" cy="6" r="6" fill="#33D478" />
       <circle cx="6" cy="6" r="3" fill="#1c1c1c" fillOpacity="0.0" />
+    </svg>
+  );
+}
+
+export function XIcon(props: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <line x1="18" y1="6" x2="6" y2="18" />
+      <line x1="6" y1="6" x2="18" y2="18" />
     </svg>
   );
 }
