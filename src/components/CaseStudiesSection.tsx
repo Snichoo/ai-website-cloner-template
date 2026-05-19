@@ -169,7 +169,7 @@ export function CaseStudiesSection() {
               borderRadius: "14px",
             }}
           >
-            Book A Free Call →
+            Get Similar Results →
           </a>
         </div>
       </div>

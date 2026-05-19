@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Roboto, Roboto_Slab } from "next/font/google";
 import "./globals.css";
+import { BookingFormModal } from "@/components/BookingFormModal";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -52,6 +53,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-[#F5F5F5] text-[#1C1C1C]">
         {children}
+        <BookingFormModal />
       </body>
     </html>
   );

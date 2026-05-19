@@ -205,7 +205,7 @@ export function FaqSection() {
               borderRadius: "14px",
             }}
           >
-            Book A Free Call →
+            Let&apos;s Talk →
           </a>
           <p
             className="mt-3 text-center"

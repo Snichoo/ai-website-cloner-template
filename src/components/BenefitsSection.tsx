@@ -20,7 +20,9 @@ export function BenefitsSection() {
             className="mez-h2"
             style={{ maxWidth: 1080, textTransform: "uppercase" }}
           >
-            <span style={{ color: "#F59E0B" }}>HIGH-CONVERTING</span> WEBSITES 📐
+            <span style={{ color: "#F59E0B" }}>HERE&apos;S WHAT FIXES IT</span>
+            <br />
+            A HIGH-CONVERTING WEBSITE
           </h2>
         </div>
 
@@ -87,7 +89,7 @@ export function BenefitsSection() {
               borderRadius: "14px",
             }}
           >
-            Book A Free Call →
+            Get Started →
           </a>
         </div>
       </div>

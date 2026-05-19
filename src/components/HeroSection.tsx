@@ -45,7 +45,7 @@ export function HeroSection() {
               color: "#DC2626",
             }}
           >
-            Only 4 Build Slots Left This Month
+            Only 1 Build Slots Left This Month
           </span>
         </div>
 
@@ -55,18 +55,7 @@ export function HeroSection() {
         >
           WEBSITES THAT ACTUALLY
           <br />
-          <span
-            style={{
-              color: "#F59E0B",
-              textDecorationLine: "underline",
-              textDecorationColor: "#1C1C1C",
-              textDecorationThickness: "6px",
-              textUnderlineOffset: "10px",
-              textDecorationSkipInk: "none",
-            }}
-          >
-            WIN YOU CUSTOMERS
-          </span>
+          <span style={{ color: "#F59E0B" }}>WIN YOU CUSTOMERS</span>
         </h1>
 
         {/* Subhead */}
