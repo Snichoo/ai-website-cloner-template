@@ -7,9 +7,20 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
-  --font-heading: var(--font-sans);
+  --font-sans: var(--font-inter), "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace;
+  --font-heading: var(--font-archivo), "Archivo", ui-sans-serif, system-ui, sans-serif;
+  --color-mez-bg: #f5f5f5;
+  --color-mez-card: #fcfcfc;
+  --color-mez-card-alt: #ededed;
+  --color-mez-ink: #1c1c1c;
+  --color-mez-ink-2: #202020;
+  --color-mez-muted: #6e6e6e;
+  --color-mez-muted-2: #525252;
+  --color-mez-line: #d1d1d1;
+  --color-mez-green: #33d478;
+  --color-mez-cyan: #279ac0;
+  --color-mez-orange: #ff4726;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -122,9 +133,134 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    background-color: #f5f5f5;
+    color: #1c1c1c;
   }
   html {
     @apply font-sans;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: #1c1c1c;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* MezCorp utility classes */
+.mez-h1 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 64px;
+  line-height: 1.05;
+  letter-spacing: -2.4px;
+  color: #1c1c1c;
+}
+.mez-h2 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 56px;
+  line-height: 1.08;
+  letter-spacing: -2px;
+  color: #1c1c1c;
+}
+.mez-body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 1.6;
+  color: #6e6e6e;
+}
+.mez-eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.12em;
+  text-transform: lowercase;
+  color: #6e6e6e;
+}
+@media (max-width: 768px) {
+  .mez-h1 {
+    font-size: 44px;
+    line-height: 1.08;
+    letter-spacing: -1.6px;
+  }
+  .mez-h2 {
+    font-size: 38px;
+    letter-spacing: -1.4px;
+  }
+  .mez-body {
+    font-size: 17px;
+  }
+}
+
+/* Vertical dotted guide rails that flank content column across the page */
+.mez-rail {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  border-left: 1.5px dashed #d1d1d1;
+  pointer-events: none;
+  z-index: 1;
+}
+.mez-rail--left {
+  left: 16px;
+}
+.mez-rail--right {
+  right: 16px;
+}
+@media (min-width: 768px) {
+  .mez-rail--left {
+    left: max(24px, calc((100% - 1120px) / 2 + 24px));
+  }
+  .mez-rail--right {
+    right: max(24px, calc((100% - 1120px) / 2 + 24px));
+  }
+}
+
+/* Horizontal dotted separator */
+.mez-sep {
+  border: 0;
+  border-top: 1.5px dashed #d1d1d1;
+  width: 100%;
+  margin: 0;
+}
+
+/* TrustBar infinite marquee */
+@keyframes mez-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+.mez-marquee {
+  display: flex;
+  width: max-content;
+  gap: 24px;
+  animation: mez-marquee 32s linear infinite;
+  will-change: transform;
+}
+.mez-marquee-wrap {
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+}
+@media (prefers-reduced-motion: reduce) {
+  .mez-marquee {
+    animation: none;
   }
 }
