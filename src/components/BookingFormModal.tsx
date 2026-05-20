@@ -22,6 +22,8 @@ const SEEN_KEY = "bx_booking_modal_seen";
 export function BookingFormModal() {
   const [open, setOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [fields, setFields] = useState<FormFields>(EMPTY);
   const firstFieldRef = useRef<HTMLInputElement>(null);
 
@@ -40,6 +42,8 @@ export function BookingFormModal() {
 
   const openModal = useCallback(() => {
     setSubmitted(false);
+    setError(null);
+    setSubmitting(false);
     setFields(EMPTY);
     setOpen(true);
     markSeen();
@@ -91,9 +95,47 @@ export function BookingFormModal() {
     e: React.ChangeEvent<HTMLInputElement>,
   ) => setFields((f) => ({ ...f, [key]: e.target.value }));
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    if (submitting) return;
+
+    setSubmitting(true);
+    setError(null);
+
+    try {
+      const res = await fetch("/api/booking", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(fields),
+      });
+
+      if (!res.ok) {
+        const data = (await res.json().catch(() => null)) as
+          | { error?: string }
+          | null;
+        setError(data?.error ?? "Could not send. Please try again.");
+        setSubmitting(false);
+        return;
+      }
+
+      if (typeof window !== "undefined" && typeof window.fbq === "function") {
+        window.fbq("track", "Lead");
+      }
+      try {
+        window.history.pushState({}, "", "/thank-you");
+      } catch {
+        // Ignore — pushState can fail in sandboxed contexts
+      }
+      if (typeof window !== "undefined" && typeof window.fbq === "function") {
+        window.fbq("track", "PageView");
+      }
+
+      setSubmitted(true);
+    } catch {
+      setError("Network error. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (!open) return null;
@@ -253,7 +295,8 @@ export function BookingFormModal() {
 
               <button
                 type="submit"
-                className="mez-orange-cta mt-2 inline-flex items-center justify-center text-white transition-all duration-200 hover:-translate-y-0.5"
+                disabled={submitting}
+                className="mez-orange-cta mt-2 inline-flex items-center justify-center text-white transition-all duration-200 hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:translate-y-0"
                 style={{
                   fontSize: 15,
                   fontWeight: 700,
@@ -261,8 +304,21 @@ export function BookingFormModal() {
                   borderRadius: 12,
                 }}
               >
-                Send →
+                {submitting ? "Sending…" : "Send →"}
               </button>
+              {error && (
+                <p
+                  role="alert"
+                  style={{
+                    fontSize: 12.5,
+                    color: "#DC2626",
+                    textAlign: "center",
+                    marginTop: 2,
+                  }}
+                >
+                  {error}
+                </p>
+              )}
               <p
                 style={{
                   fontSize: 11,
