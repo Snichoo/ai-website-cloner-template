@@ -255,6 +255,7 @@ export function PortfolioSection() {
                         color: "#222222",
                         letterSpacing: "-0.01em",
                         maxWidth: "100%",
+                        textTransform: "uppercase",
                       }}
                     >
                       {item.title}

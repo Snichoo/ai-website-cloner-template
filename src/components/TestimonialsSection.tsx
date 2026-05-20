@@ -33,39 +33,11 @@ export function TestimonialsSection() {
             >
               <video
                 src={`/videos/${testimonialVideo}`}
-                autoPlay
-                loop
-                muted
                 playsInline
-                preload="auto"
+                controls
+                preload="metadata"
                 className="h-full w-full object-cover"
               />
-              <div
-                className="absolute bottom-3 left-3 inline-flex items-center gap-1.5 rounded-full px-3 py-1"
-                style={{
-                  background: "rgba(0,0,0,0.55)",
-                  backdropFilter: "blur(8px)",
-                  WebkitBackdropFilter: "blur(8px)",
-                }}
-              >
-                <span
-                  style={{ fontSize: 11, lineHeight: 1, color: "#FFFFFF" }}
-                >
-                  ▶
-                </span>
-                <span
-                  style={{
-                    fontFamily: "var(--font-inter), sans-serif",
-                    fontSize: 10,
-                    fontWeight: 700,
-                    color: "#FFFFFF",
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  Testimonial
-                </span>
-              </div>
             </div>
           </article>
         </div>

@@ -1,27 +1,34 @@
+import Image from "next/image";
+
 interface ProblemCard {
-  emoji: string;
+  icon: string;
+  alt: string;
   title: string;
   body: string;
 }
 
 const cards: ProblemCard[] = [
   {
-    emoji: "💸",
+    icon: "/images/icons/problem/wasted-spend.png",
+    alt: "Burning money",
     title: "Wasted Ad Spend",
     body: "Burning cash on Google or Meta ads with almost nothing to show for it.",
   },
   {
-    emoji: "🎣",
+    icon: "/images/icons/problem/unqualified-leads.png",
+    alt: "Magnet attracting a person",
     title: "Cheap, Unqualified Leads",
     body: "Tyre kickers and ghosters. Nobody serious about actually buying.",
   },
   {
-    emoji: "📉",
+    icon: "/images/icons/problem/not-converting.png",
+    alt: "Sales funnel",
     title: "Leads Aren't Converting",
     body: "Plenty of clicks. Plenty of traffic. Almost no real sales.",
   },
   {
-    emoji: "🔍",
+    icon: "/images/icons/problem/not-ranking.png",
+    alt: "Browser search",
     title: "Not Showing Up In The Searches That Matter",
     body: "You're invisible for the suburbs and keywords your customers actually type, or stuck off page 1.",
   },
@@ -57,18 +64,23 @@ export function ProblemSection() {
               }}
             >
               <div className="flex flex-col items-center px-7 py-7 text-center">
-                <span style={{ fontSize: 36, lineHeight: 1 }}>
-                  {card.emoji}
-                </span>
+                <Image
+                  src={card.icon}
+                  alt={card.alt}
+                  width={64}
+                  height={64}
+                  className="h-16 w-16"
+                />
                 <h3
                   className="mt-4"
                   style={{
                     fontFamily: "var(--font-archivo), sans-serif",
-                    fontSize: 24,
+                    fontSize: "clamp(22px, 6vw, 26px)",
                     fontWeight: 700,
                     color: "#1C1C1C",
                     letterSpacing: "-0.02em",
                     lineHeight: 1.2,
+                    textTransform: "uppercase",
                   }}
                 >
                   {card.title}

@@ -77,15 +77,15 @@ export function FaqSection() {
         paddingBottom: 72,
       }}
     >
-      <div className="mx-auto w-full max-w-[1120px] px-8">
+      <div className="mx-auto w-full max-w-[1120px] px-4 sm:px-8">
         <div className="flex flex-col items-start">
           <h2
-            className="text-[48px] sm:text-[68px] lg:text-[88px]"
+            className="text-[40px] sm:text-[68px] lg:text-[88px]"
             style={{
               fontFamily: "var(--font-archivo), sans-serif",
               fontWeight: 800,
               lineHeight: 1,
-              letterSpacing: "-2.2px",
+              letterSpacing: "-0.025em",
               textTransform: "uppercase",
             }}
           >
@@ -113,9 +113,9 @@ export function FaqSection() {
                 <button
                   type="button"
                   onClick={() => setOpen(isOpen ? null : item.number)}
-                  className="grid w-full cursor-pointer items-center gap-3 text-left sm:gap-4"
+                  className="grid w-full cursor-pointer items-center gap-2 text-left sm:gap-4"
                   style={{
-                    gridTemplateColumns: "44px 1fr 36px",
+                    gridTemplateColumns: "32px minmax(0, 1fr) 32px",
                     background: "transparent",
                   }}
                   aria-expanded={isOpen}
@@ -123,7 +123,7 @@ export function FaqSection() {
                   <span
                     style={{
                       fontFamily: "var(--font-archivo), sans-serif",
-                      fontSize: 14,
+                      fontSize: 13,
                       fontWeight: 700,
                       color: "#6B6B6B",
                     }}
@@ -131,7 +131,7 @@ export function FaqSection() {
                     {item.number}
                   </span>
                   <span
-                    className="text-[17px] sm:text-[20px]"
+                    className="text-[18px] sm:text-[24px]"
                     style={{
                       fontFamily: "var(--font-archivo), sans-serif",
                       fontWeight: 700,
@@ -161,11 +161,11 @@ export function FaqSection() {
                 </button>
                 {isOpen && (
                   <p
-                    className="mt-3 pl-[56px] sm:pl-[60px]"
+                    className="mt-3 pl-[40px] sm:pl-[60px]"
                     style={{
                       fontFamily: "var(--font-inter), sans-serif",
-                      fontSize: 15,
-                      lineHeight: 1.65,
+                      fontSize: 14,
+                      lineHeight: 1.6,
                       color: "rgba(255,255,255,0.72)",
                       maxWidth: 780,
                     }}

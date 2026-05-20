@@ -1,6 +1,9 @@
+import Image from "next/image";
+
 interface Step {
   number: string;
-  emoji: string;
+  icon: string;
+  alt: string;
   title: string;
   subtitle: string;
 }
@@ -8,19 +11,22 @@ interface Step {
 const steps: Step[] = [
   {
     number: "01",
-    emoji: "☎️",
+    icon: "/images/icons/process/quick-call.png",
+    alt: "Phone",
     title: "Quick Call",
     subtitle: "20 minutes. We learn your business and goals.",
   },
   {
     number: "02",
-    emoji: "🎨",
+    icon: "/images/icons/process/design-build.png",
+    alt: "Design and build",
     title: "Design + Build",
     subtitle: "Live in 1 to 2 weeks. Designed and built by us.",
   },
   {
     number: "03",
-    emoji: "🚀",
+    icon: "/images/icons/process/launch.png",
+    alt: "Rocket launch",
     title: "Launch",
     subtitle: "Full handover with a walkthrough so you stay in control.",
   },
@@ -49,7 +55,7 @@ export function ProcessSection() {
             aria-hidden="true"
             className="absolute left-0 right-0 hidden sm:block"
             style={{
-              top: 56,
+              top: 64,
               height: 2,
               backgroundImage:
                 "repeating-linear-gradient(to right, #D1D1D1 0 8px, transparent 8px 16px)",
@@ -67,16 +73,20 @@ export function ProcessSection() {
                 <div
                   className="relative flex items-center justify-center rounded-full"
                   style={{
-                    width: 112,
-                    height: 112,
+                    width: 128,
+                    height: 128,
                     background: "#FFFFFF",
                     border: "2px solid #ECECEC",
                     boxShadow: "0 10px 30px rgba(0,0,0,0.06)",
                   }}
                 >
-                  <span style={{ fontSize: 48, lineHeight: 1 }}>
-                    {step.emoji}
-                  </span>
+                  <Image
+                    src={step.icon}
+                    alt={step.alt}
+                    width={88}
+                    height={88}
+                    className="h-[72px] w-[72px] object-contain"
+                  />
                   <span
                     className="absolute -top-2 -right-2 flex items-center justify-center rounded-full text-white"
                     style={{

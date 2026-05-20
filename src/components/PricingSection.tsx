@@ -8,10 +8,12 @@ interface Row {
 const rows: Row[] = [
   { us: "$950 one-off", them: "$5,000+" },
   { us: "1 to 2 weeks", them: "6 to 12 weeks" },
-  { us: "Built by Sam in Australia 🇦🇺", them: "Offshore developers" },
+  { us: "Australian based, no outsourcing", them: "Offshore developers" },
   { us: "Uniquely designed by a human", them: "Cookie cutter template + AI slop" },
+  { us: "Unlimited pages", them: "Capped + per-page fees" },
+  { us: "Unlimited revisions", them: "Pay per change request" },
   { us: "Local SEO done right", them: "Basic SEO" },
-  { us: "Leads sent straight to your phone", them: "Leads lost in your email" },
+  { us: "Leads sent where you want", them: "Leads lost in your email" },
   { us: "Your existing domain", them: "Forced new domain" },
   { us: "30 day post launch support", them: "Ghost mode after launch" },
   { us: "Money back guarantee", them: "No refund" },
@@ -77,7 +79,7 @@ export function PricingSection() {
                   lineHeight: 1.1,
                 }}
               >
-                Built By Sam
+                Done Right
               </span>
             </div>
             <div
