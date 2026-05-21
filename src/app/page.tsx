@@ -33,11 +33,11 @@ export default function Home() {
       <hr className="mez-sep" />
       <GoogleReviewsSection />
       <hr className="mez-sep" />
+      <PricingSection />
+      <hr className="mez-sep" />
       <ProcessSection />
       <hr className="mez-sep" />
       <CaseStudiesSection />
-      <hr className="mez-sep" />
-      <PricingSection />
       <hr className="mez-sep" />
       <FaqSection />
     </main>

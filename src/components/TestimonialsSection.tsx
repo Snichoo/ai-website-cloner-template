@@ -33,6 +33,7 @@ export function TestimonialsSection() {
             >
               <video
                 src={`/videos/${testimonialVideo}`}
+                poster="/videos/testimonial-0520.jpg"
                 playsInline
                 controls
                 preload="metadata"

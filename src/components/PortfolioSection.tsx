@@ -11,22 +11,22 @@ interface PortfolioItem {
 const portfolioItems: PortfolioItem[] = [
   {
     title: "Friendly Plumbing",
-    subtitle: "+ Built with our blueprint",
+    subtitle: "+ Designed and built by our team",
     image: "/images/launches/friendly-plumbing.png",
   },
   {
     title: "Emu Garage Doors",
-    subtitle: "+ Built with our blueprint",
+    subtitle: "+ Designed and built by our team",
     image: "/images/launches/emu-garage-doors.png",
   },
   {
     title: "Lockeroom",
-    subtitle: "+ Built with our blueprint",
+    subtitle: "+ Designed and built by our team",
     image: "/images/launches/lockeroom.png",
   },
   {
     title: "Pipe Relining Brisbane",
-    subtitle: "+ Built with our blueprint",
+    subtitle: "+ Designed and built by our team",
     image: "/images/launches/pipe-relining-brisbane.png",
   },
 ];
@@ -135,9 +135,9 @@ export function PortfolioSection() {
             className="mez-h2"
             style={{ maxWidth: 1080, textTransform: "uppercase" }}
           >
-            LANDING PAGES
+            RECENT
             <br />
-            <span style={{ color: "#F59E0B" }}>WE&apos;VE BUILT</span>
+            <span style={{ color: "#F59E0B" }}>LAUNCHES</span>
           </h2>
           <p
             className="mt-4"

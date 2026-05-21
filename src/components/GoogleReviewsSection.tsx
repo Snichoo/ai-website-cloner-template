@@ -8,32 +8,32 @@ interface GoogleReview {
 
 const reviews: GoogleReview[] = [
   {
-    name: "Dave Mitchell",
-    initial: "D",
+    name: "Catherine Lacey",
+    initial: "C",
     color: "#EF4444",
-    date: "04/10/2026",
-    text: "Since Beacon X built our new website, the phone hasn't stopped ringing. Bookings are up and the site genuinely looks premium.",
+    date: "20/12/2025",
+    text: "Beacon X recently built a website for our new business and the whole process was fantastic from start to finish. Incredibly efficient, well organised, smooth and stress free to deal with the whole way through. They made everything easy and delivered a result we're really happy with. Thrilled with the outcome and grateful for their expertise.",
   },
   {
-    name: "Sam Peterson",
-    initial: "S",
+    name: "Rod Shaw",
+    initial: "R",
     color: "#3B82F6",
-    date: "15/09/2026",
-    text: "I was sceptical about hiring another web agency. These guys delivered, explained everything in plain English, and we now get qualified leads weekly.",
+    date: "08/10/2025",
+    text: "Fantastic experience from the very beginning. The team were patient with us, especially given we're not very tech savvy, and communication was excellent throughout. The build itself was completely stress free and we could request changes during the build which made the whole thing simple. They wrapped it up with a really useful training video so I can confidently manage the site myself now.",
   },
   {
-    name: "James O'Connor",
-    initial: "J",
-    color: "#22C55E",
-    date: "28/08/2026",
-    text: "Needed a site that converts cold traffic. Beacon X built exactly that. The copy and layout are spot on. Incredible ROI for the price.",
-  },
-  {
-    name: "Mike Ross",
+    name: "Matt Wertheimer",
     initial: "M",
+    color: "#22C55E",
+    date: "14/02/2026",
+    text: "The team at Beacon X assisted with the creation of our webpage. They have a great process to draw out ideas and create the brief, then delivered the end result in a timely fashion with clear communication the whole way through. Would recommend these guys to anyone looking to get a website built properly.",
+  },
+  {
+    name: "Jacob Stewart",
+    initial: "J",
     color: "#A855F7",
-    date: "12/07/2026",
-    text: "Our old site looked like 2012. The team rebuilt it in two weeks and customers tell us it looks expensive. Worth every cent.",
+    date: "05/04/2026",
+    text: "Had a great experience with Beacon X. We rebuilt our site from the ground up and they offered an innovative approach to designing a seamless navigation between our multiple brands. The team were quick to assist with the AI chatbot install and stayed within budget and revision rounds. Ongoing support post build has been prompt and helpful.",
   },
 ];
 

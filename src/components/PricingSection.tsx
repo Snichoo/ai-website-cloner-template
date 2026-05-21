@@ -1,12 +1,44 @@
 import { CheckIcon, XIcon } from "@/components/icons";
+import { CountdownTimer } from "@/components/CountdownTimer";
 
 interface Row {
-  us: string;
+  us: React.ReactNode;
   them: string;
 }
 
 const rows: Row[] = [
-  { us: "$950 one-off", them: "$5,000+" },
+  {
+    us: (
+      <span className="flex flex-wrap items-baseline gap-x-1.5 gap-y-0.5">
+        <span
+          style={{
+            color: "#9A9A9A",
+            textDecoration: "line-through",
+            textDecorationColor: "#DC2626",
+            fontWeight: 600,
+          }}
+        >
+          $1,350
+        </span>
+        <span style={{ color: "#16A34A", fontWeight: 800 }}>$950</span>
+        <span style={{ color: "#1C1C1C", fontWeight: 700 }}>one-off</span>
+        <span
+          style={{
+            background: "#16A34A",
+            color: "#FFFFFF",
+            fontSize: 9,
+            fontWeight: 800,
+            letterSpacing: "0.08em",
+            padding: "2px 6px",
+            borderRadius: 4,
+          }}
+        >
+          30% OFF
+        </span>
+      </span>
+    ),
+    them: "$5,000+",
+  },
   { us: "1 to 2 weeks", them: "6 to 12 weeks" },
   { us: "Australian based, no outsourcing", them: "Offshore developers" },
   { us: "Uniquely designed by a human", them: "Cookie cutter template + AI slop" },
@@ -50,6 +82,67 @@ export function PricingSection() {
             boxShadow: "0 24px 48px rgba(0,0,0,0.08)",
           }}
         >
+          {/* Deal banner */}
+          <div
+            className="flex flex-col items-center justify-between gap-4 px-5 py-4 sm:flex-row sm:px-7"
+            style={{
+              background: "#FAF7F2",
+              color: "#1C1C1C",
+              borderBottom: "1px solid #ECECEC",
+            }}
+          >
+            <div className="flex flex-col items-center sm:items-start">
+              <span
+                style={{
+                  fontFamily: "var(--font-archivo), sans-serif",
+                  fontSize: 10,
+                  fontWeight: 800,
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase",
+                  color: "#DC2626",
+                }}
+              >
+                Ending Soon
+              </span>
+              <span
+                className="mt-1 flex items-baseline gap-2"
+                style={{
+                  fontFamily: "var(--font-archivo), sans-serif",
+                  fontWeight: 800,
+                  letterSpacing: "-0.01em",
+                  lineHeight: 1.05,
+                }}
+              >
+                <span style={{ fontSize: 24, color: "#16A34A" }}>30% OFF</span>
+                <span
+                  style={{
+                    fontSize: 13,
+                    fontWeight: 700,
+                    color: "#666666",
+                  }}
+                >
+                  · Save $400
+                </span>
+              </span>
+            </div>
+            <div className="flex flex-col items-center sm:items-end">
+              <span
+                style={{
+                  fontFamily: "var(--font-archivo), sans-serif",
+                  fontSize: 9,
+                  fontWeight: 800,
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase",
+                  color: "#9A9A9A",
+                  marginBottom: 6,
+                }}
+              >
+                Offer Ends In
+              </span>
+              <CountdownTimer />
+            </div>
+          </div>
+
           {/* Header */}
           <div className="grid grid-cols-2">
             <div
@@ -129,7 +222,7 @@ export function PricingSection() {
             <ul>
               {rows.map((row, idx) => (
                 <li
-                  key={row.us}
+                  key={idx}
                   className="grid grid-cols-2 items-stretch"
                   style={{
                     borderTop: idx === 0 ? "none" : "1px solid #F0F0F0",
@@ -223,7 +316,7 @@ export function PricingSection() {
               letterSpacing: "0.08em",
             }}
           >
-            ⚡ Limited spots available this month
+            ⚡ 30% off ends in 2 days — limited spots
           </p>
         </div>
       </div>

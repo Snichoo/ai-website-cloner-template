@@ -12,45 +12,8 @@ export function HeroSection() {
       style={{ paddingTop: 140, paddingBottom: 64, minHeight: 600 }}
     >
       <div className="mx-auto flex w-full max-w-[1040px] flex-col items-center px-8">
-        {/* Status pill */}
-        <div
-          className="inline-flex items-center gap-2 rounded-full"
-          style={{
-            background: "rgba(220, 38, 38, 0.08)",
-            border: "1px solid rgba(220, 38, 38, 0.25)",
-            padding: "6px 14px",
-            boxShadow: "0 1px 2px rgba(220,38,38,0.08)",
-          }}
-        >
-          <span
-            aria-hidden="true"
-            className="relative flex h-2 w-2"
-          >
-            <span
-              className="absolute inline-flex h-full w-full animate-ping rounded-full opacity-75"
-              style={{ background: "#DC2626" }}
-            />
-            <span
-              className="relative inline-flex h-2 w-2 rounded-full"
-              style={{ background: "#DC2626" }}
-            />
-          </span>
-          <span
-            style={{
-              fontFamily: "var(--font-inter), sans-serif",
-              fontSize: "11px",
-              fontWeight: 800,
-              textTransform: "uppercase",
-              letterSpacing: "0.08em",
-              color: "#DC2626",
-            }}
-          >
-            Only 1 Build Slots Left This Month
-          </span>
-        </div>
-
         <h1
-          className="mez-h1 mt-6 text-center"
+          className="mez-h1 text-center"
           style={{ maxWidth: 880, textTransform: "uppercase" }}
         >
           WEBSITES THAT ACTUALLY

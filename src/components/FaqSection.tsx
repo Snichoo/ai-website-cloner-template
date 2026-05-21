@@ -138,6 +138,7 @@ export function FaqSection() {
                       color: "#FFFFFF",
                       letterSpacing: "-0.02em",
                       lineHeight: 1.25,
+                      textTransform: "uppercase",
                     }}
                   >
                     {item.question}

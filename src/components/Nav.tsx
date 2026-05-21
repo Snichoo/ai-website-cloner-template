@@ -17,7 +17,7 @@ export function Nav() {
           }}
         >
           <span style={{ fontSize: 15, fontWeight: 900 }} className="md:text-[17px]">
-            Call me 0414 134 081
+            Call us 0414 134 081
           </span>
         </a>
       </div>
