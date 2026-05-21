@@ -67,9 +67,9 @@ export function ProblemSection() {
                 <Image
                   src={card.icon}
                   alt={card.alt}
-                  width={64}
-                  height={64}
-                  className="h-16 w-16"
+                  width={160}
+                  height={160}
+                  className="h-20 w-20"
                 />
                 <h3
                   className="mt-4"

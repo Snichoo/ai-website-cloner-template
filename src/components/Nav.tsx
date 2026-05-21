@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export function Nav() {
@@ -36,14 +37,17 @@ export function Nav() {
             className="flex items-center gap-2 sm:gap-2.5"
             aria-label="Beacon X Digital home"
           >
-            <img
+            <Image
               src="/images/logo.png"
               alt=""
               aria-hidden="true"
-              className="h-8 w-8 sm:h-9 sm:w-9"
+              width={88}
+              height={88}
+              priority
+              className="h-11 w-11 sm:h-12 sm:w-12"
             />
             <span
-              className="text-[17px] sm:text-[20px]"
+              className="text-[18px] sm:text-[22px]"
               style={{
                 fontFamily: "var(--font-archivo), sans-serif",
                 fontWeight: 800,

@@ -11,22 +11,22 @@ interface PortfolioItem {
 const portfolioItems: PortfolioItem[] = [
   {
     title: "Friendly Plumbing",
-    subtitle: "+ Designed and built by our team",
+    subtitle: "+ Built with Beacon X Digital's conversion strategy",
     image: "/images/launches/friendly-plumbing.png",
   },
   {
     title: "Emu Garage Doors",
-    subtitle: "+ Designed and built by our team",
+    subtitle: "+ Built with Beacon X Digital's conversion strategy",
     image: "/images/launches/emu-garage-doors.png",
   },
   {
     title: "Lockeroom",
-    subtitle: "+ Designed and built by our team",
+    subtitle: "+ Built with Beacon X Digital's conversion strategy",
     image: "/images/launches/lockeroom.png",
   },
   {
     title: "Pipe Relining Brisbane",
-    subtitle: "+ Designed and built by our team",
+    subtitle: "+ Built with Beacon X Digital's conversion strategy",
     image: "/images/launches/pipe-relining-brisbane.png",
   },
 ];
@@ -261,11 +261,12 @@ export function PortfolioSection() {
                       {item.title}
                     </h3>
                     <p
-                      className="mt-1 overflow-hidden text-ellipsis whitespace-nowrap"
+                      className="mt-1 line-clamp-2"
                       style={{
                         fontFamily: "var(--font-inter), sans-serif",
                         fontSize: 13,
                         color: "#888888",
+                        lineHeight: 1.35,
                       }}
                     >
                       {item.subtitle}
