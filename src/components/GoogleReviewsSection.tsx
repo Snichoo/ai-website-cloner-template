@@ -128,7 +128,7 @@ function ReviewsTrustBlock() {
           color: "#1a1a1a",
         }}
       >
-        150+ 5 Star Google Reviews
+        50+ Google Reviews
       </p>
       <GoogleWordmark className="mt-2 h-6 w-auto sm:h-7" />
     </div>

@@ -39,7 +39,7 @@ const rows: Row[] = [
     ),
     them: "$5,000+",
   },
-  { us: "1 to 2 weeks", them: "6 to 12 weeks" },
+  { us: "Live in 1 to 2 weeks", them: "Live in 6 to 12 weeks" },
   { us: "Australian based, no outsourcing", them: "Offshore developers" },
   { us: "Uniquely designed by a human", them: "Cookie cutter template + AI slop" },
   { us: "Unlimited pages", them: "Capped + per-page fees" },
@@ -291,10 +291,10 @@ export function PricingSection() {
           </div>
         </div>
 
-        <div className="mx-auto mt-10 flex max-w-[760px] flex-col items-center">
+        <div className="mt-10 flex justify-center">
           <a
             href="#book"
-            className="mez-orange-cta inline-flex w-full items-center justify-center text-white transition-all duration-200 hover:-translate-y-0.5 sm:w-auto"
+            className="mez-orange-cta inline-flex items-center justify-center text-white transition-all duration-200 hover:-translate-y-0.5"
             style={{
               fontFamily: "var(--font-inter), sans-serif",
               fontSize: 17,
@@ -305,19 +305,6 @@ export function PricingSection() {
           >
             Book Your Free Call →
           </a>
-          <p
-            className="mt-3 text-center"
-            style={{
-              fontFamily: "var(--font-inter), sans-serif",
-              fontSize: 13,
-              fontWeight: 600,
-              color: "#DC2626",
-              textTransform: "uppercase",
-              letterSpacing: "0.08em",
-            }}
-          >
-            ⚡ 30% off ends in 2 days — limited spots
-          </p>
         </div>
       </div>
     </section>

@@ -77,7 +77,7 @@ export function FaqSection() {
         paddingBottom: 72,
       }}
     >
-      <div className="mx-auto w-full max-w-[1120px] px-4 sm:px-8">
+      <div className="mx-auto w-full max-w-[1120px] px-10 sm:px-8">
         <div className="flex flex-col items-start">
           <h2
             className="text-[40px] sm:text-[68px] lg:text-[88px]"
@@ -208,19 +208,6 @@ export function FaqSection() {
           >
             Let&apos;s Talk →
           </a>
-          <p
-            className="mt-3 text-center"
-            style={{
-              fontFamily: "var(--font-inter), sans-serif",
-              fontSize: 12,
-              fontWeight: 600,
-              color: "#F59E0B",
-              textTransform: "uppercase",
-              letterSpacing: "0.08em",
-            }}
-          >
-            ⚡ Limited spots available this month
-          </p>
         </div>
 
         <p

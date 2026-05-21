@@ -4,10 +4,14 @@ import { resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
 const videos = [
-  { src: "public/videos/testimonial-0520.mp4", out: "public/videos/testimonial-0520.jpg" },
+  {
+    src: "public/videos/testimonial-0520.mp4",
+    out: "public/videos/testimonial-0520.jpg",
+    seek: "00:00:04",
+  },
 ];
 
-for (const { src, out } of videos) {
+for (const { src, out, seek } of videos) {
   const srcAbs = resolve(root, src);
   const outAbs = resolve(root, out);
 
@@ -15,15 +19,11 @@ for (const { src, out } of videos) {
     console.warn(`skip: ${src} not found`);
     continue;
   }
-  if (existsSync(outAbs)) {
-    console.log(`skip: ${out} already exists`);
-    continue;
-  }
 
-  console.log(`extracting first frame: ${src} -> ${out}`);
+  console.log(`extracting frame @ ${seek}: ${src} -> ${out}`);
   execFileSync(
     "ffmpeg",
-    ["-i", srcAbs, "-frames:v", "1", "-q:v", "2", "-update", "1", outAbs, "-y"],
+    ["-ss", seek, "-i", srcAbs, "-frames:v", "1", "-q:v", "2", "-update", "1", outAbs, "-y"],
     { stdio: "inherit" },
   );
 }

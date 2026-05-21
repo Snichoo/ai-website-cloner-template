@@ -33,14 +33,28 @@ export function Nav() {
         <div className="mx-auto flex max-w-[1120px] items-center justify-between px-5 py-3 md:px-10">
           <Link
             href="/"
-            className="flex items-center"
+            className="flex items-center gap-2 sm:gap-2.5"
             aria-label="Beacon X Digital home"
           >
             <img
               src="/images/logo.png"
-              alt="Beacon X Digital"
-              className="h-9 w-auto sm:h-11"
+              alt=""
+              aria-hidden="true"
+              className="h-8 w-8 sm:h-9 sm:w-9"
             />
+            <span
+              className="text-[17px] sm:text-[20px]"
+              style={{
+                fontFamily: "var(--font-archivo), sans-serif",
+                fontWeight: 800,
+                letterSpacing: "-0.02em",
+                textTransform: "uppercase",
+                color: "#1C1C1C",
+                lineHeight: 1,
+              }}
+            >
+              Beacon <span style={{ color: "#F59E0B" }}>X</span> Digital
+            </span>
           </Link>
           <a
             href="#book"

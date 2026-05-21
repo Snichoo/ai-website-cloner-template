@@ -9,26 +9,26 @@ interface ProblemCard {
 
 const cards: ProblemCard[] = [
   {
-    icon: "/images/icons/problem/wasted-spend.png",
+    icon: "/images/icons/problem/wasted-spend-v2.png",
     alt: "Burning money",
     title: "Wasted Ad Spend",
     body: "Burning cash on Google or Meta ads with almost nothing to show for it.",
   },
   {
-    icon: "/images/icons/problem/unqualified-leads.png",
+    icon: "/images/icons/problem/unqualified-leads-v2.png",
     alt: "Magnet attracting a person",
     title: "Cheap, Unqualified Leads",
     body: "Tyre kickers and ghosters. Nobody serious about actually buying.",
   },
   {
-    icon: "/images/icons/problem/not-converting.png",
+    icon: "/images/icons/problem/not-converting-v2.png",
     alt: "Sales funnel",
     title: "Leads Aren't Converting",
     body: "Plenty of clicks. Plenty of traffic. Almost no real sales.",
   },
   {
-    icon: "/images/icons/problem/not-ranking.png",
-    alt: "Browser search",
+    icon: "/images/icons/problem/not-ranking-v2.png",
+    alt: "Magnifying glass over analytics chart",
     title: "Not Showing Up In The Searches That Matter",
     body: "You're invisible for the suburbs and keywords your customers actually type, or stuck off page 1.",
   },
