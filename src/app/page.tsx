@@ -1,4 +1,3 @@
-import { BenefitsSection } from "@/components/BenefitsSection";
 import { CaseStudiesSection } from "@/components/CaseStudiesSection";
 import { FaqSection } from "@/components/FaqSection";
 import { GoogleReviewsSection } from "@/components/GoogleReviewsSection";
@@ -25,15 +24,13 @@ export default function Home() {
       <hr className="mez-sep" />
       <ProblemSection />
       <hr className="mez-sep" />
-      <BenefitsSection />
+      <PricingSection />
       <hr className="mez-sep" />
       <PortfolioSection />
       <hr className="mez-sep" />
       <TestimonialsSection />
       <hr className="mez-sep" />
       <GoogleReviewsSection />
-      <hr className="mez-sep" />
-      <PricingSection />
       <hr className="mez-sep" />
       <ProcessSection />
       <hr className="mez-sep" />

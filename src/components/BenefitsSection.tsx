@@ -22,7 +22,7 @@ export function BenefitsSection() {
           >
             <span style={{ color: "#F59E0B" }}>HERE&apos;S WHAT FIXES IT</span>
             <br />
-            A HIGH-CONVERTING WEBSITE
+            READY TO WIN MORE
           </h2>
         </div>
 

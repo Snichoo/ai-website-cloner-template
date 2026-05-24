@@ -1,5 +1,4 @@
 import { CheckIcon, XIcon } from "@/components/icons";
-import { CountdownTimer } from "@/components/CountdownTimer";
 
 interface Row {
   us: React.ReactNode;
@@ -24,16 +23,17 @@ const rows: Row[] = [
         <span style={{ color: "#1C1C1C", fontWeight: 700 }}>one-off</span>
         <span
           style={{
-            background: "#16A34A",
+            background: "#DC2626",
             color: "#FFFFFF",
             fontSize: 9,
             fontWeight: 800,
             letterSpacing: "0.08em",
             padding: "2px 6px",
             borderRadius: 4,
+            textTransform: "uppercase",
           }}
         >
-          30% OFF
+          Limited Time Offer
         </span>
       </span>
     ),
@@ -67,9 +67,9 @@ export function PricingSection() {
             className="mez-h2"
             style={{ maxWidth: 1080, textTransform: "uppercase" }}
           >
-            READY TO
+            <span style={{ color: "#F59E0B" }}>HERE&apos;S HOW WE</span>
             <br />
-            <span style={{ color: "#F59E0B" }}>WIN MORE CUSTOMERS?</span>
+            FIX ALL OF THAT
           </h2>
         </div>
 
@@ -82,67 +82,6 @@ export function PricingSection() {
             boxShadow: "0 24px 48px rgba(0,0,0,0.08)",
           }}
         >
-          {/* Deal banner */}
-          <div
-            className="flex flex-col items-center justify-between gap-4 px-5 py-4 sm:flex-row sm:px-7"
-            style={{
-              background: "#FAF7F2",
-              color: "#1C1C1C",
-              borderBottom: "1px solid #ECECEC",
-            }}
-          >
-            <div className="flex flex-col items-center sm:items-start">
-              <span
-                style={{
-                  fontFamily: "var(--font-archivo), sans-serif",
-                  fontSize: 10,
-                  fontWeight: 800,
-                  letterSpacing: "0.18em",
-                  textTransform: "uppercase",
-                  color: "#DC2626",
-                }}
-              >
-                Ending Soon
-              </span>
-              <span
-                className="mt-1 flex items-baseline gap-2"
-                style={{
-                  fontFamily: "var(--font-archivo), sans-serif",
-                  fontWeight: 800,
-                  letterSpacing: "-0.01em",
-                  lineHeight: 1.05,
-                }}
-              >
-                <span style={{ fontSize: 24, color: "#16A34A" }}>30% OFF</span>
-                <span
-                  style={{
-                    fontSize: 13,
-                    fontWeight: 700,
-                    color: "#666666",
-                  }}
-                >
-                  · Save $400
-                </span>
-              </span>
-            </div>
-            <div className="flex flex-col items-center sm:items-end">
-              <span
-                style={{
-                  fontFamily: "var(--font-archivo), sans-serif",
-                  fontSize: 9,
-                  fontWeight: 800,
-                  letterSpacing: "0.18em",
-                  textTransform: "uppercase",
-                  color: "#9A9A9A",
-                  marginBottom: 6,
-                }}
-              >
-                Offer Ends In
-              </span>
-              <CountdownTimer />
-            </div>
-          </div>
-
           {/* Header */}
           <div className="grid grid-cols-2">
             <div
