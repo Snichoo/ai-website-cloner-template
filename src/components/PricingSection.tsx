@@ -230,7 +230,21 @@ export function PricingSection() {
           </div>
         </div>
 
-        <div className="mt-10 flex justify-center">
+        <p
+          className="mx-auto mt-6 text-center"
+          style={{
+            fontFamily: "var(--font-inter), sans-serif",
+            fontSize: 14,
+            fontWeight: 500,
+            color: "#6B6B6B",
+            letterSpacing: "-0.005em",
+            maxWidth: 640,
+          }}
+        >
+          <span style={{ color: "#1C1C1C", fontWeight: 700 }}>+ Chatbot</span> available as an optional add-on
+        </p>
+
+        <div className="mt-8 flex justify-center">
           <a
             href="#book"
             className="mez-orange-cta inline-flex items-center justify-center text-white transition-all duration-200 hover:-translate-y-0.5"
