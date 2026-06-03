@@ -252,6 +252,54 @@
   }
 }
 
+/* Hero portrait/wave block — full-bleed band below the headline.
+   Mobile keeps a portrait-ish aspect ratio; desktop uses a fixed
+   height so the full-width band doesn't blow up to thousands of px. */
+.mez-hero-portrait {
+  height: 360px;
+}
+@media (max-width: 1024px) {
+  .mez-hero-portrait {
+    height: 320px;
+  }
+}
+@media (max-width: 767px) {
+  .mez-hero-portrait {
+    height: auto;
+    aspect-ratio: 420 / 360;
+  }
+}
+
+/* Desktop: photo + name are anchored to the centered content column
+   (not the full-bleed band), so the pair reads as centered on screen.
+   Photo center at 25% of the column, name center at 75%.
+   Mobile keeps the full-bleed edge layout where it looks right. */
+.mez-hero-inner {
+  max-width: 1040px;
+}
+.mez-hero-img {
+  left: 25%;
+  transform: translateX(-50%);
+}
+.mez-hero-sig {
+  left: 75%;
+  transform: translateX(-50%);
+}
+@media (max-width: 767px) {
+  .mez-hero-inner {
+    max-width: none;
+  }
+  .mez-hero-img {
+    left: -2%;
+    transform: none;
+  }
+  .mez-hero-sig {
+    left: auto;
+    right: 4%;
+    transform: none;
+  }
+}
+
 .mez-orange-cta {
   background: #f59e0b;
 }

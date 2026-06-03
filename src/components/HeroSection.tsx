@@ -73,8 +73,8 @@ export function HeroSection() {
 
         {/* Portrait block with wavy orange/yellow shape — full bleed on mobile */}
         <div
-          className="relative -mx-8 mt-12 w-screen"
-          style={{ maxWidth: "100vw", aspectRatio: "420 / 360" }}
+          className="mez-hero-portrait relative -mx-8 mt-12 w-screen"
+          style={{ maxWidth: "100vw" }}
         >
           {/* Wavy gradient shape behind portrait — slopes down left-to-right */}
           <svg
@@ -109,51 +109,53 @@ export function HeroSection() {
             />
           </svg>
 
-          {/* Portrait — pushed to the left */}
-          <img
-            src="/images/portrait-sam.png"
-            alt="Sam Newman"
-            className="absolute z-10 h-auto object-contain"
-            style={{
-              left: "-2%",
-              bottom: 0,
-              width: "68%",
-              maxWidth: 300,
-              filter: "drop-shadow(0 12px 24px rgba(0,0,0,0.18))",
-            }}
-          />
-
-          {/* Signature + name — right side, in the orange space */}
-          <div
-            className="absolute z-10 flex flex-col items-center"
-            style={{
-              right: "4%",
-              bottom: "12%",
-              width: "38%",
-            }}
-          >
+          {/* Inner column — keeps photo + name anchored to the centered
+              content column on desktop; full-bleed on mobile. */}
+          <div className="mez-hero-inner absolute inset-0 z-10 mx-auto">
+            {/* Portrait — left half of the centered column */}
             <img
-              src="/images/sam-signature.webp"
-              alt="Sam signature"
+              src="/images/portrait-sam.png"
+              alt="Sam Newman"
+              className="mez-hero-img absolute h-auto object-contain"
               style={{
-                width: "100%",
-                maxWidth: 180,
-                height: "auto",
-                filter: "brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0,0,0,0.15))",
+                bottom: 0,
+                width: "68%",
+                maxWidth: 300,
+                filter: "drop-shadow(0 12px 24px rgba(0,0,0,0.18))",
               }}
             />
-            <span
-              className="mt-3"
+
+            {/* Signature + name — right half of the centered column */}
+            <div
+              className="mez-hero-sig absolute flex flex-col items-center"
               style={{
-                fontFamily: "var(--font-inter), sans-serif",
-                fontSize: "15px",
-                fontWeight: 600,
-                color: "#FFFFFF",
-                letterSpacing: "0.02em",
+                bottom: "12%",
+                width: "38%",
               }}
             >
-              Sam Newman
-            </span>
+              <img
+                src="/images/sam-signature.webp"
+                alt="Sam signature"
+                style={{
+                  width: "100%",
+                  maxWidth: 180,
+                  height: "auto",
+                  filter: "brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0,0,0,0.15))",
+                }}
+              />
+              <span
+                className="mt-3"
+                style={{
+                  fontFamily: "var(--font-inter), sans-serif",
+                  fontSize: "15px",
+                  fontWeight: 600,
+                  color: "#FFFFFF",
+                  letterSpacing: "0.02em",
+                }}
+              >
+                Sam Newman
+              </span>
+            </div>
           </div>
         </div>
       </div>
