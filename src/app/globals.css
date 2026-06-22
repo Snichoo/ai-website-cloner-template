@@ -4,9 +4,28 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@font-face {
+  font-family: "Futura Std";
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url("/fonts/futura-std-condensed-extra-bold.woff2") format("woff2"),
+    url("/fonts/futura-std-condensed-extra-bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Futura Extra Bold";
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url("/fonts/futura-std-extra-bold.woff2") format("woff2"),
+    url("/fonts/futura-std-extra-bold.woff") format("woff");
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+<<<<<<< HEAD
   --font-sans: var(--font-roboto), "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: ui-monospace, monospace;
   --font-heading: var(--font-teko), "Teko", sans-serif;
@@ -14,6 +33,27 @@
   --color-brand: var(--brand);
   --color-brand-dark: var(--brand-dark);
   --color-ink: var(--ink);
+=======
+  --font-sans: var(--font-roboto), "Roboto", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace;
+  --font-heading: "Futura Std", "Futura Extra Bold", "Futura", "Trebuchet MS", "Century Gothic", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Futura Extra Bold", "Futura Std", "Futura", "Trebuchet MS", "Century Gothic", ui-sans-serif, system-ui, sans-serif;
+  --font-slab: var(--font-roboto-slab), "Roboto Slab", ui-serif, Georgia, serif;
+  --color-mez-bg: #f5f5f5;
+  --color-mez-card: #fcfcfc;
+  --color-mez-card-alt: #ededed;
+  --color-mez-ink: #1c1c1c;
+  --color-mez-ink-2: #202020;
+  --color-mez-muted: #6e6e6e;
+  --color-mez-muted-2: #525252;
+  --color-mez-line: #d1d1d1;
+  --color-mez-green: #33d478;
+  --color-mez-cyan: #279ac0;
+  --color-mez-orange: #f59e0b;
+  --color-mez-orange-light: #fbbf24;
+  --color-mez-orange-dark: #92400e;
+  --color-mez-orange-ink: #b45309;
+>>>>>>> 8544f7810dd0a5551dc4ecd0c64f124e004e51b1
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -53,6 +93,7 @@
 }
 
 :root {
+<<<<<<< HEAD
   /* Queensland Quality Roofing brand tokens */
   --brand: #c21d2f;
   --brand-dark: #a3162a;
@@ -60,6 +101,10 @@
   --navy: #2a323c;
   --body-gray: #666666;
 
+=======
+  --font-archivo: "Futura Std", "Futura Extra Bold", "Futura", "Trebuchet MS", "Century Gothic", ui-sans-serif, system-ui, sans-serif;
+  --font-inter: var(--font-roboto), "Roboto", ui-sans-serif, system-ui, sans-serif;
+>>>>>>> 8544f7810dd0a5551dc4ecd0c64f124e004e51b1
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -133,8 +178,13 @@
     @apply border-border outline-ring/50;
   }
   body {
+<<<<<<< HEAD
     @apply bg-white text-[#1e1e1e];
     font-family: var(--font-sans);
+=======
+    background-color: #f5f5f5;
+    color: #1c1c1c;
+>>>>>>> 8544f7810dd0a5551dc4ecd0c64f124e004e51b1
   }
   html {
     @apply font-sans;
@@ -197,5 +247,223 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    color: #1c1c1c;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* MezCorp utility classes */
+.mez-h1 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 128px;
+  line-height: 0.92;
+  letter-spacing: -4.5px;
+  color: #1c1c1c;
+}
+@media (max-width: 1024px) {
+  .mez-h1 {
+    font-size: 96px;
+    letter-spacing: -3px;
+  }
+}
+.mez-h2 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 96px;
+  line-height: 0.95;
+  letter-spacing: -3px;
+  color: #1c1c1c;
+}
+@media (max-width: 1024px) {
+  .mez-h2 {
+    font-size: 72px;
+    letter-spacing: -2px;
+  }
+}
+.mez-body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 1.6;
+  color: #1c1c1c;
+}
+.mez-subhead {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 45px;
+  color: #1c1c1c;
+}
+@media (max-width: 1024px) {
+  .mez-subhead {
+    font-size: 24px;
+    line-height: 35px;
+  }
+}
+@media (max-width: 767px) {
+  .mez-subhead {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+.mez-eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.12em;
+  text-transform: lowercase;
+  color: #6e6e6e;
+}
+@media (max-width: 768px) {
+  .mez-h1 {
+    font-size: 62px;
+    line-height: 0.95;
+    letter-spacing: -2px;
+  }
+  .mez-h2 {
+    font-size: 52px;
+    line-height: 1;
+    letter-spacing: -1.6px;
+  }
+  .mez-body {
+    font-size: 16px;
+    line-height: 1.55;
+  }
+}
+
+/* Hero portrait/wave block — full-bleed band below the headline.
+   Mobile keeps a portrait-ish aspect ratio; desktop uses a fixed
+   height so the full-width band doesn't blow up to thousands of px. */
+.mez-hero-portrait {
+  height: 360px;
+}
+@media (max-width: 1024px) {
+  .mez-hero-portrait {
+    height: 320px;
+  }
+}
+@media (max-width: 767px) {
+  .mez-hero-portrait {
+    height: auto;
+    aspect-ratio: 420 / 360;
+  }
+}
+
+/* Desktop: photo + name are anchored to the centered content column
+   (not the full-bleed band), so the pair reads as centered on screen.
+   Photo center at 25% of the column, name center at 75%.
+   Mobile keeps the full-bleed edge layout where it looks right. */
+.mez-hero-inner {
+  max-width: 1040px;
+}
+.mez-hero-img {
+  left: 25%;
+  transform: translateX(-50%);
+}
+.mez-hero-sig {
+  left: 75%;
+  transform: translateX(-50%);
+}
+@media (max-width: 767px) {
+  .mez-hero-inner {
+    max-width: none;
+  }
+  .mez-hero-img {
+    left: -2%;
+    transform: none;
+  }
+  .mez-hero-sig {
+    left: auto;
+    right: 4%;
+    transform: none;
+  }
+}
+
+.mez-orange-cta {
+  background: #f59e0b;
+}
+.mez-orange-cta:hover {
+  background: #d97706;
+}
+
+/* Vertical dotted guide rails that flank content column across the page */
+.mez-rail {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-image: linear-gradient(to bottom, #b8b8b8 50%, transparent 50%);
+  background-size: 1px 8px;
+  background-repeat: repeat-y;
+  pointer-events: none;
+  z-index: 1;
+}
+.mez-rail--left {
+  left: 16px;
+}
+.mez-rail--right {
+  right: 16px;
+}
+@media (min-width: 768px) {
+  .mez-rail--left {
+    left: max(24px, calc((100% - 1120px) / 2 + 24px));
+  }
+  .mez-rail--right {
+    right: max(24px, calc((100% - 1120px) / 2 + 24px));
+  }
+}
+
+/* Horizontal dotted separator */
+.mez-sep {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, #b8b8b8 50%, transparent 50%);
+  background-size: 8px 1px;
+  background-repeat: repeat-x;
+  width: 100%;
+  margin: 0;
+}
+
+/* TrustBar infinite marquee */
+@keyframes mez-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+.mez-marquee {
+  display: flex;
+  width: max-content;
+  gap: 24px;
+  animation: mez-marquee 32s linear infinite;
+  will-change: transform;
+}
+.mez-marquee-wrap {
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+}
+@media (prefers-reduced-motion: reduce) {
+  .mez-marquee {
+    animation: none;
   }
 }
