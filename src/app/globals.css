@@ -7,9 +7,13 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
-  --font-heading: var(--font-sans);
+  --font-sans: var(--font-roboto), "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace;
+  --font-heading: var(--font-teko), "Teko", sans-serif;
+  --font-inter: var(--font-inter), ui-sans-serif, sans-serif;
+  --color-brand: var(--brand);
+  --color-brand-dark: var(--brand-dark);
+  --color-ink: var(--ink);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -49,6 +53,13 @@
 }
 
 :root {
+  /* Queensland Quality Roofing brand tokens */
+  --brand: #c21d2f;
+  --brand-dark: #a3162a;
+  --ink: #1e1e1e;
+  --navy: #2a323c;
+  --body-gray: #666666;
+
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -122,9 +133,69 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-white text-[#1e1e1e];
+    font-family: var(--font-sans);
   }
   html {
     @apply font-sans;
+    scroll-behavior: smooth;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-heading);
+    line-height: 1;
+  }
+}
+
+@layer utilities {
+  /* Teko condensed display headings */
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+  .font-inter {
+    font-family: var(--font-inter);
+  }
+  .font-poppins {
+    font-family: var(--font-poppins), ui-sans-serif, sans-serif;
+  }
+  /* shared body paragraph style — matches the hero paragraph */
+  .body-text {
+    font-family: var(--font-sans);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #1e1e1e;
+  }
+  /* CTA pill used throughout the site */
+  .cta-pill {
+    @apply inline-flex items-center justify-center bg-[#c21d2f] text-white font-heading font-medium tracking-wide uppercase rounded-md px-8 py-3 text-lg transition-colors duration-200;
+  }
+  .cta-pill:hover {
+    @apply bg-[#a3162a];
+  }
+  /* hide scrollbars on carousels */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  /* real liquid/topographic textures extracted from the live site */
+  .bg-topo {
+    background-color: #ffffff;
+    background-image: url("/images/hero-slide-1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .bg-topo-red {
+    background-color: #c21d2f;
+    background-image: url("/images/solar-banner-texture.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 }
