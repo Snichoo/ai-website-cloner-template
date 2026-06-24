@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Teko, Roboto, Inter, Poppins } from "next/font/google";
 import "./globals.css";
-import { BookingFormModal } from "@/components/BookingFormModal";
+import { SmoothAnchorScroll } from "@/components/SmoothAnchorScroll";
 
 const teko = Teko({
   variable: "--font-teko",
@@ -36,7 +36,7 @@ const interFont = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Roofing Services in Brisbane & Queensland – Trusted",
+  title: "Roofing Services in Brisbane & Queensland - Trusted",
   description:
     "Top-quality roofing in Brisbane. From inspections to replacements, we ensure your roof looks great & withstands QLD's weather.",
   manifest: "/site.webmanifest",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Roofing Services in Brisbane & Queensland – Trusted",
+    title: "Roofing Services in Brisbane & Queensland - Trusted",
     description:
       "Top-quality roofing in Brisbane. From inspections to replacements, we ensure your roof looks great & withstands QLD's weather.",
     images: ["/images/og-image.png"],
@@ -65,9 +65,16 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${teko.variable} ${roboto.variable} ${inter.variable} ${poppins.variable} h-full antialiased`}
+      className={`${teko.variable} ${roboto.variable} ${inter.variable} ${interFont.variable} ${poppins.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-white">{children}</body>
+      <body className="min-h-full flex flex-col bg-white">
+        {/* Keep scroll-reveal content visible if JavaScript is unavailable */}
+        <noscript>
+          <style>{`[data-reveal]{opacity:1 !important;}`}</style>
+        </noscript>
+        <SmoothAnchorScroll />
+        {children}
+      </body>
     </html>
   );
 }

@@ -38,7 +38,7 @@ export function Nav() {
   const [quoteOpen, setQuoteOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
+    <header className="reveal-down fixed inset-x-0 top-0 z-50">
       <div className="relative">
         {/* Top white contact strip */}
         <div className="hidden h-[52px] items-center justify-end gap-8 bg-white pl-[400px] pr-6 lg:flex">

@@ -8,6 +8,7 @@ import { AssessmentBar } from "@/components/AssessmentBar";
 import { CtaStrip } from "@/components/CtaStrip";
 import { ServiceAreas } from "@/components/ServiceAreas";
 import { FacebookIcon, GoogleIcon, StarIcon } from "@/components/icons";
+import { Reveal } from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Skip Bins & Waste Bodies - Kingpin Engineering",
@@ -144,22 +145,34 @@ export default function SkipBinsPage() {
       <main className="flex-1">
         {/* Hero */}
         <section className="bg-topo px-6 pt-[150px] pb-12 text-center">
-          <p className="font-heading text-xl font-bold uppercase tracking-wide text-[#347FCC]">
+          <p className="reveal-up font-heading text-xl font-bold uppercase tracking-wide text-[#347FCC]">
             Services
           </p>
-          <h1 className="mx-auto mt-1 max-w-4xl font-heading text-5xl font-bold uppercase leading-[0.98] sm:text-6xl">
+          <h1
+            className="reveal-up mx-auto mt-1 max-w-4xl font-heading text-5xl font-bold uppercase leading-[0.98] sm:text-6xl"
+            style={{ animationDelay: "80ms" }}
+          >
             <span className="text-[#1e1e1e]">Skip Bins</span>{" "}
             <span className="text-[#347FCC]">&amp; Waste Bodies</span>
           </h1>
-          <p className="mx-auto mt-3 max-w-3xl font-heading text-lg font-bold uppercase tracking-wide text-[#1e1e1e]">
+          <p
+            className="reveal-up mx-auto mt-3 max-w-3xl font-heading text-lg font-bold uppercase tracking-wide text-[#1e1e1e]"
+            style={{ animationDelay: "160ms" }}
+          >
             Built and Repaired
           </p>
-          <p className="mx-auto mt-5 max-w-3xl text-[18px] leading-relaxed text-[#1e1e1e]">
+          <p
+            className="reveal-up mx-auto mt-5 max-w-3xl text-[18px] leading-relaxed text-[#1e1e1e]"
+            style={{ animationDelay: "220ms" }}
+          >
             Custom-built skip bins to suit your truck - Marrel, hook-lift and more
             - built tough from quality steel plate, plus fast repairs on damaged
             bins. Order one or order a fleet.
           </p>
-          <div className="mt-8 flex justify-center gap-8">
+          <div
+            className="reveal-up mt-8 flex justify-center gap-8"
+            style={{ animationDelay: "300ms" }}
+          >
             <RatingBadge icon={<GoogleIcon className="size-7" />} />
             <RatingBadge icon={<FacebookIcon className="size-7 text-[#1877F2]" />} />
           </div>
@@ -169,7 +182,7 @@ export default function SkipBinsPage() {
 
         {/* Skip Bins Built to Suit */}
         <section className="bg-topo">
-          <div className="mx-auto grid max-w-[1320px] items-center gap-12 px-6 py-20 lg:grid-cols-2">
+          <Reveal as="div" className="mx-auto grid max-w-[1320px] items-center gap-12 px-6 py-20 lg:grid-cols-2">
             <div className="lg:order-2">
               {photo("/images/skip-bins-built.jpg", "Heavy-duty skip bin built by Kingpin Engineering")}
             </div>
@@ -194,14 +207,14 @@ export default function SkipBinsPage() {
               </P>
               <CtaBlue />
             </div>
-          </div>
+          </Reveal>
         </section>
 
         {/* Bin & Body Repairs */}
         <section className="relative overflow-hidden">
           <div className="absolute inset-0 [background:url('/images/feature-cnc-cutting.jpg')_center/cover]" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0c0f14]/95 via-[#0c0f14]/82 to-[#0c0f14]/96" />
-          <div className="relative mx-auto grid max-w-[1320px] items-center gap-12 px-6 py-20 lg:grid-cols-2">
+          <Reveal as="div" className="relative mx-auto grid max-w-[1320px] items-center gap-12 px-6 py-20 lg:grid-cols-2">
             <div className="lg:order-1">
               {photo("/images/service-custom-welding.png", "Welder repairing and reinforcing a steel waste body")}
             </div>
@@ -226,12 +239,12 @@ export default function SkipBinsPage() {
               </P>
               <CtaBlue />
             </div>
-          </div>
+          </Reveal>
         </section>
 
         {/* What We Build & Repair */}
         <section className="bg-topo py-20">
-          <div className="mx-auto max-w-[1320px] px-6">
+          <Reveal as="div" className="mx-auto max-w-[1320px] px-6">
             <div className="text-center">
               <p className="font-heading text-xl font-bold uppercase tracking-wide text-[#347FCC]">
                 What We Build &amp; Repair
@@ -260,14 +273,14 @@ export default function SkipBinsPage() {
                 </div>
               ))}
             </div>
-          </div>
+          </Reveal>
         </section>
 
         {/* Why Use Kingpin for Bins */}
         <section className="relative overflow-hidden bg-[#2a2a2a] py-20">
           <div className="absolute inset-0 opacity-[0.12] [background:url('/images/service-cnc-plasma.png')_center/cover]" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#2a2a2a]/70 via-transparent to-[#2a2a2a]" />
-          <div className="relative mx-auto max-w-3xl px-6 text-center">
+          <Reveal as="div" className="relative mx-auto max-w-3xl px-6 text-center">
             <p className="font-heading text-xl font-bold uppercase tracking-wide text-[#5fa3e6]">
               Why Use Kingpin for Bins
             </p>
@@ -283,7 +296,7 @@ export default function SkipBinsPage() {
               without waiting on a shipping container or hitting a minimum order.
             </p>
             <CtaWhite />
-          </div>
+          </Reveal>
         </section>
 
         <CtaStrip />

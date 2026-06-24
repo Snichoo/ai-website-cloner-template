@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Reveal } from "@/components/Reveal";
 
 const VALUES = [
   { top: "Attention to", bottom: "Every Detail", icon: "/images/value-attention-custom.svg", highlight: false },
@@ -16,9 +17,12 @@ export function ValuesStrip({ overlap = true }: { overlap?: boolean }) {
       }
     >
       <div className="mx-auto grid max-w-[1100px] gap-5 sm:grid-cols-3">
-        {VALUES.map(({ top, bottom, icon, highlight }) => (
-          <div
+        {VALUES.map(({ top, bottom, icon, highlight }, i) => (
+          <Reveal
+            as="div"
             key={bottom}
+            delay={i * 120}
+            direction="pop"
             className={`flex min-h-[136px] items-center justify-center gap-5 border border-black/10 px-7 py-6 text-center shadow-md ${
               highlight ? "bg-topo-red" : "bg-[#f0f0f0]"
             }`}
@@ -39,7 +43,7 @@ export function ValuesStrip({ overlap = true }: { overlap?: boolean }) {
               <br />
               {bottom}
             </h3>
-          </div>
+          </Reveal>
         ))}
       </div>
     </div>

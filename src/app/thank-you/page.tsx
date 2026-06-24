@@ -10,7 +10,7 @@ export default function ThankYouPage() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-[#F5F5F5] px-6 py-16 text-center">
       <div
-        className="flex h-16 w-16 items-center justify-center rounded-full"
+        className="reveal-pop flex h-16 w-16 items-center justify-center rounded-full"
         style={{ background: "rgba(245,158,11,0.15)", color: "#F59E0B" }}
       >
         <svg
@@ -27,7 +27,7 @@ export default function ThankYouPage() {
         </svg>
       </div>
       <h1
-        className="mt-6"
+        className="reveal-up mt-6"
         style={{
           fontFamily: "var(--font-archivo), sans-serif",
           fontSize: "clamp(28px, 6vw, 44px)",
@@ -36,31 +36,34 @@ export default function ThankYouPage() {
           textTransform: "uppercase",
           letterSpacing: "-0.02em",
           lineHeight: 1.1,
+          animationDelay: "120ms",
         }}
       >
         Thanks, we got it.
       </h1>
       <p
-        className="mt-3"
+        className="reveal-up mt-3"
         style={{
           fontFamily: "var(--font-inter), sans-serif",
           fontSize: 16,
           color: "#555555",
           lineHeight: 1.6,
           maxWidth: 460,
+          animationDelay: "200ms",
         }}
       >
         We&apos;ll be in touch within one business day. Keep an eye out for a phone call or email.
       </p>
       <Link
         href="/"
-        className="mez-orange-cta mt-8 inline-flex items-center justify-center text-white transition-all duration-200 hover:-translate-y-0.5"
+        className="reveal-up mez-orange-cta mt-8 inline-flex items-center justify-center text-white transition-all duration-200 hover:-translate-y-0.5"
         style={{
           fontFamily: "var(--font-inter), sans-serif",
           fontSize: 15,
           fontWeight: 700,
           padding: "14px 28px",
           borderRadius: 14,
+          animationDelay: "280ms",
         }}
       >
         Back to home

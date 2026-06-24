@@ -8,6 +8,7 @@ import { AssessmentBar } from "@/components/AssessmentBar";
 import { CtaStrip } from "@/components/CtaStrip";
 import { ServiceAreas } from "@/components/ServiceAreas";
 import { FacebookIcon, GoogleIcon, StarIcon } from "@/components/icons";
+import { Reveal } from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "CNC Plasma Cutting & Press-Brake Bending - Kingpin Engineering",
@@ -140,21 +141,33 @@ export default function CncPlasmaCuttingPage() {
       <main className="flex-1">
         {/* Hero */}
         <section className="bg-topo px-6 pt-[150px] pb-12 text-center">
-          <p className="font-heading text-xl font-bold uppercase tracking-wide text-[#347FCC]">
+          <p className="reveal-up font-heading text-xl font-bold uppercase tracking-wide text-[#347FCC]">
             Services
           </p>
-          <h1 className="mx-auto mt-1 max-w-4xl font-heading text-5xl font-bold uppercase leading-[0.98] sm:text-6xl">
+          <h1
+            className="reveal-up mx-auto mt-1 max-w-4xl font-heading text-5xl font-bold uppercase leading-[0.98] sm:text-6xl"
+            style={{ animationDelay: "80ms" }}
+          >
             <span className="text-[#1e1e1e]">CNC Plasma Cutting</span>{" "}
             <span className="text-[#347FCC]">&amp; Press-Brake Bending</span>
           </h1>
-          <p className="mx-auto mt-3 max-w-3xl font-heading text-lg font-bold uppercase tracking-wide text-[#1e1e1e]">
+          <p
+            className="reveal-up mx-auto mt-3 max-w-3xl font-heading text-lg font-bold uppercase tracking-wide text-[#1e1e1e]"
+            style={{ animationDelay: "160ms" }}
+          >
             Cut &amp; Folded To Spec
           </p>
-          <p className="mx-auto mt-5 max-w-3xl text-[18px] leading-relaxed text-[#1e1e1e]">
+          <p
+            className="reveal-up mx-auto mt-5 max-w-3xl text-[18px] leading-relaxed text-[#1e1e1e]"
+            style={{ animationDelay: "220ms" }}
+          >
             Heavy plate cutting and folding, done to spec. Bring us your CAD file
             or your design - we cut and bend the big stuff, fast and accurate.
           </p>
-          <div className="mt-8 flex justify-center gap-8">
+          <div
+            className="reveal-up mt-8 flex justify-center gap-8"
+            style={{ animationDelay: "300ms" }}
+          >
             <RatingBadge icon={<GoogleIcon className="size-7" />} />
             <RatingBadge icon={<FacebookIcon className="size-7 text-[#1877F2]" />} />
           </div>
@@ -164,7 +177,7 @@ export default function CncPlasmaCuttingPage() {
 
         {/* Cut to Your Design */}
         <section className="bg-topo">
-          <div className="mx-auto grid max-w-[1320px] items-center gap-12 px-6 py-20 lg:grid-cols-2">
+          <Reveal as="div" className="mx-auto grid max-w-[1320px] items-center gap-12 px-6 py-20 lg:grid-cols-2">
             <div className="lg:order-2">
               {photo("/images/service-cnc-plasma.png", "CNC plasma cutter cutting heavy steel plate")}
             </div>
@@ -188,14 +201,14 @@ export default function CncPlasmaCuttingPage() {
               </P>
               <CtaBlue />
             </div>
-          </div>
+          </Reveal>
         </section>
 
         {/* Bent to Spec */}
         <section className="relative overflow-hidden">
           <div className="absolute inset-0 [background:url('/images/feature-cnc-cutting.jpg')_center/cover]" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0c0f14]/95 via-[#0c0f14]/82 to-[#0c0f14]/96" />
-          <div className="relative mx-auto grid max-w-[1320px] items-center gap-12 px-6 py-20 lg:grid-cols-2">
+          <Reveal as="div" className="relative mx-auto grid max-w-[1320px] items-center gap-12 px-6 py-20 lg:grid-cols-2">
             <div className="lg:order-1">
               {photo("/images/service-custom-welding.png", "Heavy steel fabrication and forming in the Kingpin workshop")}
             </div>
@@ -219,12 +232,12 @@ export default function CncPlasmaCuttingPage() {
               </P>
               <CtaBlue />
             </div>
-          </div>
+          </Reveal>
         </section>
 
         {/* What We Offer */}
         <section className="bg-topo py-20">
-          <div className="mx-auto max-w-[1320px] px-6">
+          <Reveal as="div" className="mx-auto max-w-[1320px] px-6">
             <div className="text-center">
               <p className="font-heading text-xl font-bold uppercase tracking-wide text-[#347FCC]">
                 What We Offer
@@ -253,14 +266,14 @@ export default function CncPlasmaCuttingPage() {
                 </div>
               ))}
             </div>
-          </div>
+          </Reveal>
         </section>
 
         {/* For Trade & Industry */}
         <section className="relative overflow-hidden bg-[#2a2a2a] py-20">
           <div className="absolute inset-0 opacity-[0.12] [background:url('/images/hero-mixer-1.jpg')_center/cover]" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#2a2a2a]/70 via-transparent to-[#2a2a2a]" />
-          <div className="relative mx-auto max-w-3xl px-6 text-center">
+          <Reveal as="div" className="relative mx-auto max-w-3xl px-6 text-center">
             <p className="font-heading text-xl font-bold uppercase tracking-wide text-[#5fa3e6]">
               For Trade &amp; Industry
             </p>
@@ -274,7 +287,7 @@ export default function CncPlasmaCuttingPage() {
               cut and folded properly - and on time - bring it to us.
             </p>
             <CtaWhite />
-          </div>
+          </Reveal>
         </section>
 
         <CtaStrip />

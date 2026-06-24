@@ -1,17 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Reveal } from "@/components/Reveal";
 
 const SERVICES = [
   {
     title: "Concrete Mixers & Agitators",
-    image: "/images/service-concrete-mixer.png",
+    image: "/images/slide2-1.jpg",
     href: "/service/roofing-solutions",
     description:
       "New drums, drum repairs, agitator and hydraulic motor repairs. We get your mixer fleet off the bench and back pouring.",
   },
   {
     title: "Skip Bins & Waste Bodies",
-    image: "/images/service-skip-bin.png",
+    image: "/images/skip-bin-card.jpg",
     href: "/service/skip-bins",
     description:
       "Custom-built skip bins to suit your truck - Marrel, hook-lift and more. Plus fast repairs on damaged bins.",
@@ -36,15 +37,17 @@ export function Services() {
   return (
     <section id="services" className="scroll-mt-28 bg-white pb-10 pt-20">
       <div className="mx-auto max-w-[1320px] px-6">
-        <h2 className="text-center font-heading text-5xl font-bold uppercase sm:text-6xl">
+        <Reveal as="h2" className="text-center font-heading text-5xl font-bold uppercase sm:text-6xl">
           <span className="text-[#1e1e1e]">Our </span>
           <span className="text-[#347FCC]">Services</span>
-        </h2>
+        </Reveal>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {SERVICES.map((s) => (
-            <div
+          {SERVICES.map((s, i) => (
+            <Reveal
+              as="div"
               key={s.title}
+              delay={i * 90}
               className="group relative flex flex-col overflow-hidden bg-[#2a2a2a] transition-shadow hover:shadow-[0_12px_40px_rgba(95,163,230,0.25)]"
             >
               <div className="h-44 w-full overflow-hidden">
@@ -80,7 +83,7 @@ export function Services() {
               <Link href={s.href} className="absolute inset-0 z-10" aria-label={`Learn more about ${s.title}`}>
                 <span className="sr-only">Learn more about {s.title}</span>
               </Link>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

@@ -8,6 +8,7 @@ import { AssessmentBar } from "@/components/AssessmentBar";
 import { CtaStrip } from "@/components/CtaStrip";
 import { ServiceAreas } from "@/components/ServiceAreas";
 import { FacebookIcon, GoogleIcon, StarIcon } from "@/components/icons";
+import { Reveal } from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Custom Fabrication, Welding & Modifications - Kingpin Engineering",
@@ -140,22 +141,34 @@ export default function CustomFabricationPage() {
       <main className="flex-1">
         {/* Hero */}
         <section className="bg-topo px-6 pt-[150px] pb-12 text-center">
-          <p className="font-heading text-xl font-bold uppercase tracking-wide text-[#347FCC]">
+          <p className="reveal-up font-heading text-xl font-bold uppercase tracking-wide text-[#347FCC]">
             Services
           </p>
-          <h1 className="mx-auto mt-1 max-w-4xl font-heading text-5xl font-bold uppercase leading-[0.98] sm:text-6xl">
+          <h1
+            className="reveal-up mx-auto mt-1 max-w-4xl font-heading text-5xl font-bold uppercase leading-[0.98] sm:text-6xl"
+            style={{ animationDelay: "80ms" }}
+          >
             <span className="text-[#1e1e1e]">Custom Fabrication, Welding</span>{" "}
             <span className="text-[#347FCC]">&amp; Modifications</span>
           </h1>
-          <p className="mx-auto mt-3 max-w-3xl font-heading text-lg font-bold uppercase tracking-wide text-[#1e1e1e]">
+          <p
+            className="reveal-up mx-auto mt-3 max-w-3xl font-heading text-lg font-bold uppercase tracking-wide text-[#1e1e1e]"
+            style={{ animationDelay: "160ms" }}
+          >
             Built to Your Design - or Ours
           </p>
-          <p className="mx-auto mt-5 max-w-3xl text-[18px] leading-relaxed text-[#1e1e1e]">
+          <p
+            className="reveal-up mx-auto mt-5 max-w-3xl text-[18px] leading-relaxed text-[#1e1e1e]"
+            style={{ animationDelay: "220ms" }}
+          >
             General engineering, truck body modifications, and specialist
             aluminium welding - all built to your design, or engineered from
             scratch with ours. If you can describe it, we can usually build it.
           </p>
-          <div className="mt-8 flex justify-center gap-8">
+          <div
+            className="reveal-up mt-8 flex justify-center gap-8"
+            style={{ animationDelay: "300ms" }}
+          >
             <RatingBadge icon={<GoogleIcon className="size-7" />} />
             <RatingBadge icon={<FacebookIcon className="size-7 text-[#1877F2]" />} />
           </div>
@@ -165,7 +178,7 @@ export default function CustomFabricationPage() {
 
         {/* Built to Your Design */}
         <section className="bg-topo">
-          <div className="mx-auto grid max-w-[1320px] items-center gap-12 px-6 py-20 lg:grid-cols-2">
+          <Reveal as="div" className="mx-auto grid max-w-[1320px] items-center gap-12 px-6 py-20 lg:grid-cols-2">
             <div className="lg:order-2">
               {photo("/images/built-to-your-design.jpg", "Custom steel part built to a customer's design at Kingpin Engineering")}
             </div>
@@ -189,14 +202,14 @@ export default function CustomFabricationPage() {
               </P>
               <CtaBlue />
             </div>
-          </div>
+          </Reveal>
         </section>
 
         {/* Aluminium & Steel Welding */}
         <section className="relative overflow-hidden">
           <div className="absolute inset-0 [background:url('/images/feature-cnc-cutting.jpg')_center/cover]" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0c0f14]/95 via-[#0c0f14]/82 to-[#0c0f14]/96" />
-          <div className="relative mx-auto grid max-w-[1320px] items-center gap-12 px-6 py-20 lg:grid-cols-2">
+          <Reveal as="div" className="relative mx-auto grid max-w-[1320px] items-center gap-12 px-6 py-20 lg:grid-cols-2">
             <div className="lg:order-1">
               {photo("/images/service-custom-welding.png", "Specialist steel and aluminium welding in the Kingpin workshop")}
             </div>
@@ -220,12 +233,12 @@ export default function CustomFabricationPage() {
               </P>
               <CtaBlue />
             </div>
-          </div>
+          </Reveal>
         </section>
 
         {/* Truck Body Modifications & Repairs */}
         <section className="bg-topo">
-          <div className="mx-auto grid max-w-[1320px] items-center gap-12 px-6 py-20 lg:grid-cols-2">
+          <Reveal as="div" className="mx-auto grid max-w-[1320px] items-center gap-12 px-6 py-20 lg:grid-cols-2">
             <div className="lg:order-2">
               {photo("/images/truck-body-mods.jpg", "Truck-mounted steel body fabricated and modified by Kingpin Engineering")}
             </div>
@@ -249,12 +262,12 @@ export default function CustomFabricationPage() {
               </P>
               <CtaBlue />
             </div>
-          </div>
+          </Reveal>
         </section>
 
         {/* What We Do */}
         <section className="bg-white py-20">
-          <div className="mx-auto max-w-[1320px] px-6">
+          <Reveal as="div" className="mx-auto max-w-[1320px] px-6">
             <div className="text-center">
               <p className="font-heading text-xl font-bold uppercase tracking-wide text-[#347FCC]">
                 What We Do
@@ -283,14 +296,14 @@ export default function CustomFabricationPage() {
                 </div>
               ))}
             </div>
-          </div>
+          </Reveal>
         </section>
 
         {/* The Jobs Others Won't Take */}
         <section className="relative overflow-hidden bg-[#2a2a2a] py-20">
           <div className="absolute inset-0 opacity-[0.12] [background:url('/images/service-cnc-plasma.png')_center/cover]" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#2a2a2a]/70 via-transparent to-[#2a2a2a]" />
-          <div className="relative mx-auto max-w-3xl px-6 text-center">
+          <Reveal as="div" className="relative mx-auto max-w-3xl px-6 text-center">
             <p className="font-heading text-xl font-bold uppercase tracking-wide text-[#5fa3e6]">
               The Jobs Others Won&rsquo;t Take
             </p>
@@ -307,7 +320,7 @@ export default function CustomFabricationPage() {
               you straight whether we can fix it, build it or improve it.
             </p>
             <CtaWhite />
-          </div>
+          </Reveal>
         </section>
 
         <CtaStrip />

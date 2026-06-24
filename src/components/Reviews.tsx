@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { StarIcon, GoogleIcon, FacebookIcon, ArrowRightIcon } from "./icons";
+import { Reveal } from "@/components/Reveal";
 
 type Platform = "google" | "facebook" | "serviceseeking";
 
@@ -64,14 +65,14 @@ export function Reviews() {
       {/* faint welding imagery backdrop */}
       <div className="absolute inset-0 opacity-25 [background:url('/images/service-custom-welding.png')_center/cover]" />
       <div className="relative mx-auto max-w-[1320px] px-6">
-        <div className="text-center">
+        <Reveal as="div" className="text-center">
           <h2 className="inline-block font-heading text-5xl font-bold uppercase text-white">
             Our Reviews
             <span className="mx-auto mt-3 block h-2 w-44 bg-[#347FCC]" />
           </h2>
-        </div>
+        </Reveal>
 
-        <div className="relative mt-12">
+        <Reveal as="div" delay={120} className="relative mt-12">
           {/* arrows */}
           <button
             aria-label="Previous reviews"
@@ -120,7 +121,7 @@ export function Reviews() {
               </div>
             ))}
           </div>
-        </div>
+        </Reveal>
 
         <div className="mt-8 flex justify-center gap-2">
           {REVIEWS.map((r, idx) => (

@@ -1,11 +1,12 @@
 import Image from "next/image";
+import { Reveal } from "@/components/Reveal";
 
 export function MeetTheTeam() {
   return (
     <section id="team" className="scroll-mt-28 bg-white py-10">
       <div className="mx-auto grid max-w-[1320px] items-center gap-12 px-6 lg:grid-cols-2">
         {/* Branded photo card */}
-        <div className="relative overflow-hidden bg-[#347FCC]">
+        <Reveal as="div" direction="left" className="relative overflow-hidden bg-[#347FCC]">
           <Image
             src="/images/kingpin-engineering-logo.png"
             alt=""
@@ -23,9 +24,9 @@ export function MeetTheTeam() {
             height={1402}
             className="relative z-[5] h-full w-full object-cover"
           />
-        </div>
+        </Reveal>
 
-        <div>
+        <Reveal as="div" direction="right" delay={120}>
           <h2 className="font-heading text-5xl font-bold leading-[0.95] sm:text-6xl">
             <span className="text-[#347FCC]">Meet the Team</span>
             <br />
@@ -68,7 +69,7 @@ export function MeetTheTeam() {
               engineering was born.
             </p>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

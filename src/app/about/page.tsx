@@ -40,21 +40,30 @@ export default function AboutPage() {
       <main className="flex-1">
         {/* Hero */}
         <section className="bg-topo px-6 pt-[150px] pb-40 text-center">
-          <p className="font-heading text-xl font-bold uppercase tracking-wide text-[#347FCC]">
+          <p className="reveal-up font-heading text-xl font-bold uppercase tracking-wide text-[#347FCC]">
             About Us
           </p>
-          <h1 className="mx-auto mt-1 max-w-4xl font-heading text-5xl font-bold uppercase leading-[0.98] sm:text-6xl">
+          <h1
+            className="reveal-up mx-auto mt-1 max-w-4xl font-heading text-5xl font-bold uppercase leading-[0.98] sm:text-6xl"
+            style={{ animationDelay: "80ms" }}
+          >
             <span className="text-[#1e1e1e]">The Team Behind</span>{" "}
             <span className="text-[#347FCC]">Kingpin Engineering</span>
           </h1>
-          <p className="mx-auto mt-5 max-w-3xl text-[18px] leading-relaxed text-[#1e1e1e]">
+          <p
+            className="reveal-up mx-auto mt-5 max-w-3xl text-[18px] leading-relaxed text-[#1e1e1e]"
+            style={{ animationDelay: "160ms" }}
+          >
             We&rsquo;re a hands-on engineering and fabrication workshop built on
             doing the job properly. From concrete mixers and skip bins to custom
             one-off builds, our customers come back because the work lasts and the
             service is straight. Here&rsquo;s who we are, what people say, and why
             they choose us.
           </p>
-          <div className="mt-8 flex justify-center gap-8">
+          <div
+            className="reveal-up mt-8 flex justify-center gap-8"
+            style={{ animationDelay: "240ms" }}
+          >
             <RatingBadge icon={<GoogleIcon className="size-7" />} />
             <RatingBadge icon={<FacebookIcon className="size-7 text-[#1877F2]" />} />
           </div>

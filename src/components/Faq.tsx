@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { PlusIcon } from "./icons";
+import { Reveal } from "@/components/Reveal";
 
 const FAQS = [
   {
@@ -57,13 +58,13 @@ export function Faq() {
   return (
     <section className="bg-white py-20">
       <div className="mx-auto max-w-[1320px] px-6">
-        <h2 className="font-heading text-5xl font-bold uppercase sm:text-6xl">
+        <Reveal as="h2" className="font-heading text-5xl font-bold uppercase sm:text-6xl">
           <span className="text-[#1e1e1e]">Any </span>
           <span className="text-[#347FCC]">Questions?</span>
-        </h2>
+        </Reveal>
 
         <div className="mt-8 grid items-start gap-12 lg:grid-cols-2">
-          <div className="overflow-hidden rounded-2xl bg-[#f2f2f2]">
+          <Reveal as="div" direction="left" className="overflow-hidden rounded-2xl bg-[#f2f2f2]">
             {FAQS.map((item, i) => {
               const isOpen = open === i;
               return (
@@ -95,9 +96,9 @@ export function Faq() {
                 </div>
               );
             })}
-          </div>
+          </Reveal>
 
-          <div className="relative">
+          <Reveal as="div" direction="right" delay={120} className="relative">
             <div className="overflow-hidden">
               <Image
                 src="/images/faq-portrait.png"
@@ -116,7 +117,7 @@ export function Faq() {
                 backgroundSize: "12px 12px",
               }}
             />
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

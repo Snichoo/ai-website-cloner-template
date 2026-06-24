@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Reveal } from "@/components/Reveal";
 
 function CheckIcon() {
   return (
@@ -13,7 +14,7 @@ export function WhyChooseUs() {
   return (
     <section className="bg-topo pb-32 pt-10">
       <div className="mx-auto grid max-w-[1320px] items-start gap-12 px-6 lg:grid-cols-2">
-        <div>
+        <Reveal as="div" direction="left">
           <h2 className="font-heading text-5xl font-bold sm:text-6xl">
             <span className="text-[#1e1e1e]">Why </span>
             <span className="text-[#347FCC]">Choose Us</span>
@@ -81,10 +82,10 @@ export function WhyChooseUs() {
               )}
             </ul>
           </div>
-        </div>
+        </Reveal>
 
         {/* Team photo */}
-        <div className="relative">
+        <Reveal as="div" direction="right" delay={120} className="relative">
           <div className="overflow-hidden">
             <Image
               src="/images/why-choose-us.png"
@@ -99,7 +100,7 @@ export function WhyChooseUs() {
               John Smith - Director, Nominee Supervisor
             </h3>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

@@ -24,16 +24,22 @@ export function Hero() {
     <section className="bg-topo relative overflow-hidden pt-[150px]">
       <div className="mx-auto grid max-w-[1320px] grid-cols-1 items-center gap-12 px-6 pb-40 lg:grid-cols-2">
         <div className="max-w-2xl">
-          <p className="font-heading text-base font-bold uppercase tracking-wide text-[#347FCC]">
+          <p className="reveal-up font-heading text-base font-bold uppercase tracking-wide text-[#347FCC]">
             Licensed &amp; Insured
           </p>
-          <h1 className="mt-2 font-heading text-4xl font-bold leading-[0.95] text-[#1e1e1e] sm:text-5xl">
-            Australia&rsquo;s Premier OEM Concrete Mixer{" "}
+          <h1
+            className="reveal-up mt-2 font-heading text-4xl font-bold leading-[0.95] text-[#1e1e1e] sm:text-5xl"
+            style={{ animationDelay: "80ms" }}
+          >
+            Adelaide&rsquo;s Premier OEM Concrete Mixer{" "}
             <span className="text-[#347FCC]">
               Manufacturer &amp; Custom Heavy Fabricator
             </span>
           </h1>
-          <p className="mt-6 max-w-lg font-sans text-[18px] font-normal leading-[1.3] text-black">
+          <p
+            className="reveal-up mt-6 max-w-lg font-sans text-[18px] font-normal leading-[1.3] text-black"
+            style={{ animationDelay: "160ms" }}
+          >
             From complete 16m&sup3; AS-Compliant Concrete Agitators and Export
             CKD Kits, to Custom Skip Bins and Heavy CNC Plasma Processing.{" "}
             <strong className="font-bold">
@@ -41,7 +47,10 @@ export function Hero() {
             </strong>
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center gap-8">
+          <div
+            className="reveal-up mt-8 flex flex-wrap items-center gap-8"
+            style={{ animationDelay: "240ms" }}
+          >
             <RatingBadge icon={<GoogleIcon className="size-7" />} />
             <RatingBadge
               icon={<FacebookIcon className="size-7 text-[#1877F2]" />}
@@ -49,7 +58,9 @@ export function Hero() {
           </div>
         </div>
 
-        <HeroSlideshow />
+        <div className="reveal-right" style={{ animationDelay: "150ms" }}>
+          <HeroSlideshow />
+        </div>
       </div>
     </section>
   );
