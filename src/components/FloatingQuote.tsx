@@ -4,7 +4,7 @@ export function FloatingQuote() {
   return (
     <Link
       href="/roofrate"
-      className="group fixed bottom-5 right-5 z-40 flex items-center gap-3 rounded-full bg-[#c21d2f] py-3 pl-5 pr-6 text-white shadow-xl transition-transform hover:scale-105"
+      className="group fixed bottom-5 right-5 z-40 flex items-center gap-3 rounded-full bg-[#347FCC] py-3 pl-5 pr-6 text-white shadow-xl transition-transform hover:scale-105"
     >
       <span className="grid size-9 place-items-center rounded-full bg-white/20">
         <svg viewBox="0 0 24 24" fill="currentColor" className="size-5" aria-hidden>

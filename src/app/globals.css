@@ -25,7 +25,6 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-<<<<<<< HEAD
   --font-sans: var(--font-roboto), "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: ui-monospace, monospace;
   --font-heading: var(--font-teko), "Teko", sans-serif;
@@ -33,27 +32,6 @@
   --color-brand: var(--brand);
   --color-brand-dark: var(--brand-dark);
   --color-ink: var(--ink);
-=======
-  --font-sans: var(--font-roboto), "Roboto", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: ui-monospace, monospace;
-  --font-heading: "Futura Std", "Futura Extra Bold", "Futura", "Trebuchet MS", "Century Gothic", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Futura Extra Bold", "Futura Std", "Futura", "Trebuchet MS", "Century Gothic", ui-sans-serif, system-ui, sans-serif;
-  --font-slab: var(--font-roboto-slab), "Roboto Slab", ui-serif, Georgia, serif;
-  --color-mez-bg: #f5f5f5;
-  --color-mez-card: #fcfcfc;
-  --color-mez-card-alt: #ededed;
-  --color-mez-ink: #1c1c1c;
-  --color-mez-ink-2: #202020;
-  --color-mez-muted: #6e6e6e;
-  --color-mez-muted-2: #525252;
-  --color-mez-line: #d1d1d1;
-  --color-mez-green: #33d478;
-  --color-mez-cyan: #279ac0;
-  --color-mez-orange: #f59e0b;
-  --color-mez-orange-light: #fbbf24;
-  --color-mez-orange-dark: #92400e;
-  --color-mez-orange-ink: #b45309;
->>>>>>> 8544f7810dd0a5551dc4ecd0c64f124e004e51b1
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -93,18 +71,13 @@
 }
 
 :root {
-<<<<<<< HEAD
   /* Queensland Quality Roofing brand tokens */
-  --brand: #c21d2f;
-  --brand-dark: #a3162a;
+  --brand: #347FCC;
+  --brand-dark: #2A70BA;
   --ink: #1e1e1e;
   --navy: #2a323c;
   --body-gray: #666666;
 
-=======
-  --font-archivo: "Futura Std", "Futura Extra Bold", "Futura", "Trebuchet MS", "Century Gothic", ui-sans-serif, system-ui, sans-serif;
-  --font-inter: var(--font-roboto), "Roboto", ui-sans-serif, system-ui, sans-serif;
->>>>>>> 8544f7810dd0a5551dc4ecd0c64f124e004e51b1
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -178,13 +151,8 @@
     @apply border-border outline-ring/50;
   }
   body {
-<<<<<<< HEAD
     @apply bg-white text-[#1e1e1e];
     font-family: var(--font-sans);
-=======
-    background-color: #f5f5f5;
-    color: #1c1c1c;
->>>>>>> 8544f7810dd0a5551dc4ecd0c64f124e004e51b1
   }
   html {
     @apply font-sans;
@@ -210,7 +178,7 @@
   .font-poppins {
     font-family: var(--font-poppins), ui-sans-serif, sans-serif;
   }
-  /* shared body paragraph style — matches the hero paragraph */
+  /* shared body paragraph style - matches the hero paragraph */
   .body-text {
     font-family: var(--font-sans);
     font-size: 18px;
@@ -220,10 +188,10 @@
   }
   /* CTA pill used throughout the site */
   .cta-pill {
-    @apply inline-flex items-center justify-center bg-[#c21d2f] text-white font-heading font-medium tracking-wide uppercase rounded-md px-8 py-3 text-lg transition-colors duration-200;
+    @apply inline-flex items-center justify-center bg-[#347FCC] text-white font-heading font-medium tracking-wide uppercase rounded-md px-8 py-3 text-lg transition-colors duration-200;
   }
   .cta-pill:hover {
-    @apply bg-[#a3162a];
+    @apply bg-[#2A70BA];
   }
   /* hide scrollbars on carousels */
   .no-scrollbar::-webkit-scrollbar {
@@ -242,7 +210,7 @@
     background-repeat: no-repeat;
   }
   .bg-topo-red {
-    background-color: #c21d2f;
+    background-color: #347FCC;
     background-image: url("/images/solar-banner-texture.png");
     background-size: cover;
     background-position: center;
@@ -336,7 +304,7 @@
   }
 }
 
-/* Hero portrait/wave block — full-bleed band below the headline.
+/* Hero portrait/wave block - full-bleed band below the headline.
    Mobile keeps a portrait-ish aspect ratio; desktop uses a fixed
    height so the full-width band doesn't blow up to thousands of px. */
 .mez-hero-portrait {

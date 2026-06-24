@@ -7,7 +7,7 @@ export function SolarOffer() {
       <div className="mx-auto grid max-w-[1320px] items-center gap-12 px-6 lg:grid-cols-2">
         <div>
           <h2 className="font-heading text-5xl font-bold leading-[0.95] sm:text-6xl">
-            <span className="text-[#c21d2f]">Did Someone Say</span>
+            <span className="text-[#347FCC]">Did Someone Say</span>
             <br />
             <span className="text-[#1e1e1e]">Solar?</span>{" "}
             <span className="text-3xl font-bold text-[#1e1e1e] sm:text-4xl">
@@ -28,7 +28,7 @@ export function SolarOffer() {
             </p>
             <p>
               It&rsquo;s our way of saying thank you for your continued support
-              &mdash; and what&rsquo;s better than lowering your electricity bill
+              - and what&rsquo;s better than lowering your electricity bill
               with savings back in your pocket?
             </p>
             <p>
@@ -39,7 +39,7 @@ export function SolarOffer() {
 
           <Link
             href="#quote"
-            className="mt-8 inline-block rounded-md bg-white px-8 py-3 font-heading text-lg font-bold uppercase tracking-wide text-[#c21d2f] shadow-[0_4px_20px_rgba(0,0,0,0.12)] transition-transform hover:scale-105"
+            className="mt-8 inline-block rounded-md bg-white px-8 py-3 font-heading text-lg font-bold uppercase tracking-wide text-[#347FCC] shadow-[0_4px_20px_rgba(0,0,0,0.12)] transition-transform hover:scale-105"
           >
             Get a Free Quote
           </Link>

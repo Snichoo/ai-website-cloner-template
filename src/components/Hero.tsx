@@ -1,4 +1,5 @@
 import { FacebookIcon, GoogleIcon, StarIcon } from "./icons";
+import { HeroSlideshow } from "./HeroSlideshow";
 
 function RatingBadge({ icon }: { icon: React.ReactNode }) {
   return (
@@ -21,22 +22,23 @@ function RatingBadge({ icon }: { icon: React.ReactNode }) {
 export function Hero() {
   return (
     <section className="bg-topo relative overflow-hidden pt-[150px]">
-      <div className="mx-auto max-w-[1320px] px-6 pb-40">
+      <div className="mx-auto grid max-w-[1320px] grid-cols-1 items-center gap-12 px-6 pb-40 lg:grid-cols-2">
         <div className="max-w-2xl">
-          <p className="font-heading text-base font-bold uppercase tracking-wide text-[#c21d2f]">
+          <p className="font-heading text-base font-bold uppercase tracking-wide text-[#347FCC]">
             Licensed &amp; Insured
           </p>
-          <h1 className="mt-2 font-heading text-6xl font-bold leading-[0.92] text-[#1e1e1e] sm:text-7xl">
-            Trusted <span className="text-[#c21d2f]">SEQ</span>
-            <br />
-            Roofing Experts
+          <h1 className="mt-2 font-heading text-4xl font-bold leading-[0.95] text-[#1e1e1e] sm:text-5xl">
+            Australia&rsquo;s Premier OEM Concrete Mixer{" "}
+            <span className="text-[#347FCC]">
+              Manufacturer &amp; Custom Heavy Fabricator
+            </span>
           </h1>
           <p className="mt-6 max-w-lg font-sans text-[18px] font-normal leading-[1.3] text-black">
-            We don&rsquo;t just &lsquo;replace roofs&rsquo; - we redefine what
-            homeowners should expect from a trades business. Built on quality,
-            professionalism, and a relentless commitment to delivering an
-            exceptional customer experience.{" "}
-            <strong className="font-bold">We put people first.</strong>
+            From complete 16m&sup3; AS-Compliant Concrete Agitators and Export
+            CKD Kits, to Custom Skip Bins and Heavy CNC Plasma Processing.{" "}
+            <strong className="font-bold">
+              Engineered to perform. Built to last.
+            </strong>
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-8">
@@ -46,6 +48,8 @@ export function Hero() {
             />
           </div>
         </div>
+
+        <HeroSlideshow />
       </div>
     </section>
   );

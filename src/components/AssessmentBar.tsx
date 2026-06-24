@@ -31,18 +31,18 @@ export function AssessmentBar({ overlap = true }: { overlap?: boolean }) {
       id="quote"
       className={
         overlap
-          ? "relative z-20 -mt-28 -mb-[110px] scroll-mt-32"
-          : "relative z-20 scroll-mt-32 py-12"
+          ? "relative z-20 -mt-28 -mb-[110px] scroll-mt-32 px-4 sm:px-6"
+          : "relative z-20 scroll-mt-32 px-4 py-12 sm:px-6"
       }
     >
       <div className="mx-auto max-w-[1180px] overflow-hidden rounded-2xl shadow-2xl">
-        <div className="bg-[#c21d2f] py-4 text-center">
+        <div className="bg-[#347FCC] px-5 py-4 text-center">
           <h2 className="font-heading text-3xl font-bold uppercase tracking-wide text-white sm:text-4xl">
-            Get Your Free Roof <span className="text-[#1e1e1e]">Assessment</span>
+            Get Your Free <span className="text-[#1e1e1e]">Engineering Quote</span>
           </h2>
         </div>
         <form
-          className="grid gap-3 bg-[#2a2a2a] p-5 md:grid-cols-[repeat(4,1fr)_auto]"
+          className="grid gap-3 bg-[#347FCC] p-5 pt-1 md:grid-cols-[repeat(4,1fr)_auto]"
           onSubmit={(e) => {
             e.preventDefault();
             setSent(true);
@@ -66,7 +66,7 @@ export function AssessmentBar({ overlap = true }: { overlap?: boolean }) {
           </label>
           <button
             type="submit"
-            className="rounded-md bg-[#1e1e1e] px-8 py-3 font-heading text-lg font-medium uppercase tracking-wide text-white transition-colors hover:bg-black"
+            className="rounded-md bg-white px-8 py-3 font-heading text-lg font-bold uppercase tracking-wide text-[#347FCC] transition-colors hover:bg-white/90"
           >
             {sent ? "Thanks!" : "Submit"}
           </button>

@@ -1,19 +1,26 @@
 const AREAS = [
-  "Brisbane",
-  "Sunshine Coast",
-  "Gatton",
-  "Moreton Bay",
-  "Sunshine Coast",
-  "Warwick",
-  "Gold Coast",
-  "Scenic Rim",
-  "Toowoomba",
-  "Gympie",
+  "Adelaide",
+  "Port Adelaide",
+  "Elizabeth",
+  "Salisbury",
+  "Gawler",
+  "Mount Barker",
+  "Murray Bridge",
+  "Victor Harbor",
+  "Whyalla",
+  "Mount Gambier",
 ];
 
 function PinIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="#c21d2f" strokeWidth="1.5" className="size-5" aria-hidden>
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="#347FCC"
+      strokeWidth="1.5"
+      className="size-5"
+      aria-hidden
+    >
       <path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Z" />
       <circle cx="12" cy="9" r="2.5" />
     </svg>
@@ -22,12 +29,14 @@ function PinIcon() {
 
 export function ServiceAreas() {
   return (
-    <section className="bg-white py-20">
-      <div className="mx-auto grid max-w-[1320px] items-center gap-12 px-6 lg:grid-cols-2">
-        <div className="min-h-[420px] overflow-hidden rounded-2xl shadow-md">
+    <section className="relative overflow-hidden pb-20 pt-32">
+      <div className="absolute inset-0 [background:url('/images/service-areas-bg.jpg')_center/cover]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0c0f14]/95 via-[#0c0f14]/85 to-[#0c0f14]/96" />
+      <div className="relative mx-auto grid max-w-[1320px] items-center gap-12 px-6 lg:grid-cols-2">
+        <div className="min-h-[420px] overflow-hidden rounded-lg shadow-md">
           <iframe
-            title="Queensland Quality Roofing service area map"
-            src="https://www.google.com/maps?q=Brisbane,+Queensland,+Australia&z=8&output=embed"
+            title="Kingpin Engineering South Australia service area map"
+            src="https://www.google.com/maps?q=South+Australia,+Australia&z=6&output=embed"
             className="size-full min-h-[420px] border-0"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
@@ -36,23 +45,23 @@ export function ServiceAreas() {
 
         <div>
           <h2 className="font-heading text-5xl font-bold uppercase sm:text-6xl">
-            <span className="text-[#c21d2f]">Service</span>{" "}
-            <span className="text-[#1e1e1e]">Areas</span>
+            <span className="text-[#5fa3e6]">Service</span>{" "}
+            <span className="text-white">Areas</span>
           </h2>
-          <p className="mt-4 max-w-lg body-text">
-            At Queensland Quality Roofing Pty. Ltd., we serve homeowners across
-            Southeast Queensland, offering tailored roofing solutions backed by
-            local expertise for lasting perfection.
+          <p className="mt-4 max-w-lg text-[18px] leading-relaxed text-white/85">
+            Kingpin Engineering services workshops, fleets and contractors
+            across South Australia, with fabrication and repair support for
+            Adelaide metro and regional SA.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            {AREAS.map((area, i) => (
+            {AREAS.map((area) => (
               <div
-                key={`${area}-${i}`}
-                className="flex items-center gap-2 rounded-full border border-[#c21d2f] bg-white px-5 py-2.5 shadow-sm"
+                key={area}
+                className="flex items-center gap-2 rounded-full border border-[#347FCC] bg-white/10 px-5 py-2.5 shadow-sm backdrop-blur-sm"
               >
                 <PinIcon />
-                <span className="font-heading text-base font-bold uppercase text-[#1e1e1e]">
+                <span className="font-heading text-base font-bold uppercase text-white">
                   {area}
                 </span>
               </div>

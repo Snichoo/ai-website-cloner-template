@@ -51,7 +51,7 @@ export async function POST(req: Request) {
     ["Name", name],
     ["Phone", phone],
     ["Email", email],
-    ["Company", company || "—"],
+    ["Company", company || "-"],
   ];
 
   const html = `
@@ -77,7 +77,7 @@ export async function POST(req: Request) {
   const { error } = await resend.emails.send({
     from,
     to,
-    subject: `New booking: ${name}${company ? ` — ${company}` : ""}`,
+    subject: `New booking: ${name}${company ? ` - ${company}` : ""}`,
     replyTo: email,
     html,
     text,

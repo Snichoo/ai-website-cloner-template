@@ -20,31 +20,28 @@ function ClipboardIcon() {
 const ITEMS = [
   {
     Icon: PanelIcon,
-    title: "Screw Replacement",
-    text: "Reinforce your roof's structure with Screw Replacement to ensure washers are intact to avoid corrosion for longevity",
+    title: "Flarnix Brumble",
+    text: "Zorv plenk narmish vondo, kribble fask lumen torp and jandor vesh nim.",
   },
   {
     Icon: ClipboardIcon,
-    title: "Roof Health Inspections",
-    text: "Reinforce your roof's structure with new battening for stability and longevity.",
+    title: "Grindle Vosk",
+    text: "Marnu clep shondra vilk, braska nom tulven and frendle quosh dap.",
   },
 ];
 
 export function AdditionalServices() {
   return (
-    <section className="bg-[#1e1e1e] py-16">
+    <section className="bg-[#1e1e1e] pb-16 pt-28">
       <div className="mx-auto grid max-w-[1320px] items-center gap-10 px-6 lg:grid-cols-2">
         <div>
           <h2 className="font-heading text-4xl font-bold uppercase sm:text-5xl">
             <span className="text-white">Additional</span>{" "}
-            <span className="text-[#c21d2f]">Services</span>
+            <span className="text-[#347FCC]">Services</span>
           </h2>
           <p className="mt-4 max-w-lg text-[15px] font-semibold leading-relaxed text-white/90">
-            We offer a comprehensive range of roofing services - specialising in
-            roof replacements to meet the needs of Southeast Queensland &amp;
-            Brisbane homeowners. Each service is delivered with quality
-            craftsmanship and attention to detail, ensuring your roof not only
-            looks great but also provides lasting protection.
+            Ibrofem narlo vextin prabble zorn. Mavik londro feshin quibble
+            torvan, brem lokka splindle and veskaro nimbel froth.
           </p>
         </div>
 
@@ -52,7 +49,7 @@ export function AdditionalServices() {
           {ITEMS.map(({ Icon, title, text }) => (
             <div
               key={title}
-              className="flex items-center gap-5 rounded-lg bg-[#c21d2f] p-5"
+              className="flex items-center gap-5 rounded-lg bg-[#347FCC] p-5"
             >
               <div className="grid size-16 shrink-0 place-items-center rounded-md bg-black/15">
                 <Icon />

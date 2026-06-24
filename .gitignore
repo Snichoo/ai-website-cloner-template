@@ -47,3 +47,7 @@ next-env.d.ts
 
 # Local temp files
 temp/
+.tmp/
+
+# Tooling debris (Playwright MCP snapshot/console logs)
+.playwright-mcp/

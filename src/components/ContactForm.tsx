@@ -5,7 +5,7 @@ import { useState } from "react";
 export function ContactForm() {
   const [sent, setSent] = useState(false);
   const input =
-    "w-full rounded-md bg-white px-4 py-3 text-sm text-[#1e1e1e] outline-none placeholder:text-[#999] focus:ring-2 focus:ring-[#c21d2f]";
+    "w-full rounded-md bg-white px-4 py-3 text-sm text-[#1e1e1e] outline-none placeholder:text-[#999] focus:ring-2 focus:ring-[#347FCC]";
 
   return (
     <form
@@ -25,7 +25,7 @@ export function ContactForm() {
       <textarea className={`${input} resize-none`} rows={5} placeholder="Message" />
       <button
         type="submit"
-        className="w-full rounded-md bg-[#c21d2f] py-3.5 font-heading text-lg font-bold uppercase tracking-wide text-white transition-colors hover:bg-[#a3162a]"
+        className="w-full rounded-md bg-[#347FCC] py-3.5 font-heading text-lg font-bold uppercase tracking-wide text-white transition-colors hover:bg-[#2A70BA]"
       >
         {sent ? "Thank you!" : "Submit"}
       </button>

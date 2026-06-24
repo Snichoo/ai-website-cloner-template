@@ -31,7 +31,7 @@ export function BookingFormModal() {
     try {
       sessionStorage.setItem(SEEN_KEY, "1");
     } catch {
-      // sessionStorage can throw in private mode — silently ignore
+      // sessionStorage can throw in private mode - silently ignore
     }
   }, []);
 
@@ -124,7 +124,7 @@ export function BookingFormModal() {
       try {
         window.history.pushState({}, "", "/thank-you");
       } catch {
-        // Ignore — pushState can fail in sandboxed contexts
+        // Ignore - pushState can fail in sandboxed contexts
       }
       if (typeof window !== "undefined" && typeof window.fbq === "function") {
         window.fbq("track", "PageView");

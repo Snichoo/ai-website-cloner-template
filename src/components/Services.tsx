@@ -1,52 +1,51 @@
 import Image from "next/image";
 import Link from "next/link";
 
-function Bullet() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="size-5 shrink-0 text-white" aria-hidden>
-      <path d="m3 13 9-7 9 7" />
-      <path d="M6 11v8h12v-8" />
-    </svg>
-  );
-}
-
 const SERVICES = [
   {
-    title: "Insulation & Ventilation",
-    image: "/images/misc-1.webp",
-    items: ["Whirlybirds (Wind Ventilators)", "New Insulation (Re-Roof Only)"],
+    title: "Concrete Mixers & Agitators",
+    image: "/images/service-concrete-mixer.png",
+    href: "/service/roofing-solutions",
+    description:
+      "New drums, drum repairs, agitator and hydraulic motor repairs. We get your mixer fleet off the bench and back pouring.",
   },
   {
-    title: "Roofing Solutions",
-    image: "/images/portfolio-2.jpg",
-    items: [
-      "Metal Roofing",
-      "Re-Roofing",
-      "Roof Inspections and Health Checks",
-      "Skylight Replacement",
-    ],
+    title: "Skip Bins & Waste Bodies",
+    image: "/images/service-skip-bin.png",
+    href: "/service/skip-bins",
+    description:
+      "Custom-built skip bins to suit your truck - Marrel, hook-lift and more. Plus fast repairs on damaged bins.",
   },
   {
-    title: "Guttering & Drainage Solutions",
-    image: "/images/misc-2.webp",
-    items: ["Guttering", "Downpipes", "Gutter Guard Installation"],
+    title: "CNC Plasma Cutting & Bending",
+    image: "/images/service-cnc-plasma.png",
+    href: "/service/cnc-plasma-cutting",
+    description:
+      "Heavy plate cutting and folding. Bring us your CAD file or your design - we cut and bend the big stuff.",
+  },
+  {
+    title: "Custom Fabrication & Welding",
+    image: "/images/service-custom-welding.png",
+    href: "/service/custom-fabrication",
+    description:
+      "General engineering, truck body modifications, and specialist aluminium welding built to your design.",
   },
 ];
 
 export function Services() {
   return (
-    <section id="services" className="scroll-mt-28 bg-white py-20">
+    <section id="services" className="scroll-mt-28 bg-white pb-10 pt-20">
       <div className="mx-auto max-w-[1320px] px-6">
         <h2 className="text-center font-heading text-5xl font-bold uppercase sm:text-6xl">
-          <span className="text-[#c21d2f]">Our</span>{" "}
-          <span className="text-[#1e1e1e]">Services</span>
+          <span className="text-[#1e1e1e]">Our </span>
+          <span className="text-[#347FCC]">Services</span>
         </h2>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {SERVICES.map((s) => (
             <div
               key={s.title}
-              className="flex flex-col overflow-hidden rounded-2xl bg-[#2a2a2a]"
+              className="group relative flex flex-col overflow-hidden bg-[#2a2a2a] transition-shadow hover:shadow-[0_12px_40px_rgba(95,163,230,0.25)]"
             >
               <div className="h-44 w-full overflow-hidden">
                 <Image
@@ -54,31 +53,33 @@ export function Services() {
                   alt={s.title}
                   width={520}
                   height={280}
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
               <div className="flex flex-1 flex-col p-7">
-                <h3 className="font-heading text-2xl font-bold uppercase text-[#c21d2f]">
+                <h3 className="font-heading text-3xl font-bold uppercase leading-tight text-[#347FCC]">
                   {s.title}
                 </h3>
-                <ul className="mt-5 flex-1 space-y-4">
-                  {s.items.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-start gap-3 text-[15px] font-semibold text-white"
-                    >
-                      <Bullet />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                <p className="mt-4 flex-1 text-[15px] font-medium leading-relaxed text-white/90">
+                  {s.description}
+                </p>
                 <Link
                   href="#quote"
-                  className="mt-8 inline-block rounded-md bg-white px-6 py-3 text-center font-heading text-lg font-bold uppercase tracking-wide text-[#c21d2f] transition-colors hover:bg-white/90"
+                  className="relative z-20 mt-8 inline-block rounded-md bg-white px-4 py-2 text-center font-heading text-xl font-bold uppercase tracking-wide text-[#347FCC] transition-colors hover:bg-white/90"
                 >
                   Get a Free Quote
                 </Link>
+                <span className="mt-4 inline-flex items-center justify-center gap-1.5 font-heading text-lg font-bold uppercase tracking-wide text-[#5fa3e6] transition-colors group-hover:text-white">
+                  Learn More
+                  <svg viewBox="0 0 24 24" fill="none" className="size-5" aria-hidden>
+                    <path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
               </div>
+              {/* stretched link: whole card → service page (quote button sits above via z-20) */}
+              <Link href={s.href} className="absolute inset-0 z-10" aria-label={`Learn more about ${s.title}`}>
+                <span className="sr-only">Learn more about {s.title}</span>
+              </Link>
             </div>
           ))}
         </div>

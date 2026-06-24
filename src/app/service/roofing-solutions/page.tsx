@@ -4,17 +4,15 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
-import { FloatingQuote } from "@/components/FloatingQuote";
 import { AssessmentBar } from "@/components/AssessmentBar";
 import { CtaStrip } from "@/components/CtaStrip";
 import { ServiceAreas } from "@/components/ServiceAreas";
-import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { FacebookIcon, GoogleIcon, StarIcon } from "@/components/icons";
 
 export const metadata: Metadata = {
-  title: "Roofing Solutions & Roof Replacement — Queensland Quality Roofing",
+  title: "Concrete Mixers & Agitators - Kingpin Engineering",
   description:
-    "Metal roofing, re-roofing, Decramastic tile to tin replacement, roof inspections and skylight replacement across Southeast Queensland.",
+    "New agitator drums from 6m³ to 16m³, replacement barrels, full refurbishment, and agitator and hydraulic motor rebuilds. Engineered, built and tested in-house.",
 };
 
 function RatingBadge({ icon }: { icon: React.ReactNode }) {
@@ -27,7 +25,9 @@ function RatingBadge({ icon }: { icon: React.ReactNode }) {
             <StarIcon key={i} className="size-3" />
           ))}
         </div>
-        <p className="mt-1 text-[11px] font-bold tracking-wide text-[#1e1e1e]">5.0 RATING</p>
+        <p className="mt-1 text-[11px] font-bold tracking-wide text-[#1e1e1e]">
+          5.0 RATING
+        </p>
       </div>
     </div>
   );
@@ -35,82 +35,158 @@ function RatingBadge({ icon }: { icon: React.ReactNode }) {
 
 function P({ dark, children }: { dark?: boolean; children: React.ReactNode }) {
   return (
-    <p className={cn("mt-4 text-[18px] leading-relaxed", dark ? "text-white/85" : "text-[#1e1e1e]")}>
+    <p
+      className={cn(
+        "mt-4 text-[18px] leading-relaxed",
+        dark ? "text-white/85" : "text-[#1e1e1e]",
+      )}
+    >
       {children}
     </p>
   );
 }
 
-function SubHead({ dark, children }: { dark?: boolean; children: React.ReactNode }) {
-  return (
-    <div className="mt-6 inline-block bg-gradient-to-r from-[#f6d9dd] to-transparent px-3 py-1.5">
-      <h3 className={cn("font-heading text-2xl font-bold uppercase", dark ? "text-[#1e1e1e]" : "text-[#1e1e1e]")}>
-        {children}
-      </h3>
-    </div>
-  );
-}
-
-function CtaWhite() {
+function CtaBlue() {
   return (
     <Link
       href="#quote"
-      className="mt-7 inline-block rounded-md bg-white px-8 py-3 font-heading text-lg font-bold uppercase tracking-wide text-[#c21d2f] shadow-[0_4px_20px_rgba(0,0,0,0.12)] transition-transform hover:scale-105"
+      className="mt-7 inline-block rounded-md bg-[#347FCC] px-8 py-3 font-heading text-lg font-bold uppercase tracking-wide text-white shadow-[0_4px_20px_rgba(52,127,204,0.25)] transition-transform hover:scale-105"
     >
       Get a Free Quote
     </Link>
   );
 }
 
-function ServiceSection({
-  dark,
-  media,
-  mediaSide = "right",
-  children,
-}: {
-  dark?: boolean;
-  media: React.ReactNode;
-  mediaSide?: "left" | "right";
-  children: React.ReactNode;
-}) {
+const WHAT_WE_DO = [
+  {
+    title: "New Agitator Drums",
+    body: "6m³ to 16m³, engineered and built from high-tensile, wear-resistant steel.",
+  },
+  {
+    title: "Replacement Barrels",
+    body: "Re-barrelling to get an existing truck back to work without a full rebuild.",
+  },
+  {
+    title: "Drum Refurbishment & Reconditioning",
+    body: "Replacing worn shells and blades, repairing cracks, re-balancing and re-coating.",
+  },
+  {
+    title: "Motor, Hydraulic & Pump Repairs",
+    body: "Drive motor rebuilds plus PMP, Rexroth and Eaton hydraulic systems supplied, fitted and repaired to keep your drum turning.",
+  },
+  {
+    title: "Roller Tracks & Support Frames",
+    body: "Replacement and repair of the running gear your drum rides on.",
+  },
+  {
+    title: "Chutes, Subframes & Spare Parts",
+    body: "Components to keep your fleet moving with minimal downtime.",
+  },
+];
+
+const PROCESS = [
+  {
+    icon: "/images/process/step-01.png",
+    title: "Process Engineering & Design",
+    body: "A full 3D model is built before any fabrication begins, so the geometry is right the first time.",
+  },
+  {
+    icon: "/images/process/step-02.png",
+    title: "CNC Plasma Cutting",
+    body: "Precise, repeatable cutting of shell plates and components.",
+  },
+  {
+    icon: "/images/process/step-03.png",
+    title: "Spiral Blade Rolling",
+    body: "In-house rolling of every blade to the correct pitch and spiral.",
+  },
+  {
+    icon: "/images/process/step-04.png",
+    title: "Drum Assembly & Welding",
+    body: "Assembled and welded to documented welding procedures.",
+  },
+  {
+    icon: "/images/process/step-05.png",
+    title: "Dynamic Balance Testing",
+    body: "Balanced to protect bearings, cut vibration and save fuel.",
+  },
+  {
+    icon: "/images/process/step-06.png",
+    title: "Sand Blasting",
+    body: "Surface prepared back to bare metal for maximum coating adhesion.",
+  },
+  {
+    icon: "/images/process/step-07.png",
+    title: "Epoxy Primer & Paint",
+    body: "Protective coating system, finished in your colours.",
+  },
+  {
+    icon: "/images/process/step-08.png",
+    title: "Water Capacity Testing",
+    body: "Verified capacity so you know exactly what you are carrying.",
+  },
+  {
+    icon: "/images/process/step-09.png",
+    title: "Quality Inspection",
+    body: "Final sign-off against specification before it leaves the floor.",
+  },
+  {
+    icon: "/images/process/step-10.png",
+    title: "Export Packing",
+    body: "Securely packed for transport anywhere in the world.",
+  },
+];
+
+const SPECS = [
+  { label: "Capacities", value: "6m³ to 16m³" },
+  { label: "Materials", value: "High-tensile, wear-resistant steel" },
+  { label: "Blade system", value: "In-house rolled spiral blades" },
+  { label: "Hydraulics", value: "PMP, Rexroth and Eaton options" },
+  { label: "Testing", value: "Dynamic balance and water capacity tested" },
+  { label: "Finish", value: "Sandblast, epoxy primer and topcoat" },
+];
+
+function CheckIcon({ className }: { className?: string }) {
   return (
-    <section className={cn("relative overflow-hidden", dark ? "bg-[#2a2a2a]" : "bg-topo")}>
-      {dark && (
-        <div className="absolute inset-0 opacity-10 [background:url('/images/portfolio-4.jpg')_center/cover]" />
-      )}
-      <div className="relative mx-auto grid max-w-[1320px] items-center gap-12 px-6 py-16 lg:grid-cols-2">
-        <div className={mediaSide === "left" ? "lg:order-1" : "lg:order-2"}>{media}</div>
-        <div className={mediaSide === "left" ? "lg:order-2" : "lg:order-1"}>{children}</div>
-      </div>
-    </section>
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      className={cn("size-7 text-[#347FCC]", className)}
+      aria-hidden
+    >
+      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" />
+      <path
+        d="m8 12 2.5 2.5L16 9"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
   );
 }
 
-const photo = (src: string, alt: string, ratio = "aspect-[4/3]") => (
-  <div className={cn("overflow-hidden rounded-2xl shadow-lg", ratio)}>
-    <Image src={src} alt={alt} width={620} height={465} className="h-full w-full object-cover" />
-  </div>
-);
-
-export default function RoofingSolutionsPage() {
+export default function ConcreteMixersPage() {
   return (
     <>
       <Nav />
       <main className="flex-1">
         {/* Hero */}
         <section className="bg-topo px-6 pt-[150px] pb-12 text-center">
-          <p className="font-heading text-xl font-bold uppercase tracking-wide text-[#c21d2f]">Services</p>
-          <h1 className="mt-1 font-heading text-5xl font-bold uppercase sm:text-6xl">
-            <span className="text-[#1e1e1e]">Roof</span>{" "}
-            <span className="text-[#c21d2f]">Replacement</span>
+          <p className="font-heading text-xl font-bold uppercase tracking-wide text-[#347FCC]">
+            Services
+          </p>
+          <h1 className="mx-auto mt-1 max-w-4xl font-heading text-5xl font-bold uppercase leading-[0.98] sm:text-6xl">
+            <span className="text-[#1e1e1e]">Concrete Mixers</span>{" "}
+            <span className="text-[#347FCC]">&amp; Agitators</span>
           </h1>
+          <p className="mx-auto mt-3 max-w-3xl font-heading text-lg font-bold uppercase tracking-wide text-[#1e1e1e]">
+            New Builds, Repairs &amp; Rebuilds
+          </p>
           <p className="mx-auto mt-5 max-w-3xl text-[18px] leading-relaxed text-[#1e1e1e]">
-            Welcome to the heart of Queensland Quality Roofing - where our expertise lies in roof
-            replacements. Whether you need a sleek metal roof replacement to bring life back to your
-            home, a Decramastic tile to tin roof replacement due to old age damages or wear and tear -
-            our expert team only uses the best materials available, precise installation and
-            coordinated project management to ensure every customer receives nothing but the best -
-            all backed by our 10-year warranty and installation guarantee.
+            New agitator drums from 6m&sup3; to 16m&sup3;, replacement barrels,
+            full refurbishment, and agitator and hydraulic motor rebuilds. We get
+            your mixer fleet off the bench and back pouring.
           </p>
           <div className="mt-8 flex justify-center gap-8">
             <RatingBadge icon={<GoogleIcon className="size-7" />} />
@@ -118,152 +194,194 @@ export default function RoofingSolutionsPage() {
           </div>
         </section>
 
-        {/* Assessment form */}
         <AssessmentBar overlap={false} />
 
-        {/* Metal Roofing — light, image right */}
-        <ServiceSection media={photo("/images/metal-roofing.png", "Metal Colorbond roofing")} mediaSide="right">
-          <h2 className="font-heading text-5xl font-bold uppercase">
-            <span className="text-[#c21d2f]">Metal</span> <span className="text-[#1e1e1e]">Roofing</span>
-          </h2>
-          <P>
-            We install premium Colorbond&reg; steel roofing engineered for Queensland&rsquo;s
-            subtropical climate - lightweight, corrosion-resistant and backed by our 10-year warranty +
-            Installation guarantee.
-          </P>
-          <SubHead>
-            <span className="text-[#1e1e1e]">Why </span>
-            <span className="text-[#c21d2f]">You Need</span>
-            <span className="text-[#1e1e1e]"> Metal Roofing</span>
-          </SubHead>
-          <P>
-            Metal roofing isn&rsquo;t just durable - it&rsquo;s smart. It reflects solar heat to slash
-            cooling bills, stands strong against hail, wind and fire, and delivers decades of virtually
-            maintenance-free protection.
-          </P>
-          <CtaWhite />
-        </ServiceSection>
+        {/* Engineered, Not Just Welded */}
+        <section className="bg-topo">
+          <div className="mx-auto grid max-w-[1320px] items-center gap-12 px-6 py-20 lg:grid-cols-2">
+            <div className="lg:order-2">
+              <div className="relative overflow-hidden rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.18)] aspect-[4/3]">
+                <Image
+                  src="/images/cesco-slide2-1.jpg"
+                  alt="Concrete agitator drum manufactured by Kingpin Engineering"
+                  width={620}
+                  height={465}
+                  className="h-full w-full object-cover"
+                />
+                <div className="absolute bottom-5 left-5 rounded-xl bg-white/95 px-5 py-3 shadow-lg backdrop-blur">
+                  <p className="font-heading text-3xl font-bold leading-none text-[#347FCC]">
+                    6&ndash;16m&sup3;
+                  </p>
+                  <p className="mt-1 text-xs font-bold uppercase tracking-wide text-[#666]">
+                    Built &amp; balanced in-house
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="lg:order-1">
+              <h2 className="font-heading text-5xl font-bold uppercase leading-[1.02]">
+                <span className="text-[#347FCC]">Engineered</span>
+                <span className="text-[#1e1e1e]">, Not Just Welded</span>
+              </h2>
+              <P>
+                A mixer drum is the hardest-working component on a concrete truck.
+                Get the spiral pitch wrong and you lose mix quality; get the
+                balance wrong and you destroy bearings and burn fuel.
+              </P>
 
-        {/* Brand strip */}
-        <section className="overflow-hidden border-y border-black/5 bg-white py-8">
-          <div className="mx-auto flex max-w-[1320px] flex-wrap items-center justify-center gap-x-12 gap-y-6 px-6">
-            {["brand-1", "brand-2", "brand-3", "brand-4", "brand-5", "brand-6"].map((b) => (
-              <Image key={b} src={`/images/${b}.png`} alt="Trusted roofing brand" width={150} height={56} className="h-12 w-auto object-contain" />
-            ))}
+              <div className="mt-7 w-full bg-gradient-to-r from-[#347FCC]/25 via-[#347FCC]/10 to-transparent py-2 pl-4 pr-10">
+                <h3 className="font-heading text-3xl font-bold uppercase leading-tight">
+                  <span className="text-[#1e1e1e]">Built To </span>
+                  <span className="text-[#347FCC]">Mix Clean</span>
+                  <span className="text-[#1e1e1e]"> &amp; Run Smooth</span>
+                </h3>
+              </div>
+
+              <P>
+                At Kingpin, every drum starts as a 3D CAD model, so the blade
+                geometry, shell thickness and discharge are right before a single
+                plate is cut. We roll our own spiral blades, weld to documented
+                procedures, then dynamic-balance and water-capacity test every
+                unit. The result is a drum that mixes to spec, runs smooth and
+                lasts.
+              </P>
+              <CtaBlue />
+            </div>
           </div>
         </section>
 
-        {/* Re-Roofing — dark, slider left */}
-        <ServiceSection
-          dark
-          mediaSide="left"
-          media={<BeforeAfterSlider before="/images/reroof-before.webp" after="/images/reroof-after.webp" />}
-        >
-          <p className="font-heading text-xl font-bold uppercase text-[#c21d2f]">Re-Roofing</p>
-          <h2 className="font-heading text-5xl font-bold uppercase">
-            <span className="text-[#c21d2f]">Fresh Roof</span>
-            <span className="text-white">, Fresh Start</span>
-          </h2>
-          <P dark>
-            When we replace your roof, we&rsquo;ll strip off the old sheet&rsquo;s, replace any damaged
-            timbers and underlay, and install durable Colorbond&reg; steel or premium tiles - finished
-            with precision flashings and backed by our 10-year workmanship guarantee.
-          </P>
-          <SubHead>
-            <span className="text-[#1e1e1e]">Why </span>
-            <span className="text-[#c21d2f]">You Need</span>
-            <span className="text-[#1e1e1e]"> a Roof Replacement</span>
-          </SubHead>
-          <P dark>
-            Old roofs can end up costing more than they protect. How many times can you place a bandaid
-            on a wound that needs stitches? A replacement stops leaks before they become disasters,
-            improves energy efficiency, boosts your home&rsquo;s value, and refreshes its look - all
-            while giving you decades of strong, low-maintenance protection.
-          </P>
-          <CtaWhite />
-        </ServiceSection>
+        {/* What We Do */}
+        <section className="bg-white py-20">
+          <div className="mx-auto max-w-[1320px] px-6">
+            <div className="text-center">
+              <p className="font-heading text-xl font-bold uppercase tracking-wide text-[#347FCC]">
+                What We Do
+              </p>
+              <h2 className="mx-auto mt-1 max-w-3xl font-heading text-4xl font-bold uppercase sm:text-5xl">
+                <span className="text-[#1e1e1e]">From new drums to </span>
+                <span className="text-[#347FCC]">full rebuilds</span>
+              </h2>
+            </div>
 
-        {/* Decramastic — light, slider right */}
-        <ServiceSection
-          mediaSide="right"
-          media={<BeforeAfterSlider before="/images/decra-before.webp" after="/images/decra-after.webp" />}
-        >
-          <h2 className="font-heading text-5xl font-bold uppercase leading-[1.02]">
-            <span className="text-[#1e1e1e]">Decramastic Tile to Tin</span>
-            <br />
-            <span className="text-[#c21d2f]">Roof Replacement</span>
-          </h2>
-          <P>
-            Transform your old, heavy Decramastic Tiled roof into a sleek, modern Colorbond&reg; steel
-            roof. Engineered for Queensland&rsquo;s tough climate, giving you a lighter, stronger, and
-            longer-lasting roof - backed by our 10-year warranty + Installation guarantee.
-          </P>
-          <SubHead>
-            <span className="text-[#c21d2f]">Why Choose</span>
-            <span className="text-[#1e1e1e]"> Decramastic Tile to Tin?</span>
-          </SubHead>
-          <P>
-            Decramastic Tile roofs age fast - they crack, absorb water, and demand constant upkeep. A
-            metal replacement not only slashes maintenance but also improves energy efficiency, boosts
-            storm resistance, and instantly modernises the look of your home. The result? A roof that
-            protects better, looks sharper, and lasts for decades.
-          </P>
-          <CtaWhite />
-        </ServiceSection>
+            <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {WHAT_WE_DO.map((item) => (
+                <div
+                  key={item.title}
+                  className="flex gap-4 rounded-2xl bg-topo p-7 shadow-sm"
+                >
+                  <CheckIcon className="mt-0.5 size-8 shrink-0" />
+                  <div>
+                    <h3 className="font-heading text-xl font-bold uppercase leading-tight text-[#1e1e1e]">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 text-[15px] leading-relaxed text-[#444]">
+                      {item.body}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Our Manufacturing Process */}
+        <section className="relative scroll-mt-24 overflow-hidden py-24">
+          <div className="absolute inset-0 [background:url('/images/process-bg.jpg')_center/cover]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0c0f14]/95 via-[#0c0f14]/82 to-[#0c0f14]/96" />
+          <div className="relative mx-auto max-w-[1320px] px-6">
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="font-heading text-xl font-bold uppercase tracking-wide text-[#5fa3e6]">
+                Our Manufacturing Process
+              </p>
+              <h2 className="mt-1 font-heading text-4xl font-bold uppercase text-white drop-shadow sm:text-5xl">
+                Built to <span className="text-[#5fa3e6]">OEM standard</span>,
+                step by step
+              </h2>
+              <p className="mt-5 text-[17px] leading-relaxed text-white/80">
+                Ten controlled stages take a drum from a 3D model to a tested,
+                painted, export-ready unit - the same discipline the major
+                OEMs run, under one roof.
+              </p>
+            </div>
+
+            <ol className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+              {PROCESS.map((step, i) => (
+                <li
+                  key={step.title}
+                  className="group relative overflow-hidden rounded-2xl border border-white/15 bg-white/[0.07] p-6 shadow-[0_8px_30px_rgba(0,0,0,0.35)] backdrop-blur-md transition-all duration-200 hover:-translate-y-1 hover:border-[#5fa3e6]/70 hover:bg-white/[0.12]"
+                >
+                  <span className="pointer-events-none absolute -right-1 -top-4 select-none font-heading text-[5.5rem] font-bold leading-none text-white/10">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div className="relative">
+                    <Image
+                      src={step.icon}
+                      alt=""
+                      width={120}
+                      height={120}
+                      className="size-14 object-contain [filter:brightness(0)_invert(1)]"
+                    />
+                    <span className="mt-5 block h-px w-10 bg-[#5fa3e6]" />
+                    <h3 className="mt-4 font-heading text-xl font-bold uppercase leading-tight text-white">
+                      {step.title}
+                    </h3>
+                    <p className="mt-2 text-[13.5px] leading-relaxed text-white/75">
+                      {step.body}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {/* Sizes & Specifications */}
+        <section className="bg-topo py-20">
+          <div className="mx-auto grid max-w-[1320px] items-center gap-12 px-6 lg:grid-cols-2">
+            <div className="overflow-hidden shadow-lg aspect-[4/3]">
+              <Image
+                src="/images/hero-mixer-3.jpg"
+                alt="Kingpin Engineering concrete agitator drum mounted on a truck chassis"
+                width={620}
+                height={465}
+                className="h-full w-full object-cover"
+              />
+            </div>
+            <div>
+              <p className="font-heading text-xl font-bold uppercase tracking-wide text-[#347FCC]">
+                Sizes &amp; Specifications
+              </p>
+              <h2 className="mt-1 font-heading text-4xl font-bold uppercase leading-[1.02] sm:text-5xl">
+                <span className="text-[#1e1e1e]">Engineered to </span>
+                <span className="text-[#347FCC]">your requirement</span>
+              </h2>
+
+              <dl className="mt-8 divide-y divide-black/10 border-y border-black/10">
+                {SPECS.map((spec) => (
+                  <div
+                    key={spec.label}
+                    className="flex flex-col gap-1 py-4 sm:flex-row sm:items-baseline sm:gap-6"
+                  >
+                    <dt className="w-44 shrink-0 font-heading text-sm font-bold uppercase tracking-wide text-[#347FCC]">
+                      {spec.label}
+                    </dt>
+                    <dd className="text-[17px] text-[#1e1e1e]">{spec.value}</dd>
+                  </div>
+                ))}
+              </dl>
+
+              <p className="mt-6 text-[17px] leading-relaxed text-[#1e1e1e]">
+                Need a size or spec not listed? We engineer to your requirement.
+              </p>
+              <CtaBlue />
+            </div>
+          </div>
+        </section>
 
         <CtaStrip />
-
-        {/* Roof Inspections — light, image right */}
-        <ServiceSection media={photo("/images/inspections.webp", "Roof inspection and health check")} mediaSide="right">
-          <h2 className="font-heading text-5xl font-bold uppercase leading-[1.02]">
-            <span className="text-[#1e1e1e]">Roof Inspections</span>{" "}
-            <span className="text-[#c21d2f]">&amp; Health Checks</span>
-          </h2>
-          <P>
-            Keep your roof performing at its best with our thorough inspections and health checks. Our
-            technicians inspect tiles, flashings, gutters, underlay and timbers, test for leaks and
-            blockages, and deliver a straightforward report so you can address any issues before they
-            worsen.
-          </P>
-          <SubHead>
-            <span className="text-[#1e1e1e]">Why </span>
-            <span className="text-[#c21d2f]">You Need</span>
-            <span className="text-[#1e1e1e]"> Regular Inspections</span>
-          </SubHead>
-          <P>
-            A proactive roof check uncovers hidden damage, keeps your warranties and insurance valid,
-            and lets you plan repairs early&mdash;saving you money and giving you complete peace of mind.
-          </P>
-          <CtaWhite />
-        </ServiceSection>
-
-        {/* Skylight — dark, image left */}
-        <ServiceSection dark mediaSide="left" media={photo("/images/skylight.webp", "Skylight replacement")}>
-          <h2 className="font-heading text-5xl font-bold uppercase">
-            <span className="text-[#c21d2f]">Skylight</span> <span className="text-white">Replacement</span>
-          </h2>
-          <P dark>
-            Enhance your living spaces with our skylight replacement service. We remove outdated or
-            leaking units, install premium energy-efficient skylights complete with new flashings and
-            seals, and back our work with a 10-year workmanship guarantee.
-          </P>
-          <SubHead>
-            <span className="text-[#1e1e1e]">Why </span>
-            <span className="text-[#c21d2f]">You Need</span>
-            <span className="text-[#1e1e1e]"> Skylight Replacement</span>
-          </SubHead>
-          <P dark>
-            Old skylights can fog, leak or let heat escape&mdash;upgrading restores clear natural light,
-            prevents water ingress and drafts, and boosts your home&rsquo;s energy efficiency for years
-            to come.
-          </P>
-          <CtaWhite />
-        </ServiceSection>
-
         <ServiceAreas />
         <Footer />
       </main>
-      <FloatingQuote />
     </>
   );
 }
