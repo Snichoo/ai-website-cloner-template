@@ -36,9 +36,9 @@ const interFont = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Roofing Services in Brisbane & Queensland - Trusted",
+  title: "Kingpin Engineering - OEM Concrete Mixers & Custom Heavy Fabrication",
   description:
-    "Top-quality roofing in Brisbane. From inspections to replacements, we ensure your roof looks great & withstands QLD's weather.",
+    "Adelaide's premier OEM concrete mixer manufacturer and custom heavy fabricator. Concrete agitators, skip bins, CNC plasma cutting, custom fabrication and repairs across South Australia.",
   manifest: "/site.webmanifest",
   icons: {
     icon: [
@@ -49,9 +49,10 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Roofing Services in Brisbane & Queensland - Trusted",
+    title: "Kingpin Engineering - OEM Concrete Mixers & Custom Heavy Fabrication",
     description:
-      "Top-quality roofing in Brisbane. From inspections to replacements, we ensure your roof looks great & withstands QLD's weather.",
+      "Adelaide's premier OEM concrete mixer manufacturer and custom heavy fabricator. Concrete agitators, skip bins, CNC plasma cutting, custom fabrication and repairs across South Australia.",
+    siteName: "Kingpin Engineering",
     images: ["/images/og-image.png"],
     type: "website",
   },

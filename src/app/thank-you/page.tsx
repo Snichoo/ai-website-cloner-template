@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Thanks - Beacon X Digital",
+  title: "Thanks - Kingpin Engineering",
   description: "We received your booking request and will be in touch within one business day.",
   robots: { index: false, follow: false },
 };
