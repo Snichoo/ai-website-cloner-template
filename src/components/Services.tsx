@@ -6,7 +6,7 @@ const SERVICES = [
   {
     title: "Concrete Mixers & Agitators",
     image: "/images/slide2-1.jpg",
-    href: "/service/roofing-solutions",
+    href: "/service/concrete-mixers",
     description:
       "New drums, drum repairs, agitator and hydraulic motor repairs. We get your mixer fleet off the bench and back pouring.",
   },

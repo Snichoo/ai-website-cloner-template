@@ -20,7 +20,7 @@ type NavLink = {
 };
 
 const SERVICE_LINKS = [
-  { label: "Concrete Mixers & Agitators", href: "/service/roofing-solutions" },
+  { label: "Concrete Mixers & Agitators", href: "/service/concrete-mixers" },
   { label: "Skip Bins & Waste Bodies", href: "/service/skip-bins" },
   { label: "CNC Plasma Cutting & Bending", href: "/service/cnc-plasma-cutting" },
   { label: "Custom Fabrication & Welding", href: "/service/custom-fabrication" },

@@ -36,6 +36,11 @@ const interFont = Inter({
 });
 
 export const metadata: Metadata = {
+  // Set NEXT_PUBLIC_SITE_URL in the environment once the domain is live so that
+  // OpenGraph/Twitter image paths resolve to absolute URLs for link previews.
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://kingpinengineering.com.au",
+  ),
   title: "Kingpin Engineering - OEM Concrete Mixers & Custom Heavy Fabrication",
   description:
     "Adelaide's premier OEM concrete mixer manufacturer and custom heavy fabricator. Concrete agitators, skip bins, CNC plasma cutting, custom fabrication and repairs across South Australia.",
