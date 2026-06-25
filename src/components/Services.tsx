@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
+import { QuoteButton } from "@/components/QuoteButton";
 
 const SERVICES = [
   {
@@ -66,12 +67,7 @@ export function Services() {
                 <p className="mt-4 flex-1 text-[15px] font-medium leading-relaxed text-white/90">
                   {s.description}
                 </p>
-                <Link
-                  href="#quote"
-                  className="relative z-20 mt-8 inline-block rounded-md bg-white px-4 py-2 text-center font-heading text-xl font-bold uppercase tracking-wide text-[#347FCC] transition-colors hover:bg-white/90"
-                >
-                  Get a Free Quote
-                </Link>
+                <QuoteButton className="relative z-20 mt-8 inline-block rounded-md bg-white px-4 py-2 text-center font-heading text-xl font-bold uppercase tracking-wide text-[#347FCC] transition-colors hover:bg-white/90" />
                 <span className="mt-4 inline-flex items-center justify-center gap-1.5 font-heading text-lg font-bold uppercase tracking-wide text-[#5fa3e6] transition-colors group-hover:text-white">
                   Learn More
                   <svg viewBox="0 0 24 24" fill="none" className="size-5" aria-hidden>
