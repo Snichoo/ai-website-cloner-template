@@ -52,9 +52,9 @@ export function ServiceAreas() {
               <span className="text-white">Areas</span>
             </h2>
             <p className="mt-4 max-w-lg text-[18px] leading-relaxed text-white/85">
-              Kingpin Engineering services workshops, fleets and contractors
-              across South Australia, with fabrication and repair support for
-              Adelaide metro and regional SA.
+              Kingpin Engineering serves these areas across South Australia,
+              with fabrication and repair support for Adelaide metro and
+              regional SA.
             </p>
           </Reveal>
 

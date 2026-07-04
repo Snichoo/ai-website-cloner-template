@@ -43,6 +43,30 @@ const REVIEWS: { name: string; text: string; platform: Platform; color: string }
     platform: "google",
     color: "#d4830f",
   },
+  {
+    name: "Ravee",
+    text: "Kingpin rebuilt the hydraulic drive on our mixer and sorted the Danfoss motor when no one else would touch it. Back turning within days and running smoother than ever. Genuine, straight-up team.",
+    platform: "google",
+    color: "#1a3a6b",
+  },
+  {
+    name: "Varun",
+    text: "Ordered a custom agitator drum and the finish is spot on - 3D designed, balanced and tested before it left the workshop. Communication was clear the whole way through. Highly recommend Kingpin.",
+    platform: "google",
+    color: "#22a447",
+  },
+  {
+    name: "Kalal",
+    text: "Had a cracked subframe and worn roller tracks repaired on short notice. Kingpin got us back on the road fast and the workmanship is heavy-duty. Fair pricing and no mucking around.",
+    platform: "facebook",
+    color: "#8a6d5a",
+  },
+  {
+    name: "Lenett",
+    text: "Crown Concrete has used Kingpin Engineering across our fleet - drum refurbishments, pump repairs and general fabrication. Reliable, quick turnaround and proper engineering every time. Couldn't ask for better.",
+    platform: "google",
+    color: "#347FCC",
+  },
 ];
 
 function PlatformIcon({ platform }: { platform: Platform }) {

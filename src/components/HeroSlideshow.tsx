@@ -6,7 +6,7 @@ import Image from "next/image";
 const SLIDES = [
   "/images/hero-mixer-1.jpg",
   "/images/skip-bins-built.jpg",
-  "/images/hero-mixer-3.jpg",
+  "/images/mixer-daytime-v2.jpg",
 ];
 
 const INTERVAL = 5000;

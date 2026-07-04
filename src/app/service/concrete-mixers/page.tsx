@@ -73,7 +73,7 @@ const WHAT_WE_DO = [
   },
   {
     title: "Motor, Hydraulic & Pump Repairs",
-    body: "Drive motor rebuilds plus PMP, Rexroth and Eaton hydraulic systems supplied, fitted and repaired to keep your drum turning.",
+    body: "Drive motor rebuilds plus Danfoss, PMP, Rexroth and Eaton hydraulic systems supplied, fitted and repaired to keep your drum turning.",
   },
   {
     title: "Roller Tracks & Support Frames",
@@ -142,7 +142,7 @@ const SPECS = [
   { label: "Capacities", value: "6m³ to 16m³" },
   { label: "Materials", value: "High-tensile, wear-resistant steel" },
   { label: "Blade system", value: "In-house rolled spiral blades" },
-  { label: "Hydraulics", value: "PMP, Rexroth and Eaton options" },
+  { label: "Hydraulics", value: "Danfoss, PMP, Rexroth and Eaton options" },
   { label: "Testing", value: "Dynamic balance and water capacity tested" },
   { label: "Finish", value: "Sandblast, epoxy primer and topcoat" },
 ];
@@ -214,13 +214,35 @@ export default function ConcreteMixersPage() {
           <Reveal as="div" className="mx-auto grid max-w-[1320px] items-center gap-12 px-6 py-20 lg:grid-cols-2">
             <div className="lg:order-2">
               <div className="relative overflow-hidden rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.18)] aspect-[4/3]">
-                <Image
-                  src="/images/cesco-slide2-1.jpg"
-                  alt="Concrete agitator drum manufactured by Kingpin Engineering"
-                  width={620}
-                  height={465}
-                  className="h-full w-full object-cover"
-                />
+                <div className="grid h-full w-full grid-cols-2 grid-rows-2 gap-1.5 bg-white">
+                  <div className="relative row-span-2">
+                    <Image
+                      src="/images/collage-drum-welding.jpg"
+                      alt="Welder fabricating a large steel drum shell in the Kingpin Engineering workshop"
+                      fill
+                      sizes="(min-width: 1024px) 320px, 50vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="relative">
+                    <Image
+                      src="/images/collage-workshop-cones.jpg"
+                      alt="Steel agitator drum cones fabricated at Kingpin Engineering"
+                      fill
+                      sizes="(min-width: 1024px) 320px, 50vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="relative">
+                    <Image
+                      src="/images/collage-steel-plates.jpg"
+                      alt="Precision-cut and rolled steel plates ready for drum fabrication"
+                      fill
+                      sizes="(min-width: 1024px) 320px, 50vw"
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
                 <div className="absolute bottom-5 left-5 rounded-xl bg-white/95 px-5 py-3 shadow-lg backdrop-blur">
                   <p className="font-heading text-3xl font-bold leading-none text-[#347FCC]">
                     6-16m&sup3;
@@ -353,7 +375,7 @@ export default function ConcreteMixersPage() {
           <Reveal as="div" className="mx-auto grid max-w-[1320px] items-center gap-12 px-6 lg:grid-cols-2">
             <div className="overflow-hidden shadow-lg aspect-[4/3]">
               <Image
-                src="/images/hero-mixer-3.jpg"
+                src="/images/mixer-daytime-v2.jpg"
                 alt="Kingpin Engineering concrete agitator drum mounted on a truck chassis"
                 width={620}
                 height={465}

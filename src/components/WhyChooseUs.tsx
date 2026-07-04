@@ -97,7 +97,7 @@ export function WhyChooseUs() {
           </div>
           <div className="mt-[-1px] bg-[#347FCC] px-5 py-3">
             <h3 className="font-heading text-2xl font-bold uppercase text-white">
-              John Smith - Director, Nominee Supervisor
+              Director, Nominee Supervisor
             </h3>
           </div>
         </Reveal>

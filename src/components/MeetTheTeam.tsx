@@ -10,8 +10,8 @@ export function MeetTheTeam() {
           <Image
             src="/images/kingpin-engineering-logo.png"
             alt=""
-            width={1220}
-            height={400}
+            width={1309}
+            height={319}
             className="pointer-events-none absolute inset-x-6 top-10 z-0 w-[85%] opacity-10"
           />
           <div className="absolute left-6 top-6 z-10 rounded-full bg-black/30 px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
@@ -19,7 +19,7 @@ export function MeetTheTeam() {
           </div>
           <Image
             src="/images/john-smith-director.png"
-            alt="John Smith, Director and Nominee Supervisor at Kingpin Engineering."
+            alt="Director and Nominee Supervisor at Kingpin Engineering."
             width={1122}
             height={1402}
             className="relative z-[5] h-full w-full object-cover"
@@ -46,7 +46,7 @@ export function MeetTheTeam() {
 
           <div className="mt-6 inline-block bg-gradient-to-r from-[#cfe6ff] via-[#eef7ff] to-transparent px-4 py-1.5">
             <h3 className="font-heading text-2xl font-bold uppercase text-[#1e1e1e]">
-              <span>Meet John Smith - </span>
+              <span>Meet Our </span>
               <span className="text-[#347FCC]">Founder &amp; Director</span>
             </h3>
           </div>

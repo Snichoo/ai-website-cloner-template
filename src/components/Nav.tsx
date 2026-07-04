@@ -102,7 +102,7 @@ export function Nav() {
 
           {/* Mobile logo + toggle */}
           <Link href="/" className="mr-auto lg:hidden">
-            <Image src="/images/kingpin-engineering-logo.png" alt="Kingpin Engineering" width={1220} height={400} priority className="h-10 w-auto" />
+            <Image src="/images/kingpin-engineering-logo.png" alt="Kingpin Engineering" width={1309} height={319} priority className="h-10 w-auto" />
           </Link>
           <button className="text-white lg:hidden" aria-label="Open menu" onClick={() => setOpen((v) => !v)}>
             {open ? <CloseIcon className="size-7" /> : <MenuIcon className="size-7" />}
@@ -117,8 +117,8 @@ export function Nav() {
           <Image
             src="/images/kingpin-engineering-logo.png"
             alt="Kingpin Engineering"
-            width={1220}
-            height={400}
+            width={1309}
+            height={319}
             priority
             className="h-[88px] w-auto"
           />

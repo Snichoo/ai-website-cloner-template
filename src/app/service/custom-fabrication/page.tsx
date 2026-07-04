@@ -180,7 +180,44 @@ export default function CustomFabricationPage() {
         <section className="bg-topo">
           <Reveal as="div" className="mx-auto grid max-w-[1320px] items-center gap-12 px-6 py-20 lg:grid-cols-2">
             <div className="lg:order-2">
-              {photo("/images/built-to-your-design.jpg", "Custom steel part built to a customer's design at Kingpin Engineering")}
+              <div className="grid aspect-[4/3] grid-cols-2 grid-rows-2 gap-1.5 overflow-hidden bg-white shadow-lg">
+                <div className="relative">
+                  <Image
+                    src="/images/built-to-your-design.jpg"
+                    alt="Custom steel part built to a customer's design at Kingpin Engineering"
+                    fill
+                    sizes="(min-width: 1024px) 320px, 50vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="relative">
+                  <Image
+                    src="/images/collage-drum-welding.jpg"
+                    alt="Welder fabricating a large steel drum shell in the Kingpin Engineering workshop"
+                    fill
+                    sizes="(min-width: 1024px) 320px, 50vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="relative">
+                  <Image
+                    src="/images/collage-steel-plates.jpg"
+                    alt="Precision-cut and rolled steel plates ready for fabrication"
+                    fill
+                    sizes="(min-width: 1024px) 320px, 50vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="relative">
+                  <Image
+                    src="/images/collage-workshop-cones.jpg"
+                    alt="Steel cones and heavy fabrication work in the Kingpin Engineering workshop"
+                    fill
+                    sizes="(min-width: 1024px) 320px, 50vw"
+                    className="object-cover"
+                  />
+                </div>
+              </div>
             </div>
             <div className="lg:order-1">
               <h2 className="font-heading text-5xl font-bold uppercase leading-[1.02]">

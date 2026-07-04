@@ -40,7 +40,7 @@ export function Hero() {
             className="reveal-up mt-6 max-w-lg font-sans text-[18px] font-normal leading-[1.3] text-black"
             style={{ animationDelay: "160ms" }}
           >
-            From complete 16m&sup3; AS-Compliant Concrete Agitators and Export
+            From complete 7m&sup3; to 9m&sup3; AS-Compliant Concrete Agitators and Export
             CKD Kits, to Custom Skip Bins and Heavy CNC Plasma Processing.{" "}
             <strong className="font-bold">
               Engineered to perform. Built to last.

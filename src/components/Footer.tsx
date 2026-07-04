@@ -22,15 +22,15 @@ export function Footer() {
   return (
     <footer className="text-white">
       <div className="bg-[#1e1e1e]">
-        <Reveal as="div" className="mx-auto grid max-w-[1320px] gap-10 px-6 py-12 md:grid-cols-2 lg:grid-cols-[1.1fr_0.7fr_1.2fr_0.9fr_1.1fr] lg:py-16">
+        <Reveal as="div" className="mx-auto grid max-w-[1320px] gap-10 px-6 py-12 md:grid-cols-2 lg:grid-cols-[1.1fr_0.7fr_1.2fr_1.1fr] lg:py-16">
           <div>
-            <div className="inline-flex items-center justify-center rounded-lg bg-[#347FCC] px-8 py-8">
+            <div className="flex max-w-60 items-center justify-center rounded-lg bg-[#347FCC] p-6">
               <Image
                 src="/images/kingpin-engineering-logo.png"
                 alt="Kingpin Engineering"
-                width={1220}
-                height={400}
-                className="h-16 w-auto"
+                width={1309}
+                height={319}
+                className="h-auto w-full"
               />
             </div>
             <p className="mt-5 max-w-xs text-lg font-medium leading-relaxed text-white/78">
@@ -68,16 +68,6 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
-            </ul>
-          </div>
-
-          <div>
-            <p className="font-heading text-3xl font-bold uppercase">Details</p>
-            <ul className="mt-5 space-y-3 text-lg text-white/82">
-              <li>SA Builder Ref: KE-72841</li>
-              <li>ABN: 72 418 906 537</li>
-              <li>Public Liability: PL-9048-22716</li>
-              <li>Workshop ID: KP-316502</li>
             </ul>
           </div>
 
