@@ -2,6 +2,7 @@ import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
 import { AssessmentBar } from "@/components/AssessmentBar";
 import { Reviews } from "@/components/Reviews";
+import { OurWorkInAction } from "@/components/OurWorkInAction";
 import { MeetTheTeam } from "@/components/MeetTheTeam";
 import { CtaStrip } from "@/components/CtaStrip";
 import { WhyChooseUs } from "@/components/WhyChooseUs";
@@ -23,8 +24,9 @@ export default function Home() {
         <MeetTheTeam />
         <WhyChooseUs />
         <ValuesStrip />
-        <ServiceAreas />
+        <OurWorkInAction />
         <CtaStrip />
+        <ServiceAreas />
         <Faq />
         <Footer />
       </main>
