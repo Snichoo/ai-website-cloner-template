@@ -42,18 +42,6 @@ const slides: Slide[] = [
       },
     ],
   },
-  {
-    hero: {
-      src: "/images/gallery/gallery-1.jpeg",
-      alt: "Agi-Drive concrete agitator control panel and wireless remote control.",
-    },
-    right: [
-      {
-        src: "/images/gallery/gallery-4.jpeg",
-        alt: "Netcorp WM01 water flow meter fitted to a concrete agitator.",
-      },
-    ],
-  },
 ];
 
 function ChevronIcon({ direction }: { direction: "left" | "right" }) {

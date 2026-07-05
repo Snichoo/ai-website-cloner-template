@@ -319,6 +319,73 @@ export default function ConcreteMixersPage() {
           </Reveal>
         </section>
 
+        {/* Smart Controls & Precision Metering */}
+        <section className="bg-topo py-20">
+          <Reveal as="div" className="mx-auto max-w-[1320px] px-6">
+            <div className="text-center">
+              <p className="font-heading text-xl font-bold uppercase tracking-wide text-[#347FCC]">
+                Smart Controls &amp; Precision Metering
+              </p>
+              <h2 className="mx-auto mt-1 max-w-3xl font-heading text-4xl font-bold uppercase sm:text-5xl">
+                <span className="text-[#1e1e1e]">Every drum, </span>
+                <span className="text-[#347FCC]">dialled in</span>
+              </h2>
+              <p className="mx-auto mt-5 max-w-2xl text-[17px] leading-relaxed text-[#1e1e1e]">
+                Our agitators are fitted with proven in-cab control and water
+                metering hardware, so operators get accurate, repeatable mixes
+                load after load.
+              </p>
+            </div>
+
+            <div className="mt-12 grid gap-6 md:grid-cols-2">
+              <div className="overflow-hidden rounded-2xl bg-white shadow-[0_12px_40px_rgba(0,0,0,0.08)]">
+                <div className="relative aspect-[16/9] w-full bg-white">
+                  <Image
+                    src="/images/gallery/gallery-1.jpeg"
+                    alt="Agi-Drive concrete agitator control panel and wireless remote control."
+                    fill
+                    sizes="(min-width: 768px) 640px, 100vw"
+                    className="object-contain p-4"
+                  />
+                </div>
+                <div className="border-t border-black/5 p-7">
+                  <h3 className="font-heading text-2xl font-bold uppercase leading-tight text-[#1e1e1e]">
+                    Agi-Drive Control System
+                  </h3>
+                  <p className="mt-3 text-[15px] leading-relaxed text-[#444]">
+                    In-cab panel and wireless remote give the operator full
+                    command of the drum &mdash; mix, transit, discharge, revs and
+                    chute &mdash; with live oil-temperature and status readouts
+                    for safe, precise pours.
+                  </p>
+                </div>
+              </div>
+
+              <div className="overflow-hidden rounded-2xl bg-white shadow-[0_12px_40px_rgba(0,0,0,0.08)]">
+                <div className="relative aspect-[16/9] w-full bg-white">
+                  <Image
+                    src="/images/gallery/gallery-4.jpeg"
+                    alt="Netcorp WM01 water flow meter fitted to a concrete agitator."
+                    fill
+                    sizes="(min-width: 768px) 640px, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="border-t border-black/5 p-7">
+                  <h3 className="font-heading text-2xl font-bold uppercase leading-tight text-[#1e1e1e]">
+                    Netcorp Water Metering
+                  </h3>
+                  <p className="mt-3 text-[15px] leading-relaxed text-[#444]">
+                    The Netcorp WM01 flow meter doses water to the litre, so every
+                    batch hits the correct water-to-mix ratio &mdash; no
+                    guesswork, no over-watering, consistent slump every load.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        </section>
+
         {/* Our Manufacturing Process */}
         <section className="relative scroll-mt-24 overflow-hidden py-24">
           <div className="absolute inset-0 [background:url('/images/process-bg.jpg')_center/cover]" />
