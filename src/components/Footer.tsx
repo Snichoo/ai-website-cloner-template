@@ -37,6 +37,9 @@ export function Footer() {
               Heavy fabrication, concrete mixer manufacturing and workshop
               repairs for serious equipment.
             </p>
+            <p className="mt-5 font-heading text-sm font-bold uppercase tracking-wide text-[#347FCC]">
+              Proudly Australian Owned &amp; Manufactured
+            </p>
           </div>
 
           <div>
@@ -138,7 +141,9 @@ export function Footer() {
       </div>
 
       <div className="bg-[#141422]">
-        <div className="mx-auto flex max-w-[1320px] items-center justify-center px-6 py-5 text-center text-sm text-white/65">
+        <div className="mx-auto flex max-w-[1320px] flex-col items-center justify-center gap-1.5 px-6 py-5 text-center text-sm text-white/65 sm:flex-row sm:gap-3">
+          <p className="font-semibold text-white/85">Proudly Australian Owned &amp; Manufactured</p>
+          <span className="hidden text-white/35 sm:inline">|</span>
           <p>Kingpin Engineering ABN: 72 418 906 537</p>
         </div>
       </div>
