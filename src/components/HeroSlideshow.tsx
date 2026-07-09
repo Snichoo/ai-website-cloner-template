@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const SLIDES = [
   "/images/hero-mixer-1.jpg",
-  "/images/skip-bins-built.jpg",
+  "/images/skip-bins-built.png",
   "/images/mixer-daytime-v2.jpg",
 ];
 

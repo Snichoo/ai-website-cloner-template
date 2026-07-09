@@ -37,8 +37,52 @@ const slides: Slide[] = [
         alt: "Diesel engine and hydraulic pump power pack built into a caged trailer skid.",
       },
       {
-        src: "/images/gallery/gallery-3.jpeg",
-        alt: "Rear truck fit-out with yellow guard rails and integrated tail-light on a concrete agitator.",
+        src: "/images/gallery/gallery-14.jpeg",
+        alt: "Side view of a white custom tray with enclosed toolboxes and mesh ladder rack shelf.",
+      },
+    ],
+  },
+  {
+    hero: {
+      src: "/images/gallery/gallery-11.jpeg",
+      alt: "Freshly painted white custom tray body with overhead ladder rack fitted to a light truck.",
+    },
+    right: [
+      {
+        src: "/images/gallery/gallery-13.jpeg",
+        alt: "Fuso Canter fitted with a custom white steel tray and full-length ladder rack.",
+      },
+      {
+        src: "/images/gallery/gallery-12.jpeg",
+        alt: "Rear view of a custom white tray build with drop sides and integrated tail-lights.",
+      },
+    ],
+  },
+  {
+    hero: {
+      src: "/images/gallery/gallery-16.jpeg",
+      alt: "Freshly painted blue steel access staircase standing in the Kingpin workshop.",
+    },
+    right: [
+      {
+        src: "/images/gallery/gallery-15.jpeg",
+        alt: "Blue steel mezzanine staircase with checker-plate treads installed on site.",
+      },
+      {
+        src: "/images/gallery/gallery-17.jpeg",
+        alt: "Blue forklift safety cage with checker-plate floor fabricated by Kingpin Engineering.",
+      },
+    ],
+  },
+  {
+    hero: {
+      src: "/images/gallery/gallery-9.jpeg",
+      alt: "Close-up of orange safety guard grates and stainless tail-light panel on a truck rear.",
+    },
+    right: [
+      {
+        src: "/images/gallery/gallery-10.jpeg",
+        alt: "Heavy steel hopper chute weldment under fabrication in the workshop.",
       },
     ],
   },

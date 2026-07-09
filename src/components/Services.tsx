@@ -13,7 +13,7 @@ const SERVICES = [
   },
   {
     title: "Skip Bins & Waste Bodies",
-    image: "/images/skip-bin-card.jpg",
+    image: "/images/skip-bins-built.png",
     href: "/service/skip-bins",
     description:
       "Custom-built skip bins to suit your truck - Marrel, hook-lift and more. Plus fast repairs on damaged bins.",

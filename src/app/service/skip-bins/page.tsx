@@ -184,7 +184,7 @@ export default function SkipBinsPage() {
         <section className="bg-topo">
           <Reveal as="div" className="mx-auto grid max-w-[1320px] items-center gap-12 px-6 py-20 lg:grid-cols-2">
             <div className="lg:order-2">
-              {photo("/images/skip-bins-built.jpg", "Heavy-duty skip bin built by Kingpin Engineering")}
+              {photo("/images/skip-bins-built.png", "Heavy-duty skip bin built by Kingpin Engineering")}
             </div>
             <div className="lg:order-1">
               <h2 className="font-heading text-5xl font-bold uppercase leading-[1.02]">
