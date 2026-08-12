@@ -1,24 +1,14 @@
+import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
+import { ADDRESS, ADDRESS_QUERY, mapEmbedUrl } from "@/lib/site";
+import { SUBURBS, suburbPath } from "@/lib/suburbs";
 
-const AREAS = [
-  "Adelaide",
-  "Port Adelaide",
-  "Elizabeth",
-  "Salisbury",
-  "Gawler",
-  "Mount Barker",
-  "Murray Bridge",
-  "Victor Harbor",
-  "Whyalla",
-  "Mount Gambier",
-];
-
-function PinIcon() {
+function PinIcon({ active }: { active?: boolean }) {
   return (
     <svg
       viewBox="0 0 24 24"
       fill="none"
-      stroke="#347FCC"
+      stroke={active ? "#ffffff" : "#347FCC"}
       strokeWidth="1.5"
       className="size-5"
       aria-hidden
@@ -29,7 +19,9 @@ function PinIcon() {
   );
 }
 
-export function ServiceAreas() {
+export function ServiceAreas({ activeSlug }: { activeSlug?: string } = {}) {
+  const active = SUBURBS.find((s) => s.slug === activeSlug);
+
   return (
     <section className="relative overflow-hidden pb-20 pt-32">
       <div className="absolute inset-0 [background:url('/images/service-areas-bg.jpg')_center/cover]" />
@@ -37,8 +29,8 @@ export function ServiceAreas() {
       <div className="relative mx-auto grid max-w-[1320px] items-center gap-12 px-6 lg:grid-cols-2">
         <Reveal as="div" direction="left" className="min-h-[420px] overflow-hidden rounded-lg shadow-md">
           <iframe
-            title="Kingpin Engineering workshop - 438 Hanson Rd, Wingfield SA 5013"
-            src="https://www.google.com/maps?q=438+Hanson+Rd+Wingfield+SA+5013&z=11&output=embed"
+            title={`Kingpin Engineering workshop - ${ADDRESS}`}
+            src={mapEmbedUrl(ADDRESS_QUERY, 11)}
             className="size-full min-h-[420px] border-0"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
@@ -52,27 +44,39 @@ export function ServiceAreas() {
               <span className="text-white">Areas</span>
             </h2>
             <p className="mt-4 max-w-lg text-[18px] leading-relaxed text-white/85">
-              Kingpin Engineering serves these areas across South Australia,
-              with fabrication and repair support for Adelaide metro and
-              regional SA.
+              {active
+                ? `${active.name} is one of the areas we cover from our workshop floor. ${active.distance}. Tap any area below to see what we build there.`
+                : "Kingpin Engineering serves these areas across South Australia, with fabrication and repair support for Adelaide metro and regional SA. Tap an area for a closer look."}
             </p>
           </Reveal>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            {AREAS.map((area, i) => (
-              <Reveal
-                as="div"
-                key={area}
-                delay={i * 60}
-                direction="pop"
-                className="flex items-center gap-2 rounded-full border border-[#347FCC] bg-white/10 px-5 py-2.5 shadow-sm backdrop-blur-sm"
-              >
-                <PinIcon />
-                <span className="font-heading text-base font-bold uppercase text-white">
-                  {area}
-                </span>
-              </Reveal>
-            ))}
+            {SUBURBS.map((area, i) => {
+              const isActive = area.slug === activeSlug;
+              return (
+                <Reveal
+                  as="div"
+                  key={area.slug}
+                  delay={i * 45}
+                  direction="pop"
+                >
+                  <Link
+                    href={suburbPath(area.slug)}
+                    aria-current={isActive ? "page" : undefined}
+                    className={`flex items-center gap-2 rounded-full border border-[#347FCC] px-5 py-2.5 shadow-sm backdrop-blur-sm transition-colors ${
+                      isActive
+                        ? "bg-[#347FCC]"
+                        : "bg-white/10 hover:bg-[#347FCC]"
+                    }`}
+                  >
+                    <PinIcon active={isActive} />
+                    <span className="font-heading text-base font-bold uppercase text-white">
+                      {area.name}
+                    </span>
+                  </Link>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </div>

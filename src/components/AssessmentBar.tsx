@@ -18,7 +18,14 @@ function ChatIcon() {
   );
 }
 
-export function AssessmentBar({ overlap = true }: { overlap?: boolean }) {
+export function AssessmentBar({
+  overlap = true,
+  suburbName,
+}: {
+  overlap?: boolean;
+  /** When set, the heading is localised, e.g. "Get Your Free Wingfield Quote". */
+  suburbName?: string;
+}) {
   const [sent, setSent] = useState(false);
 
   const field =
@@ -38,7 +45,10 @@ export function AssessmentBar({ overlap = true }: { overlap?: boolean }) {
       <div className="mx-auto max-w-[1180px] overflow-hidden rounded-2xl shadow-2xl">
         <div className="bg-[#347FCC] px-5 py-4 text-center">
           <h2 className="font-heading text-3xl font-bold uppercase tracking-wide text-white sm:text-4xl">
-            Get Your Free <span className="text-[#1e1e1e]">Engineering Quote</span>
+            Get Your Free{" "}
+            <span className="text-[#1e1e1e]">
+              {suburbName ? `${suburbName} Quote` : "Engineering Quote"}
+            </span>
           </h2>
         </div>
         <form

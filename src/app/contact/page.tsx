@@ -4,11 +4,21 @@ import { Footer } from "@/components/Footer";
 import { ContactForm } from "@/components/ContactForm";
 import { PhoneIcon, MailIcon, FacebookIcon, GoogleIcon, StarIcon } from "@/components/icons";
 import { Reveal } from "@/components/Reveal";
+import {
+  ADDRESS,
+  ADDRESS_QUERY,
+  EMAIL,
+  EMERGENCY_NOTE,
+  MAP_LINK,
+  OPENING_HOURS,
+  PHONE_DISPLAY,
+  PHONE_TEL,
+  mapEmbedUrl,
+} from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact Us - Kingpin Engineering",
-  description:
-    "Call 0424 242 424 or request a free quote from Kingpin Engineering.",
+  description: `Call ${PHONE_DISPLAY} or request a free quote from Kingpin Engineering. Open Mon-Fri 8am-5pm, Sat 8am-12:30pm, with 24/7 emergency callout.`,
 };
 
 function RatingBadge({ icon }: { icon: React.ReactNode }) {
@@ -49,8 +59,8 @@ export default function ContactPage() {
             style={{ animationDelay: "160ms" }}
           >
             Call us on{" "}
-            <a href="tel:0424242424" className="font-bold text-[#1e1e1e] hover:text-[#347FCC]">
-              0424 242 424
+            <a href={`tel:${PHONE_TEL}`} className="font-bold text-[#1e1e1e] hover:text-[#347FCC]">
+              {PHONE_DISPLAY}
             </a>{" "}
             or fill out the form below to get in touch or request a free quote.
           </p>
@@ -78,8 +88,8 @@ export default function ContactPage() {
                 </span>
                 <div className="min-w-0">
                   <p className="font-heading text-2xl font-bold uppercase text-white">Phone</p>
-                  <a href="tel:0424242424" className="font-semibold text-white/90 hover:text-white">
-                    0424 242 424
+                  <a href={`tel:${PHONE_TEL}`} className="font-semibold text-white/90 hover:text-white">
+                    {PHONE_DISPLAY}
                   </a>
                 </div>
               </div>
@@ -90,10 +100,74 @@ export default function ContactPage() {
                 </span>
                 <div className="min-w-0">
                   <p className="font-heading text-2xl font-bold uppercase text-white">Email</p>
-                  <a href="mailto:contact@kingpinengineering.com.au" className="font-semibold text-white/90 hover:text-white">
-                    contact@kingpinengineering.com.au
+                  <a href={`mailto:${EMAIL}`} className="font-semibold text-white/90 hover:text-white">
+                    {EMAIL}
                   </a>
                 </div>
+              </div>
+
+              <div className="flex items-center gap-4 rounded-lg bg-[#347FCC] p-5">
+                <span className="grid size-12 shrink-0 place-items-center rounded-full bg-black/15">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    className="size-6 text-white"
+                    aria-hidden
+                  >
+                    <path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z" />
+                    <circle cx="12" cy="10" r="2.5" />
+                  </svg>
+                </span>
+                <div className="min-w-0">
+                  <p className="font-heading text-2xl font-bold uppercase text-white">Workshop</p>
+                  <a
+                    href={MAP_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-white/90 hover:text-white"
+                  >
+                    {ADDRESS}
+                  </a>
+                </div>
+              </div>
+
+              <div className="rounded-lg bg-[#1e1e1e] p-5">
+                <div className="flex items-center gap-4">
+                  <span className="grid size-12 shrink-0 place-items-center rounded-full bg-[#347FCC]">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      className="size-6 text-white"
+                      aria-hidden
+                    >
+                      <circle cx="12" cy="12" r="9" />
+                      <path d="M12 7v5l3.5 2" strokeLinecap="round" />
+                    </svg>
+                  </span>
+                  <p className="font-heading text-2xl font-bold uppercase text-white">
+                    Opening Hours
+                  </p>
+                </div>
+                <dl className="mt-4 divide-y divide-white/12 border-y border-white/12">
+                  {OPENING_HOURS.map((h) => (
+                    <div
+                      key={h.days}
+                      className="flex items-baseline justify-between gap-4 py-2.5"
+                    >
+                      <dt className="font-heading text-lg font-bold uppercase tracking-wide text-white/70">
+                        {h.days}
+                      </dt>
+                      <dd className="font-semibold text-white">{h.time}</dd>
+                    </div>
+                  ))}
+                </dl>
+                <p className="mt-3 font-heading text-lg font-bold uppercase tracking-wide text-[#347FCC]">
+                  {EMERGENCY_NOTE}
+                </p>
               </div>
             </Reveal>
           </div>
@@ -102,8 +176,8 @@ export default function ContactPage() {
         {/* Map */}
         <Reveal as="section" className="h-[420px] w-full">
           <iframe
-            title="Kingpin Engineering workshop location - 438 Hanson Rd, Wingfield SA 5013"
-            src="https://www.google.com/maps?q=438+Hanson+Rd+Wingfield+SA+5013&z=15&output=embed"
+            title={`Kingpin Engineering workshop location - ${ADDRESS}`}
+            src={mapEmbedUrl(ADDRESS_QUERY, 15)}
             className="size-full border-0"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"

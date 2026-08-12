@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Reveal } from "@/components/Reveal";
+import type { Suburb } from "@/lib/suburbs";
 
 function CheckIcon() {
   return (
@@ -10,17 +11,27 @@ function CheckIcon() {
   );
 }
 
-export function WhyChooseUs() {
+export function WhyChooseUs({ suburb }: { suburb?: Suburb } = {}) {
   return (
     <section className="bg-topo pb-32 pt-10">
       <div className="mx-auto grid max-w-[1320px] items-start gap-12 px-6 lg:grid-cols-2">
         <Reveal as="div" direction="left">
           <h2 className="font-heading text-5xl font-bold sm:text-6xl">
-            <span className="text-[#1e1e1e]">Why </span>
-            <span className="text-[#347FCC]">Choose Us</span>
+            {suburb ? (
+              <>
+                <span className="text-[#1e1e1e]">{suburb.whyTitle[0]}</span>
+                <span className="text-[#347FCC]">{suburb.whyTitle[1]}</span>
+              </>
+            ) : (
+              <>
+                <span className="text-[#1e1e1e]">Why </span>
+                <span className="text-[#347FCC]">Choose Us</span>
+              </>
+            )}
           </h2>
 
           <div className="mt-6 space-y-5 body-text">
+            {suburb && <p>{suburb.whyLead}</p>}
             <p>
               With engineering experience built over years on the workshop floor,
               every job at Kingpin starts with a clear plan - so you know the

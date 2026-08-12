@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
 import { QuoteButton } from "@/components/QuoteButton";
+import type { Suburb } from "@/lib/suburbs";
 
 const SERVICES = [
   {
@@ -34,14 +35,33 @@ const SERVICES = [
   },
 ];
 
-export function Services() {
+export function Services({ suburb }: { suburb?: Suburb } = {}) {
   return (
     <section id="services" className="scroll-mt-28 bg-white pb-10 pt-20">
       <div className="mx-auto max-w-[1320px] px-6">
         <Reveal as="h2" className="text-center font-heading text-5xl font-bold uppercase sm:text-6xl">
-          <span className="text-[#1e1e1e]">Our </span>
-          <span className="text-[#347FCC]">Services</span>
+          {suburb ? (
+            <>
+              <span className="text-[#1e1e1e]">{suburb.servicesTitle[0]}</span>
+              <span className="text-[#347FCC]">{suburb.servicesTitle[1]}</span>
+            </>
+          ) : (
+            <>
+              <span className="text-[#1e1e1e]">Our </span>
+              <span className="text-[#347FCC]">Services</span>
+            </>
+          )}
         </Reveal>
+
+        {suburb && (
+          <Reveal
+            as="p"
+            delay={80}
+            className="mx-auto mt-4 max-w-2xl text-center text-[18px] leading-relaxed text-[#1e1e1e]"
+          >
+            {suburb.servicesLead}
+          </Reveal>
+        )}
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {SERVICES.map((s, i) => (

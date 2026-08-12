@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { Reveal } from "@/components/Reveal";
 import { QuoteButton } from "@/components/QuoteButton";
+import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/site";
 
 type GalleryImage = { src: string; alt: string };
 /** A slide is a hero image plus 1-2 supporting images shown in the right column. */
@@ -12,17 +13,17 @@ type Slide = { hero: GalleryImage; right: GalleryImage[] };
 const slides: Slide[] = [
   {
     hero: {
-      src: "/images/gallery/gallery-6.jpeg",
-      alt: "Large fabricated steel bin-tipper structure mounted on a stand in the Kingpin workshop.",
+      src: "/images/gallery/gallery-5.jpeg",
+      alt: "Two large concrete agitator drums under fabrication on the workshop floor.",
     },
     right: [
       {
-        src: "/images/gallery/gallery-5.jpeg",
-        alt: "Two large concrete agitator drums under fabrication on the workshop floor.",
-      },
-      {
         src: "/images/gallery/gallery-7.jpeg",
         alt: "Rolled steel mixer drum cones lined up in the fabrication bay.",
+      },
+      {
+        src: "/images/gallery/gallery-8.jpeg",
+        alt: "Diesel engine and hydraulic pump power pack built into a caged trailer skid.",
       },
     ],
   },
@@ -33,8 +34,8 @@ const slides: Slide[] = [
     },
     right: [
       {
-        src: "/images/gallery/gallery-8.jpeg",
-        alt: "Diesel engine and hydraulic pump power pack built into a caged trailer skid.",
+        src: "/images/gallery/gallery-1.jpeg",
+        alt: "Agi-Drive concrete agitator control panel and wireless remote control.",
       },
       {
         src: "/images/gallery/gallery-14.jpeg",
@@ -254,10 +255,10 @@ export function OurWorkInAction() {
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
           <QuoteButton className="inline-flex items-center justify-center rounded-md bg-white px-6 py-3 font-heading text-lg font-bold uppercase tracking-wide text-[#347FCC] shadow-md transition hover:scale-105 hover:bg-white/90" />
           <a
-            href="tel:0424242424"
+            href={`tel:${PHONE_TEL}`}
             className="inline-flex items-center justify-center rounded-md bg-[#347FCC] px-6 py-3 font-heading text-lg font-bold uppercase tracking-wide text-white shadow-md transition hover:scale-105 hover:bg-[#2A70BA]"
           >
-            Call 0424 242 424
+            Call {PHONE_DISPLAY}
           </a>
         </div>
       </div>

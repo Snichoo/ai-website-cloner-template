@@ -11,6 +11,7 @@ import {
   CloseIcon,
 } from "./icons";
 import { QuoteModal } from "./QuoteModal";
+import { EMAIL, PHONE_DISPLAY, PHONE_TEL } from "@/lib/site";
 
 type NavLink = {
   label: string;
@@ -29,6 +30,7 @@ const SERVICE_LINKS = [
 const NAV_LINKS: NavLink[] = [
   { label: "HOME", href: "/" },
   { label: "SERVICES", href: "/#services", caret: true, children: SERVICE_LINKS },
+  { label: "AREAS", href: "/service-areas" },
   { label: "ABOUT", href: "/about" },
   { label: "CONTACT", href: "/contact" },
 ];
@@ -42,13 +44,13 @@ export function Nav() {
       <div className="relative">
         {/* Top white contact strip */}
         <div className="hidden h-[52px] items-center justify-end gap-8 bg-white pl-[400px] pr-6 lg:flex">
-          <a href="tel:0424242424" className="flex items-center gap-2 font-heading text-xl font-semibold text-[#1e1e1e] hover:text-[#347FCC]">
+          <a href={`tel:${PHONE_TEL}`} className="flex items-center gap-2 font-heading text-xl font-semibold text-[#1e1e1e] hover:text-[#347FCC]">
             <PhoneIcon className="size-4 text-[#347FCC]" />
-            <span className="font-normal">0424 242 424</span>
+            <span className="font-normal">{PHONE_DISPLAY}</span>
           </a>
-          <a href="mailto:contact@kingpinengineering.com.au" className="flex items-center gap-2 font-heading text-xl font-semibold text-[#1e1e1e] hover:text-[#347FCC]">
+          <a href={`mailto:${EMAIL}`} className="flex items-center gap-2 font-heading text-xl font-semibold text-[#1e1e1e] hover:text-[#347FCC]">
             <MailIcon className="size-4 text-[#347FCC]" />
-            contact@kingpinengineering.com.au
+            {EMAIL}
           </a>
         </div>
 
