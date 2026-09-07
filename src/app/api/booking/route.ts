@@ -6,6 +6,8 @@ interface BookingPayload {
   phone?: string;
   email?: string;
   company?: string;
+  address?: string;
+  message?: string;
 }
 
 const escapeHtml = (s: string) =>
@@ -28,17 +30,30 @@ export async function POST(req: Request) {
     );
   }
 
-  let body: BookingPayload;
+  let payload: unknown;
   try {
-    body = (await req.json()) as BookingPayload;
+    payload = await req.json();
   } catch {
     return NextResponse.json({ error: "Invalid JSON." }, { status: 400 });
   }
+
+  if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
+    return NextResponse.json({ error: "Invalid enquiry." }, { status: 400 });
+  }
+
+  const fields = ["name", "phone", "email", "company", "address", "message"] as const;
+  const values = payload as Record<string, unknown>;
+  if (fields.some((field) => values[field] !== undefined && typeof values[field] !== "string")) {
+    return NextResponse.json({ error: "Enquiry fields must be text." }, { status: 400 });
+  }
+  const body = values as BookingPayload;
 
   const name = (body.name ?? "").trim();
   const phone = (body.phone ?? "").trim();
   const email = (body.email ?? "").trim();
   const company = (body.company ?? "").trim();
+  const address = (body.address ?? "").trim();
+  const message = (body.message ?? "").trim();
 
   if (!name || !phone || !email) {
     return NextResponse.json(
@@ -47,11 +62,20 @@ export async function POST(req: Request) {
     );
   }
 
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return NextResponse.json({ error: "Enter a valid email address." }, { status: 400 });
+  }
+  if ([name, phone, email, company, address].some((value) => value.length > 500) || message.length > 10000) {
+    return NextResponse.json({ error: "Please shorten your enquiry and try again." }, { status: 400 });
+  }
+
   const rows: [string, string][] = [
     ["Name", name],
     ["Phone", phone],
     ["Email", email],
     ["Company", company || "-"],
+    ["Address", address || "-"],
+    ["Message", message || "-"],
   ];
 
   const html = `
@@ -63,7 +87,7 @@ export async function POST(req: Request) {
             ([k, v]) => `
           <tr>
             <td style="padding: 6px 12px 6px 0; color: #6B6B6B; font-weight: 600;">${escapeHtml(k)}</td>
-            <td style="padding: 6px 0;">${escapeHtml(v)}</td>
+            <td style="padding: 6px 0; white-space: pre-wrap;">${escapeHtml(v)}</td>
           </tr>`,
           )
           .join("")}
@@ -73,18 +97,21 @@ export async function POST(req: Request) {
 
   const text = rows.map(([k, v]) => `${k}: ${v}`).join("\n");
 
-  const resend = new Resend(apiKey);
-  const { error } = await resend.emails.send({
-    from,
-    to,
-    subject: `New booking: ${name}${company ? ` - ${company}` : ""}`,
-    replyTo: email,
-    html,
-    text,
-  });
+  try {
+    const resend = new Resend(apiKey);
+    const { error } = await resend.emails.send({
+      from,
+      to,
+      subject: `New enquiry: ${name}${company ? ` - ${company}` : ""}`,
+      replyTo: email,
+      html,
+      text,
+    });
 
-  if (error) {
-    console.error("Resend send failed", error);
+    if (error) {
+      return NextResponse.json({ error: "Failed to send. Please call us or try again." }, { status: 502 });
+    }
+  } catch {
     return NextResponse.json({ error: "Failed to send." }, { status: 502 });
   }
 

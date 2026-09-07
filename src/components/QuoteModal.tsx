@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { PhoneIcon, MailIcon, CloseIcon } from "./icons";
+import { useEnquiryForm } from "@/lib/useEnquiryForm";
 
 function UserIcon() {
   return (
@@ -25,7 +26,7 @@ export function QuoteModal({
   open: boolean;
   onClose: () => void;
 }) {
-  const [sent, setSent] = useState(false);
+  const { sent, submitting, error, handleSubmit, clearStatus } = useEnquiryForm();
 
   useEffect(() => {
     if (!open) return;
@@ -62,7 +63,7 @@ export function QuoteModal({
       />
 
       {/* dialog */}
-      <div className="relative w-full max-w-[560px] overflow-hidden rounded-2xl shadow-2xl">
+      <div className="relative max-h-[calc(100dvh-2rem)] w-full max-w-[560px] overflow-y-auto rounded-2xl shadow-2xl">
         <button
           type="button"
           aria-label="Close"
@@ -83,27 +84,30 @@ export function QuoteModal({
 
         {sent ? (
           <div className="bg-[#347FCC] px-6 pb-8 pt-2 text-center">
-            <p className="font-heading text-2xl font-bold uppercase text-white">
+            <p role="status" className="font-heading text-2xl font-bold uppercase text-white">
               Thanks! We&rsquo;ll be in touch.
             </p>
           </div>
         ) : (
           <form
             className="grid gap-3 bg-[#347FCC] p-6 pt-2"
-            onSubmit={(e) => {
-              e.preventDefault();
-              setSent(true);
-            }}
+            onSubmit={handleSubmit}
+            onChange={clearStatus}
+            aria-busy={submitting}
           >
             <label className={field}>
-              <input className={input} placeholder="Name" required />
+              <input className={input} name="name" autoComplete="name" aria-label="Name" placeholder="Name" disabled={submitting} required />
               <UserIcon />
             </label>
             <label className={field}>
               <input
                 className={input}
+                name="phone"
+                autoComplete="tel"
+                aria-label="Phone number"
                 placeholder="Phone Number"
                 type="tel"
+                disabled={submitting}
                 required
               />
               <PhoneIcon className="size-5" />
@@ -111,22 +115,28 @@ export function QuoteModal({
             <label className={field}>
               <input
                 className={input}
+                name="email"
+                autoComplete="email"
+                aria-label="Email"
                 placeholder="Email"
                 type="email"
+                disabled={submitting}
                 required
               />
               <MailIcon className="size-5" />
             </label>
             <label className={field}>
-              <input className={input} placeholder="How can we help?" />
+              <input className={input} name="message" aria-label="How can we help?" placeholder="How can we help?" disabled={submitting} />
               <ChatIcon />
             </label>
             <button
               type="submit"
-              className="mt-1 rounded-md bg-white px-8 py-3 font-heading text-lg font-bold uppercase tracking-wide text-[#347FCC] transition-colors hover:bg-white/90"
+              disabled={submitting}
+              className="mt-1 rounded-md bg-white px-8 py-3 font-heading text-lg font-bold uppercase tracking-wide text-[#347FCC] transition-colors hover:bg-white/90 disabled:cursor-wait disabled:opacity-70"
             >
-              Submit
+              {submitting ? "Sending…" : "Submit"}
             </button>
+            {error && <p role="alert" className="text-sm font-medium text-white">{error}</p>}
           </form>
         )}
       </div>

@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import { PhoneIcon, MailIcon } from "./icons";
+import { useEnquiryForm } from "@/lib/useEnquiryForm";
 
 function UserIcon() {
   return (
@@ -26,7 +26,7 @@ export function AssessmentBar({
   /** When set, the heading is localised, e.g. "Get Your Free Wingfield Quote". */
   suburbName?: string;
 }) {
-  const [sent, setSent] = useState(false);
+  const { sent, submitting, error, handleSubmit, clearStatus } = useEnquiryForm();
 
   const field =
     "flex items-center gap-2 rounded-md bg-white px-4 py-3 text-sm text-[#1e1e1e] shadow-sm";
@@ -38,7 +38,7 @@ export function AssessmentBar({
       id="quote"
       className={
         overlap
-          ? "relative z-20 -mt-28 -mb-[110px] scroll-mt-32 px-4 sm:px-6"
+          ? "relative z-20 -mt-28 scroll-mt-32 px-4 sm:px-6"
           : "relative z-20 scroll-mt-32 px-4 py-12 sm:px-6"
       }
     >
@@ -53,33 +53,35 @@ export function AssessmentBar({
         </div>
         <form
           className="grid gap-3 bg-[#347FCC] p-5 pt-1 md:grid-cols-[repeat(4,1fr)_auto]"
-          onSubmit={(e) => {
-            e.preventDefault();
-            setSent(true);
-          }}
+          onSubmit={handleSubmit}
+          onChange={clearStatus}
+          aria-busy={submitting}
         >
           <label className={field}>
-            <input className={input} placeholder="Name" required />
+            <input className={input} name="name" autoComplete="name" aria-label="Name" placeholder="Name" disabled={submitting} required />
             <UserIcon />
           </label>
           <label className={field}>
-            <input className={input} placeholder="Phone Number" type="tel" required />
+            <input className={input} name="phone" autoComplete="tel" aria-label="Phone number" placeholder="Phone Number" type="tel" disabled={submitting} required />
             <PhoneIcon className="size-5" />
           </label>
           <label className={field}>
-            <input className={input} placeholder="Email" type="email" required />
+            <input className={input} name="email" autoComplete="email" aria-label="Email" placeholder="Email" type="email" disabled={submitting} required />
             <MailIcon className="size-5" />
           </label>
           <label className={field}>
-            <input className={input} placeholder="How can we help?" />
+            <input className={input} name="message" aria-label="How can we help?" placeholder="How can we help?" disabled={submitting} />
             <ChatIcon />
           </label>
           <button
             type="submit"
-            className="rounded-md bg-white px-8 py-3 font-heading text-lg font-bold uppercase tracking-wide text-[#347FCC] transition-colors hover:bg-white/90"
+            disabled={submitting}
+            className="rounded-md bg-white px-8 py-3 font-heading text-lg font-bold uppercase tracking-wide text-[#347FCC] transition-colors hover:bg-white/90 disabled:cursor-wait disabled:opacity-70"
           >
-            {sent ? "Thanks!" : "Submit"}
+            {submitting ? "Sending…" : sent ? "Thanks!" : "Submit"}
           </button>
+          {error && <p role="alert" className="text-sm font-medium text-white md:col-span-5">{error}</p>}
+          {sent && <p role="status" className="text-sm font-medium text-white md:col-span-5">Thanks! Your enquiry has been sent. We&rsquo;ll be in touch.</p>}
         </form>
       </div>
     </div>

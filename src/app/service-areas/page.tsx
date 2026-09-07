@@ -1,38 +1,16 @@
-import type { Metadata } from "next";
+import { createPageMetadata, SEO_PAGES } from "@/lib/seo";
+import { PageStructuredData } from "@/components/PageStructuredData";
+import { PageBreadcrumbs } from "@/components/PageBreadcrumbs";
 import Link from "next/link";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { AssessmentBar } from "@/components/AssessmentBar";
 import { CtaStrip } from "@/components/CtaStrip";
 import { Reveal } from "@/components/Reveal";
-import { FacebookIcon, GoogleIcon, StarIcon } from "@/components/icons";
 import { ADDRESS, HOURS_SUMMARY } from "@/lib/site";
 import { SUBURBS, suburbPath } from "@/lib/suburbs";
 
-export const metadata: Metadata = {
-  title: "Service Areas - Kingpin Engineering",
-  description:
-    "Kingpin Engineering services Adelaide metro and regional South Australia from our Wingfield workshop. Find your area for local fabrication, mixer and repair support.",
-  alternates: { canonical: "/service-areas" },
-};
-
-function RatingBadge({ icon }: { icon: React.ReactNode }) {
-  return (
-    <div className="flex items-center gap-2">
-      <span className="grid size-9 place-items-center">{icon}</span>
-      <div className="leading-none">
-        <div className="flex gap-0.5 text-[#fbbc05]">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <StarIcon key={i} className="size-3" />
-          ))}
-        </div>
-        <p className="mt-1 text-[11px] font-bold tracking-wide text-[#1e1e1e]">
-          5.0 RATING
-        </p>
-      </div>
-    </div>
-  );
-}
+export const metadata = createPageMetadata(SEO_PAGES.serviceAreas);
 
 function ArrowIcon() {
   return (
@@ -53,7 +31,11 @@ export default function ServiceAreasIndexPage() {
     <>
       <Nav />
       <main className="flex-1">
+        <PageStructuredData page={SEO_PAGES.serviceAreas} />
         <section className="bg-topo px-6 pt-[150px] pb-14 text-center">
+          <div className="mx-auto max-w-[1320px]">
+            <PageBreadcrumbs page={SEO_PAGES.serviceAreas} />
+          </div>
           <p className="reveal-up font-heading text-xl font-bold uppercase tracking-wide text-[#347FCC]">
             Where We Work
           </p>
@@ -78,13 +60,7 @@ export default function ServiceAreasIndexPage() {
           >
             {HOURS_SUMMARY}
           </p>
-          <div
-            className="reveal-up mt-8 flex justify-center gap-8"
-            style={{ animationDelay: "240ms" }}
-          >
-            <RatingBadge icon={<GoogleIcon className="size-7" />} />
-            <RatingBadge icon={<FacebookIcon className="size-7 text-[#1877F2]" />} />
-          </div>
+
         </section>
 
         <AssessmentBar overlap={false} />

@@ -14,12 +14,9 @@ export function MeetTheTeam() {
             height={319}
             className="pointer-events-none absolute inset-x-6 top-10 z-0 w-[85%] opacity-10"
           />
-          <div className="absolute left-6 top-6 z-10 rounded-full bg-black/30 px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
-            Est. 2023
-          </div>
           <Image
             src="/images/john-smith-director.png"
-            alt="Director and Nominee Supervisor at Kingpin Engineering."
+            alt="Kingpin Engineering director portrait"
             width={1122}
             height={1402}
             className="relative z-[5] h-full w-full object-cover"

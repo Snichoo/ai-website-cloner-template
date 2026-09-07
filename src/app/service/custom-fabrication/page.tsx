@@ -1,4 +1,6 @@
-import type { Metadata } from "next";
+import { createPageMetadata, SEO_PAGES } from "@/lib/seo";
+import { PageStructuredData } from "@/components/PageStructuredData";
+import { PageBreadcrumbs } from "@/components/PageBreadcrumbs";
 import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -7,32 +9,9 @@ import { Footer } from "@/components/Footer";
 import { AssessmentBar } from "@/components/AssessmentBar";
 import { CtaStrip } from "@/components/CtaStrip";
 import { ServiceAreas } from "@/components/ServiceAreas";
-import { FacebookIcon, GoogleIcon, StarIcon } from "@/components/icons";
 import { Reveal } from "@/components/Reveal";
 
-export const metadata: Metadata = {
-  title: "Custom Fabrication, Welding & Modifications - Kingpin Engineering",
-  description:
-    "General engineering, steel and aluminium welding, truck body modifications and walk-in repairs. Built to your design or engineered from scratch with ours.",
-};
-
-function RatingBadge({ icon }: { icon: React.ReactNode }) {
-  return (
-    <div className="flex items-center gap-2">
-      <span className="grid size-9 place-items-center">{icon}</span>
-      <div className="leading-none">
-        <div className="flex gap-0.5 text-[#fbbc05]">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <StarIcon key={i} className="size-3" />
-          ))}
-        </div>
-        <p className="mt-1 text-[11px] font-bold tracking-wide text-[#1e1e1e]">
-          5.0 RATING
-        </p>
-      </div>
-    </div>
-  );
-}
+export const metadata = createPageMetadata(SEO_PAGES.customFabrication);
 
 function P({ dark, children }: { dark?: boolean; children: React.ReactNode }) {
   return (
@@ -139,8 +118,12 @@ export default function CustomFabricationPage() {
     <>
       <Nav />
       <main className="flex-1">
+        <PageStructuredData page={SEO_PAGES.customFabrication} />
         {/* Hero */}
         <section className="bg-topo px-6 pt-[150px] pb-12 text-center">
+          <div className="mx-auto max-w-[1320px]">
+            <PageBreadcrumbs page={SEO_PAGES.customFabrication} />
+          </div>
           <p className="reveal-up font-heading text-xl font-bold uppercase tracking-wide text-[#347FCC]">
             Services
           </p>
@@ -165,13 +148,7 @@ export default function CustomFabricationPage() {
             aluminium welding - all built to your design, or engineered from
             scratch with ours. If you can describe it, we can usually build it.
           </p>
-          <div
-            className="reveal-up mt-8 flex justify-center gap-8"
-            style={{ animationDelay: "300ms" }}
-          >
-            <RatingBadge icon={<GoogleIcon className="size-7" />} />
-            <RatingBadge icon={<FacebookIcon className="size-7 text-[#1877F2]" />} />
-          </div>
+
         </section>
 
         <AssessmentBar overlap={false} />

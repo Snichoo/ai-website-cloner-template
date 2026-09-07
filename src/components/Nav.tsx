@@ -65,10 +65,10 @@ export function Nav() {
                     className="flex items-center gap-1 font-sans text-base font-medium uppercase text-white transition-opacity hover:opacity-80"
                   >
                     {l.label}
-                    <ChevronDownIcon className="size-4 transition-transform duration-200 group-hover:rotate-180" />
+                    <ChevronDownIcon className="size-4 transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180" />
                   </Link>
-                  {/* Hover dropdown */}
-                  <div className="invisible absolute left-1/2 top-full z-50 w-72 -translate-x-1/2 pt-4 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
+                  {/* Service links open for both pointer and keyboard navigation. */}
+                  <div className="invisible absolute left-1/2 top-full z-50 w-72 -translate-x-1/2 pt-4 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
                     <div className="overflow-hidden rounded-lg bg-white shadow-[0_18px_45px_rgba(0,0,0,0.18)] ring-1 ring-black/5">
                       {l.children.map((c) => (
                         <Link
@@ -106,7 +106,7 @@ export function Nav() {
           <Link href="/" className="mr-auto lg:hidden">
             <Image src="/images/kingpin-engineering-logo.png" alt="Kingpin Engineering" width={1309} height={319} priority className="h-10 w-auto" />
           </Link>
-          <button className="text-white lg:hidden" aria-label="Open menu" onClick={() => setOpen((v) => !v)}>
+          <button type="button" className="text-white lg:hidden" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen((v) => !v)}>
             {open ? <CloseIcon className="size-7" /> : <MenuIcon className="size-7" />}
           </button>
         </div>
@@ -129,7 +129,7 @@ export function Nav() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="border-t border-white/20 bg-[#347FCC] px-6 py-4 lg:hidden">
+        <div id="mobile-navigation" className="border-t border-white/20 bg-[#347FCC] px-6 py-4 lg:hidden">
           <nav className="flex flex-col gap-3">
             {NAV_LINKS.map((l) => (
               <div key={l.label}>

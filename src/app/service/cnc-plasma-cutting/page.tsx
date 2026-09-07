@@ -1,4 +1,6 @@
-import type { Metadata } from "next";
+import { createPageMetadata, SEO_PAGES } from "@/lib/seo";
+import { PageStructuredData } from "@/components/PageStructuredData";
+import { PageBreadcrumbs } from "@/components/PageBreadcrumbs";
 import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -7,32 +9,9 @@ import { Footer } from "@/components/Footer";
 import { AssessmentBar } from "@/components/AssessmentBar";
 import { CtaStrip } from "@/components/CtaStrip";
 import { ServiceAreas } from "@/components/ServiceAreas";
-import { FacebookIcon, GoogleIcon, StarIcon } from "@/components/icons";
 import { Reveal } from "@/components/Reveal";
 
-export const metadata: Metadata = {
-  title: "CNC Plasma Cutting & Press-Brake Bending - Kingpin Engineering",
-  description:
-    "Heavy CNC plasma cutting and press-brake bending done to spec. Send us your CAD file, drawing or sketch and we cut and fold the big, thick steel smaller shops can't handle.",
-};
-
-function RatingBadge({ icon }: { icon: React.ReactNode }) {
-  return (
-    <div className="flex items-center gap-2">
-      <span className="grid size-9 place-items-center">{icon}</span>
-      <div className="leading-none">
-        <div className="flex gap-0.5 text-[#fbbc05]">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <StarIcon key={i} className="size-3" />
-          ))}
-        </div>
-        <p className="mt-1 text-[11px] font-bold tracking-wide text-[#1e1e1e]">
-          5.0 RATING
-        </p>
-      </div>
-    </div>
-  );
-}
+export const metadata = createPageMetadata(SEO_PAGES.cncPlasmaCutting);
 
 function P({ dark, children }: { dark?: boolean; children: React.ReactNode }) {
   return (
@@ -139,8 +118,12 @@ export default function CncPlasmaCuttingPage() {
     <>
       <Nav />
       <main className="flex-1">
+        <PageStructuredData page={SEO_PAGES.cncPlasmaCutting} />
         {/* Hero */}
         <section className="bg-topo px-6 pt-[150px] pb-12 text-center">
+          <div className="mx-auto max-w-[1320px]">
+            <PageBreadcrumbs page={SEO_PAGES.cncPlasmaCutting} />
+          </div>
           <p className="reveal-up font-heading text-xl font-bold uppercase tracking-wide text-[#347FCC]">
             Services
           </p>
@@ -164,13 +147,7 @@ export default function CncPlasmaCuttingPage() {
             Heavy plate cutting and folding, done to spec. Bring us your CAD file
             or your design - we cut and bend the big stuff, fast and accurate.
           </p>
-          <div
-            className="reveal-up mt-8 flex justify-center gap-8"
-            style={{ animationDelay: "300ms" }}
-          >
-            <RatingBadge icon={<GoogleIcon className="size-7" />} />
-            <RatingBadge icon={<FacebookIcon className="size-7 text-[#1877F2]" />} />
-          </div>
+
         </section>
 
         <AssessmentBar overlap={false} />
@@ -271,7 +248,7 @@ export default function CncPlasmaCuttingPage() {
 
         {/* For Trade & Industry */}
         <section className="relative overflow-hidden bg-[#2a2a2a] py-20">
-          <div className="absolute inset-0 opacity-[0.12] [background:url('/images/hero-mixer-1.jpg')_center/cover]" />
+          <div className="absolute inset-0 opacity-[0.12] [background:url('/images/mixer-background.webp')_center/cover]" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#2a2a2a]/70 via-transparent to-[#2a2a2a]" />
           <Reveal as="div" className="relative mx-auto max-w-3xl px-6 text-center">
             <p className="font-heading text-xl font-bold uppercase tracking-wide text-[#5fa3e6]">

@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import { Nav } from "@/components/Nav";
 import { SuburbHero } from "@/components/SuburbHero";
 import { AssessmentBar } from "@/components/AssessmentBar";
-import { Reviews } from "@/components/Reviews";
 import { Services } from "@/components/Services";
 import { SuburbSpotlight } from "@/components/SuburbSpotlight";
 import { MeetTheTeam } from "@/components/MeetTheTeam";
@@ -14,7 +13,9 @@ import { CtaStrip } from "@/components/CtaStrip";
 import { ServiceAreas } from "@/components/ServiceAreas";
 import { Faq } from "@/components/Faq";
 import { Footer } from "@/components/Footer";
-import { getSuburb, SUBURBS, suburbPath } from "@/lib/suburbs";
+import { getSuburb, SUBURBS } from "@/lib/suburbs";
+import { createPageMetadata, suburbSeoPage } from "@/lib/seo";
+import { PageStructuredData } from "@/components/PageStructuredData";
 
 type Params = { params: Promise<{ suburb: string }> };
 
@@ -30,19 +31,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const suburb = getSuburb(slug);
   if (!suburb) return {};
 
-  return {
-    title: suburb.metaTitle,
-    description: suburb.metaDescription,
-    alternates: { canonical: suburbPath(suburb.slug) },
-    openGraph: {
-      title: suburb.metaTitle,
-      description: suburb.metaDescription,
-      url: suburbPath(suburb.slug),
-      siteName: "Kingpin Engineering",
-      images: ["/images/og-image.png"],
-      type: "website",
-    },
-  };
+  return createPageMetadata(suburbSeoPage(suburb));
 }
 
 export default async function SuburbPage({ params }: Params) {
@@ -54,9 +43,10 @@ export default async function SuburbPage({ params }: Params) {
     <>
       <Nav />
       <main className="flex-1">
+        <PageStructuredData page={suburbSeoPage(suburb)} />
         <SuburbHero suburb={suburb} />
         <AssessmentBar suburbName={suburb.name} />
-        <Reviews />
+
         <Services suburb={suburb} />
         <SuburbSpotlight suburb={suburb} />
         <MeetTheTeam />

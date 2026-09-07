@@ -1,34 +1,36 @@
 "use client";
 
-import { useState } from "react";
+import { useEnquiryForm } from "@/lib/useEnquiryForm";
 
 export function ContactForm() {
-  const [sent, setSent] = useState(false);
+  const { sent, submitting, error, handleSubmit, clearStatus } = useEnquiryForm();
   const input =
     "w-full rounded-md bg-white px-4 py-3 text-sm text-[#1e1e1e] outline-none placeholder:text-[#999] focus:ring-2 focus:ring-[#347FCC]";
 
   return (
     <form
       className="space-y-4"
-      onSubmit={(e) => {
-        e.preventDefault();
-        setSent(true);
-      }}
+      onSubmit={handleSubmit}
+      onChange={clearStatus}
+      aria-busy={submitting}
     >
       <div className="grid gap-4 sm:grid-cols-2">
-        <input className={input} placeholder="First Name" required />
-        <input className={input} placeholder="Last Name" required />
+        <input className={input} name="firstName" autoComplete="given-name" aria-label="First name" placeholder="First Name" disabled={submitting} required />
+        <input className={input} name="lastName" autoComplete="family-name" aria-label="Last name" placeholder="Last Name" disabled={submitting} required />
       </div>
-      <input className={input} type="email" placeholder="Email" required />
-      <input className={input} type="tel" placeholder="Phone Number" required />
-      <input className={input} placeholder="Address" />
-      <textarea className={`${input} resize-none`} rows={5} placeholder="Message" />
+      <input className={input} name="email" autoComplete="email" aria-label="Email" type="email" placeholder="Email" disabled={submitting} required />
+      <input className={input} name="phone" autoComplete="tel" aria-label="Phone number" type="tel" placeholder="Phone Number" disabled={submitting} required />
+      <input className={input} name="address" autoComplete="street-address" aria-label="Address" placeholder="Address" disabled={submitting} />
+      <textarea className={`${input} resize-none`} name="message" aria-label="Message" rows={5} placeholder="Message" disabled={submitting} />
       <button
         type="submit"
-        className="w-full rounded-md bg-[#347FCC] py-3.5 font-heading text-lg font-bold uppercase tracking-wide text-white transition-colors hover:bg-[#2A70BA]"
+        disabled={submitting}
+        className="w-full rounded-md bg-[#347FCC] py-3.5 font-heading text-lg font-bold uppercase tracking-wide text-white transition-colors hover:bg-[#2A70BA] disabled:cursor-wait disabled:opacity-70"
       >
-        {sent ? "Thank you!" : "Submit"}
+        {submitting ? "Sending…" : sent ? "Thank you!" : "Submit"}
       </button>
+      {error && <p role="alert" className="text-sm font-medium text-red-200">{error}</p>}
+      {sent && <p role="status" className="text-sm font-medium text-white">Thank you! Your enquiry has been sent. We&rsquo;ll be in touch.</p>}
     </form>
   );
 }

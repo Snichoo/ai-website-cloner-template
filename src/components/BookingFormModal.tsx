@@ -160,7 +160,7 @@ export function BookingFormModal() {
       <div
         className="relative w-full max-w-[460px] rounded-2xl bg-white shadow-2xl"
         style={{
-          fontFamily: "var(--font-inter), var(--font-inter-real), sans-serif",
+          fontFamily: "var(--font-inter), sans-serif",
           padding: "28px 24px",
         }}
       >

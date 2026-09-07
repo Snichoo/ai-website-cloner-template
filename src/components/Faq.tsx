@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import Image from "next/image";
 import { PlusIcon } from "./icons";
 import { Reveal } from "@/components/Reveal";
@@ -79,6 +79,7 @@ export function Faq({
   extraFaqs?: readonly FaqItem[];
 } = {}) {
   const [open, setOpen] = useState<number | null>(null);
+  const faqId = useId();
   const items: FaqItem[] = [...(extraFaqs ?? []), ...baseFaqs(suburbName)];
 
   return (
@@ -104,20 +105,29 @@ export function Faq({
               const isOpen = open === i;
               return (
                 <div key={item.q} className="border-b border-black/10 last:border-0">
-                  <button
-                    onClick={() => setOpen(isOpen ? null : i)}
-                    className="flex w-full items-center gap-4 px-6 py-5 text-left"
-                  >
-                    <PlusIcon
-                      className={`size-5 shrink-0 text-[#347FCC] transition-transform duration-300 ${
-                        isOpen ? "rotate-45" : ""
-                      }`}
-                    />
-                    <h3 className="text-lg font-semibold text-[#1e1e1e]">
-                      {item.q}
-                    </h3>
-                  </button>
+                  <h3>
+                    <button
+                      type="button"
+                      id={`${faqId}-question-${i}`}
+                      aria-expanded={isOpen}
+                      aria-controls={`${faqId}-answer-${i}`}
+                      onClick={() => setOpen(isOpen ? null : i)}
+                      className="flex w-full items-center gap-4 px-6 py-5 text-left"
+                    >
+                      <PlusIcon
+                        className={`size-5 shrink-0 text-[#347FCC] transition-transform duration-300 ${
+                          isOpen ? "rotate-45" : ""
+                        }`}
+                      />
+                      <span className="text-lg font-semibold text-[#1e1e1e]">
+                        {item.q}
+                      </span>
+                    </button>
+                  </h3>
                   <div
+                    id={`${faqId}-answer-${i}`}
+                    aria-labelledby={`${faqId}-question-${i}`}
+                    aria-hidden={!isOpen}
                     className={`grid transition-all duration-300 ${
                       isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
                     }`}

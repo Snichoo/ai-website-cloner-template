@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Teko, Roboto, Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import { SmoothAnchorScroll } from "@/components/SmoothAnchorScroll";
+import { BusinessStructuredData } from "@/components/BusinessStructuredData";
+import { SEO_PAGES, SITE_URL } from "@/lib/seo";
 
 const teko = Teko({
   variable: "--font-teko",
@@ -22,28 +24,16 @@ const roboto = Roboto({
 });
 
 const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  display: "swap",
-});
-
-const interFont = Inter({
-  variable: "--font-inter-real",
+  variable: "--font-inter-source",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  // Set NEXT_PUBLIC_SITE_URL in the environment once the domain is live so that
-  // OpenGraph/Twitter image paths resolve to absolute URLs for link previews.
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://kingpinengineering.com.au",
-  ),
-  title: "Kingpin Engineering - OEM Concrete Mixers & Custom Heavy Fabrication",
-  description:
-    "Adelaide's premier OEM concrete mixer manufacturer and custom heavy fabricator. Concrete agitators, skip bins, CNC plasma cutting, custom fabrication and repairs across South Australia.",
+  metadataBase: new URL(SITE_URL),
+  title: SEO_PAGES.home.title,
+  description: SEO_PAGES.home.description,
   manifest: "/site.webmanifest",
   icons: {
     icon: [
@@ -52,14 +42,6 @@ export const metadata: Metadata = {
       { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
     ],
     apple: "/apple-touch-icon.png",
-  },
-  openGraph: {
-    title: "Kingpin Engineering - OEM Concrete Mixers & Custom Heavy Fabrication",
-    description:
-      "Adelaide's premier OEM concrete mixer manufacturer and custom heavy fabricator. Concrete agitators, skip bins, CNC plasma cutting, custom fabrication and repairs across South Australia.",
-    siteName: "Kingpin Engineering",
-    images: ["/images/og-image.png"],
-    type: "website",
   },
 };
 
@@ -70,8 +52,8 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
-      className={`${teko.variable} ${roboto.variable} ${inter.variable} ${interFont.variable} ${poppins.variable} h-full antialiased`}
+      lang="en-AU"
+      className={`${teko.variable} ${roboto.variable} ${inter.variable} ${poppins.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-white">
         {/* Keep scroll-reveal content visible if JavaScript is unavailable */}
@@ -79,6 +61,7 @@ export default function RootLayout({
           <style>{`[data-reveal]{opacity:1 !important;}`}</style>
         </noscript>
         <SmoothAnchorScroll />
+        <BusinessStructuredData />
         {children}
       </body>
     </html>

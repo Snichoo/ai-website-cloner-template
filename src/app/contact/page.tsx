@@ -1,8 +1,10 @@
-import type { Metadata } from "next";
+import { createPageMetadata, SEO_PAGES } from "@/lib/seo";
+import { PageStructuredData } from "@/components/PageStructuredData";
+import { PageBreadcrumbs } from "@/components/PageBreadcrumbs";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { ContactForm } from "@/components/ContactForm";
-import { PhoneIcon, MailIcon, FacebookIcon, GoogleIcon, StarIcon } from "@/components/icons";
+import { PhoneIcon, MailIcon } from "@/components/icons";
 import { Reveal } from "@/components/Reveal";
 import {
   ADDRESS,
@@ -16,34 +18,19 @@ import {
   mapEmbedUrl,
 } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Contact Us - Kingpin Engineering",
-  description: `Call ${PHONE_DISPLAY} or request a free quote from Kingpin Engineering. Open Mon-Fri 8am-5pm, Sat 8am-12:30pm, with 24/7 emergency callout.`,
-};
-
-function RatingBadge({ icon }: { icon: React.ReactNode }) {
-  return (
-    <div className="flex items-center gap-2">
-      <span className="grid size-9 place-items-center">{icon}</span>
-      <div className="leading-none">
-        <div className="flex gap-0.5 text-[#fbbc05]">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <StarIcon key={i} className="size-3" />
-          ))}
-        </div>
-        <p className="mt-1 text-[11px] font-bold tracking-wide text-[#1e1e1e]">5.0 RATING</p>
-      </div>
-    </div>
-  );
-}
+export const metadata = createPageMetadata(SEO_PAGES.contact);
 
 export default function ContactPage() {
   return (
     <>
       <Nav />
       <main className="flex-1">
+        <PageStructuredData page={SEO_PAGES.contact} />
         {/* Hero */}
         <section className="bg-topo px-6 pt-[150px] pb-14 text-center">
+          <div className="mx-auto max-w-[1320px]">
+            <PageBreadcrumbs page={SEO_PAGES.contact} />
+          </div>
           <p className="reveal-up font-heading text-xl font-bold uppercase tracking-wide text-[#347FCC]">
             Contact Us
           </p>
@@ -64,13 +51,7 @@ export default function ContactPage() {
             </a>{" "}
             or fill out the form below to get in touch or request a free quote.
           </p>
-          <div
-            className="reveal-up mt-8 flex justify-center gap-8"
-            style={{ animationDelay: "240ms" }}
-          >
-            <RatingBadge icon={<GoogleIcon className="size-7" />} />
-            <RatingBadge icon={<FacebookIcon className="size-7 text-[#1877F2]" />} />
-          </div>
+
         </section>
 
         {/* Form + contact details */}

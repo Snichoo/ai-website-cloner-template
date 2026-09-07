@@ -293,8 +293,6 @@ export function Footer({ suburb }: { suburb?: Suburb } = {}) {
       <div className="bg-[#141422]">
         <div className="mx-auto flex max-w-[1320px] flex-col items-center justify-center gap-1.5 px-6 py-5 text-center text-sm text-white/65 sm:flex-row sm:gap-3">
           <p className="font-semibold text-white/85">Proudly Australian Owned &amp; Manufactured</p>
-          <span className="hidden text-white/35 sm:inline">|</span>
-          <p>Kingpin Engineering ABN: 72 418 906 537</p>
         </div>
       </div>
     </footer>
