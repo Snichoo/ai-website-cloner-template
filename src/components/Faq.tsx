@@ -59,8 +59,8 @@ function baseFaqs(suburbName?: string): FaqItem[] {
         ? `Do you service ${suburbName}?`
         : "Where are you located and who do you service?",
       a: suburbName
-        ? `Yes. Our workshop is at 440 Hanson Rd, Wingfield SA 5013, and ${suburbName} is one of the areas we cover regularly - supporting concrete operators, waste and recycling companies, transport fleets, mining and civil contractors and trade businesses. Give us a call on ${PHONE_DISPLAY}.`
-        : `We're based at 440 Hanson Rd, Wingfield SA 5013 and service Adelaide metro and regional SA and beyond - supporting concrete operators, waste and recycling companies, transport fleets, mining and civil contractors, and trade businesses. Give us a call on ${PHONE_DISPLAY}.`,
+        ? `Yes. Our workshop is at 338-440 Hanson Rd, Wingfield SA 5013, and ${suburbName} is one of the areas we cover regularly - supporting concrete operators, waste and recycling companies, transport fleets, mining and civil contractors and trade businesses. Give us a call on ${PHONE_DISPLAY}.`
+        : `We're based at 338-440 Hanson Rd, Wingfield SA 5013 and service Adelaide metro and regional SA and beyond - supporting concrete operators, waste and recycling companies, transport fleets, mining and civil contractors, and trade businesses. Give us a call on ${PHONE_DISPLAY}.`,
     },
     {
       q: "How do I get a quote?",

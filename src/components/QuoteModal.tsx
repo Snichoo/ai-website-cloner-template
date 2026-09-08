@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { PhoneIcon, MailIcon, CloseIcon } from "./icons";
 import { useEnquiryForm } from "@/lib/useEnquiryForm";
+import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/site";
 
 function UserIcon() {
   return (
@@ -86,6 +87,12 @@ export function QuoteModal({
           <div className="bg-[#347FCC] px-6 pb-8 pt-2 text-center">
             <p role="status" className="font-heading text-2xl font-bold uppercase text-white">
               Thanks! We&rsquo;ll be in touch.
+            </p>
+            <p className="mt-2 text-sm font-medium text-white/90">
+              Need it sooner? Call{" "}
+              <a href={`tel:${PHONE_TEL}`} className="font-bold text-white underline underline-offset-2">
+                {PHONE_DISPLAY}
+              </a>
             </p>
           </div>
         ) : (

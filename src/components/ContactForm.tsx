@@ -1,6 +1,7 @@
 "use client";
 
 import { useEnquiryForm } from "@/lib/useEnquiryForm";
+import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/site";
 
 export function ContactForm() {
   const { sent, submitting, error, handleSubmit, clearStatus } = useEnquiryForm();
@@ -20,7 +21,6 @@ export function ContactForm() {
       </div>
       <input className={input} name="email" autoComplete="email" aria-label="Email" type="email" placeholder="Email" disabled={submitting} required />
       <input className={input} name="phone" autoComplete="tel" aria-label="Phone number" type="tel" placeholder="Phone Number" disabled={submitting} required />
-      <input className={input} name="address" autoComplete="street-address" aria-label="Address" placeholder="Address" disabled={submitting} />
       <textarea className={`${input} resize-none`} name="message" aria-label="Message" rows={5} placeholder="Message" disabled={submitting} />
       <button
         type="submit"
@@ -30,7 +30,14 @@ export function ContactForm() {
         {submitting ? "Sending…" : sent ? "Thank you!" : "Submit"}
       </button>
       {error && <p role="alert" className="text-sm font-medium text-red-200">{error}</p>}
-      {sent && <p role="status" className="text-sm font-medium text-white">Thank you! Your enquiry has been sent. We&rsquo;ll be in touch.</p>}
+      {sent && (
+        <p role="status" className="text-sm font-medium text-white">
+          Thank you! Your enquiry has been sent. We&rsquo;ll be in touch. Need it sooner? Call{" "}
+          <a href={`tel:${PHONE_TEL}`} className="font-bold underline underline-offset-2">
+            {PHONE_DISPLAY}
+          </a>
+        </p>
+      )}
     </form>
   );
 }

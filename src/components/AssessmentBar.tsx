@@ -2,6 +2,7 @@
 
 import { PhoneIcon, MailIcon } from "./icons";
 import { useEnquiryForm } from "@/lib/useEnquiryForm";
+import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/site";
 
 function UserIcon() {
   return (
@@ -81,7 +82,14 @@ export function AssessmentBar({
             {submitting ? "Sending…" : sent ? "Thanks!" : "Submit"}
           </button>
           {error && <p role="alert" className="text-sm font-medium text-white md:col-span-5">{error}</p>}
-          {sent && <p role="status" className="text-sm font-medium text-white md:col-span-5">Thanks! Your enquiry has been sent. We&rsquo;ll be in touch.</p>}
+          {sent && (
+            <p role="status" className="text-sm font-medium text-white md:col-span-5">
+              Thanks! Your enquiry has been sent. We&rsquo;ll be in touch. Need it sooner? Call{" "}
+              <a href={`tel:${PHONE_TEL}`} className="font-bold underline underline-offset-2">
+                {PHONE_DISPLAY}
+              </a>
+            </p>
+          )}
         </form>
       </div>
     </div>

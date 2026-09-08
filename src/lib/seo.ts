@@ -33,7 +33,7 @@ export const SEO_PAGES = {
   contact: {
     path: "/contact",
     title: "Contact Kingpin Engineering | Wingfield Workshop & Quotes",
-    description: `Call ${PHONE_DISPLAY} or request a fabrication quote. Find Kingpin Engineering at 440 Hanson Rd, Wingfield, with workshop hours and emergency callout details.`,
+    description: `Call ${PHONE_DISPLAY} or request a fabrication quote. Find Kingpin Engineering at 338-440 Hanson Rd, Wingfield, with workshop hours and emergency callout details.`,
     label: "Contact us",
     type: "ContactPage",
   },

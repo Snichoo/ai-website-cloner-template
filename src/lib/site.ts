@@ -10,7 +10,7 @@ export const PHONE_TEL = "0870813155";
 export const EMAIL = "contact@kingpinengineering.com.au";
 
 export const POSTAL_ADDRESS = {
-  streetAddress: "440 Hanson Rd",
+  streetAddress: "338-440 Hanson Rd",
   addressLocality: "Wingfield",
   addressRegion: "SA",
   postalCode: "5013",
@@ -19,7 +19,7 @@ export const POSTAL_ADDRESS = {
 
 export const ADDRESS = `${POSTAL_ADDRESS.streetAddress}, ${POSTAL_ADDRESS.addressLocality} ${POSTAL_ADDRESS.addressRegion} ${POSTAL_ADDRESS.postalCode}`;
 /** Google Maps query for the workshop itself. */
-export const ADDRESS_QUERY = "440+Hanson+Rd+Wingfield+SA+5013";
+export const ADDRESS_QUERY = "338-440+Hanson+Rd+Wingfield+SA+5013";
 export const MAP_LINK = `https://www.google.com/maps?q=${ADDRESS_QUERY}`;
 
 export const OPENING_HOURS = [
