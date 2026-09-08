@@ -60,12 +60,12 @@ export const SUBURBS: readonly Suburb[] = [
     postcode: "5013",
     region: "Adelaide's inner north-west industrial belt",
     distance: "Our front gate - we're on Hanson Rd",
-    mapQuery: "438-440+Hanson+Rd+Wingfield+SA+5013",
+    mapQuery: "440+Hanson+Rd+Wingfield+SA+5013",
     mapZoom: 14,
     metaTitle:
       "Engineering & Fabrication Wingfield SA | Kingpin Engineering",
     metaDescription:
-      "Kingpin Engineering's workshop is at 438-440 Hanson Rd, Wingfield. Concrete agitator drums, skip bins, CNC plasma cutting and heavy repairs, right on your doorstep.",
+      "Kingpin Engineering's workshop is at 440 Hanson Rd, Wingfield. Concrete agitator drums, skip bins, CNC plasma cutting and heavy repairs, right on your doorstep.",
     heroKicker: "Based in Wingfield SA 5013",
     heroTitle: [
       "Wingfield's Own OEM Concrete Mixer",
@@ -86,7 +86,7 @@ export const SUBURBS: readonly Suburb[] = [
       ],
       facts: [
         { label: "Postcode", value: "SA 5013" },
-        { label: "Our address", value: "438-440 Hanson Rd" },
+        { label: "Our address", value: "440 Hanson Rd" },
         { label: "Drop-ins", value: "Welcome during workshop hours" },
         { label: "Assessment", value: "Same-day on most walk-ins" },
       ],
@@ -114,7 +114,7 @@ export const SUBURBS: readonly Suburb[] = [
     faqs: [
       {
         q: "Where exactly is your Wingfield workshop?",
-        a: "438-440 Hanson Rd, Wingfield SA 5013. Plenty of hardstand for trucks and trailers, and you can drive a loaded rigid straight in. Come between 8am and 5pm on a weekday or 8am to 12:30pm Saturday.",
+        a: "440 Hanson Rd, Wingfield SA 5013. Plenty of hardstand for trucks and trailers, and you can drive a loaded rigid straight in. Come between 8am and 5pm on a weekday or 8am to 12:30pm Saturday.",
       },
       {
         q: "Can I bring a bin or a drum in without booking?",
