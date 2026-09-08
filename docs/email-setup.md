@@ -1,67 +1,65 @@
 # Email setup (Resend)
 
 The enquiry form posts to `src/app/api/booking/route.ts`, which sends through
-[Resend](https://resend.com). Enquiries arrive from the site's own domain with
-`Reply-To` set to the customer, so replying goes straight back to them.
+[Resend](https://resend.com). Enquiries carry `Reply-To` set to the customer,
+so replying goes straight back to them.
 
 ## Current configuration
 
 | Item | Value |
 | --- | --- |
-| Resend account | Beacon X Digital |
-| Domain | `kingpinengineering.com.au` (id `8154e1fa-bc0f-4c5c-bfa8-eea82592d5be`, region `us-east-1`) |
-| API key | `kingpin-engineering-website` - sending only, scoped to this domain |
-| From | `Kingpin Engineering Website <contact@kingpinengineering.com.au>` |
+| Resend account | Kingpin Engineering's own (owner `contact@kingpinengineering.com.au`) |
+| API key | Sending-only |
+| From | `Kingpin Engineering Website <onboarding@resend.dev>` |
 | To | `contact@kingpinengineering.com.au` |
 
+Resend's shared test sender normally refuses to deliver anywhere except the
+account owner's address. That is exactly the destination here, so delivery
+works today without a verified domain.
+
 Environment variables live in `.env.local` for local dev (see `.env.example`)
-and must be set again in the hosting platform for production.
+and are set on the Vercel project for production. Changing them there needs a
+redeploy to take effect.
 
-## DNS records
+## Remaining step: send from the real address
 
-Add these at the DNS host for `kingpinengineering.com.au` (nameservers are
-`ns1/ns2/ns3.partnerconsole.net`). Sending stays broken until they resolve.
+Mail currently leaves as `onboarding@resend.dev`, which is functional but reads
+poorly in an inbox. To send as `contact@kingpinengineering.com.au`:
 
-| Type | Name | Value | Priority |
-| --- | --- | --- | --- |
-| TXT | `resend._domainkey` | `p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC1jLL3iFuRQBGIvBy905W4IEFbkvXgfWvr1TQgzvShd5+eLvIhmETHVFCNXQqndw3CeGK4fOGa4BJnyl7soit88Dbkey/WYxgQJ5ex1kFIjBIYDRYwhBAsyhJavi1W7CTY3//5OPqrkaktZp4pMHQoAQ1JFEZgE/lxoyUQeb5cZwIDAQAB` | - |
-| MX | `send` | `feedback-smtp.us-east-1.amazonses.com` | 10 |
-| TXT | `send` | `v=spf1 include:amazonses.com ~all` | - |
+1. In the Resend dashboard for this account, add the domain
+   `kingpinengineering.com.au`. It will issue its own DKIM record.
+2. Add that record at the DNS host (nameservers are TPP Wholesale's
+   "The Console", `ns1/ns2/ns3.partnerconsole.net`), along with the `send`
+   subdomain MX and TXT records Resend lists.
+3. Once the dashboard shows verified, set `RESEND_FROM_EMAIL` to
+   `Kingpin Engineering Website <contact@kingpinengineering.com.au>` in
+   `.env.local` and on Vercel, then redeploy.
 
-If the DNS panel wants fully qualified names, use
-`resend._domainkey.kingpinengineering.com.au` and
-`send.kingpinengineering.com.au`.
+None of this touches the Google Workspace MX record on the root domain, so
+inbound mail is unaffected.
 
-None of this touches the existing Google Workspace MX record on the root
-domain, so inbound mail is unaffected.
+## Leftovers worth cleaning up
 
-Optional hardening, unrelated to Resend: the root domain has no SPF or DMARC
-record even though Workspace sends from it. Worth adding
-`v=spf1 include:_spf.google.com include:amazonses.com ~all` at the root and a
-`_dmarc` policy.
+The domain was first added to the Beacon X Digital Resend account, and that
+attempt left a DKIM record in DNS:
 
-## Verify and test
+- `resend._domainkey` TXT, value starting `p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC1jLL3`
 
-```bash
-# Check DNS has propagated
-nslookup -type=TXT resend._domainkey.kingpinengineering.com.au 8.8.8.8
+It is inert now and will be superseded by the record the new account issues.
+The `send` MX and TXT records already in DNS stay valid for whichever account
+verifies the domain.
 
-# Ask Resend to verify (needs a full-access account key, not the sending key)
-curl -X POST "https://api.resend.com/domains/8154e1fa-bc0f-4c5c-bfa8-eea82592d5be/verify" \
-  -H "Authorization: Bearer $RESEND_ACCOUNT_KEY"
+Also note the root domain gained an SPF record during setup,
+`v=spf1 include:_spf.google.com ~all`, which the Google Workspace mail was
+missing entirely before. Worth keeping.
 
-# Status
-curl "https://api.resend.com/domains/8154e1fa-bc0f-4c5c-bfa8-eea82592d5be" \
-  -H "Authorization: Bearer $RESEND_ACCOUNT_KEY"
-```
-
-Once status is `verified`, run `npm run dev` and submit the contact form, or
-send a one-off:
+## Testing
 
 ```bash
-curl -X POST "https://api.resend.com/emails" \
-  -H "Authorization: Bearer $RESEND_API_KEY" -H "Content-Type: application/json" \
-  -d '{"from":"Kingpin Engineering Website <contact@kingpinengineering.com.au>","to":"contact@kingpinengineering.com.au","subject":"Test","text":"Test"}'
+# Real submission through the live form
+curl -X POST "https://www.kingpinengineering.com.au/api/booking" \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Test","phone":"0870813155","email":"you@example.com","message":"Test"}'
 ```
 
 `npm run test:enquiry-api` exercises the route with a mocked provider and never
